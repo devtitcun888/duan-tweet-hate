@@ -1,0 +1,534 @@
+{
+  "hate_train_rows": 31962,
+  "hate_label_0": 29720,
+  "hate_label_1": 2242,
+  "hate_positive_pct": 7.01,
+  "imbalance_ratio": 13.26,
+  "hate_exact_duplicates": 2435,
+  "hate_clean_duplicates": 3630,
+  "assigned_twitter_rows_raw": 162980,
+  "assigned_twitter_null_rows": 11,
+  "assigned_twitter_valid_rows": 162969,
+  "assigned_twitter_sentiment_counts": {
+    "-1": 35509,
+    "0": 55211,
+    "1": 72249
+  },
+  "assigned_reddit_rows_raw": 37249,
+  "assigned_reddit_null_rows": 100,
+  "length_stats": [
+    {
+      "dataset": "hate_train",
+      "group": "Label 0 (Normal)",
+      "metric": "n_chars",
+      "mean": 84.14,
+      "median": 88.0,
+      "std": 29.6,
+      "p95": 131.0,
+      "min": 10,
+      "max": 273
+    },
+    {
+      "dataset": "hate_train",
+      "group": "Label 0 (Normal)",
+      "metric": "n_words",
+      "mean": 13.09,
+      "median": 13.0,
+      "std": 5.51,
+      "p95": 23.0,
+      "min": 3,
+      "max": 34
+    },
+    {
+      "dataset": "hate_train",
+      "group": "Label 1 (Racist/Sexist)",
+      "metric": "n_chars",
+      "mean": 90.14,
+      "median": 96.0,
+      "std": 27.44,
+      "p95": 127.0,
+      "min": 12,
+      "max": 151
+    },
+    {
+      "dataset": "hate_train",
+      "group": "Label 1 (Racist/Sexist)",
+      "metric": "n_words",
+      "mean": 14.05,
+      "median": 14.0,
+      "std": 4.95,
+      "p95": 22.0,
+      "min": 3,
+      "max": 30
+    }
+  ],
+  "surface_tests": [
+    {
+      "feature": "has_mention",
+      "description": "% có @user",
+      "label_0_mean": 33.56,
+      "label_1_mean": 51.43,
+      "test_type": "Chi-square",
+      "statistic": 292.6072,
+      "p_value": 1.3443e-65,
+      "significant_005": true
+    },
+    {
+      "feature": "has_hashtag",
+      "description": "% có #hashtag",
+      "label_0_mean": 73.42,
+      "label_1_mean": 72.93,
+      "test_type": "Chi-square",
+      "statistic": 0.2378,
+      "p_value": 0.6258,
+      "significant_005": false
+    },
+    {
+      "feature": "has_exclaim",
+      "description": "% có dấu '!'",
+      "label_0_mean": 25.49,
+      "label_1_mean": 15.21,
+      "test_type": "Chi-square",
+      "statistic": 117.781,
+      "p_value": 1.9363e-27,
+      "significant_005": true
+    },
+    {
+      "feature": "has_question",
+      "description": "% có dấu '?'",
+      "label_0_mean": 5.91,
+      "label_1_mean": 12.53,
+      "test_type": "Chi-square",
+      "statistic": 152.2338,
+      "p_value": 5.6327e-35,
+      "significant_005": true
+    },
+    {
+      "feature": "has_emoji",
+      "description": "% có Emoji",
+      "label_0_mean": 0.76,
+      "label_1_mean": 0.49,
+      "test_type": "Chi-square",
+      "statistic": 1.7514,
+      "p_value": 0.18571,
+      "significant_005": false
+    },
+    {
+      "feature": "has_url",
+      "description": "% có URL",
+      "label_0_mean": 0.02,
+      "label_1_mean": 0.0,
+      "test_type": "Chi-square",
+      "statistic": 0.0,
+      "p_value": 1.0,
+      "significant_005": false
+    },
+    {
+      "feature": "n_chars",
+      "description": "Số ký tự (n_chars)",
+      "label_0_mean": 84.1401,
+      "label_1_mean": 90.1383,
+      "test_type": "Mann-Whitney U",
+      "statistic": 28949936.5,
+      "p_value": 3.5917e-25,
+      "significant_005": true
+    },
+    {
+      "feature": "n_words",
+      "description": "Số từ (n_words)",
+      "label_0_mean": 13.0913,
+      "label_1_mean": 14.0531,
+      "test_type": "Mann-Whitney U",
+      "statistic": 29440422.5,
+      "p_value": 3.1743e-20,
+      "significant_005": true
+    },
+    {
+      "feature": "caps_ratio",
+      "description": "Tỉ lệ chữ HOA (caps_ratio)",
+      "label_0_mean": 0.0003,
+      "label_1_mean": 0.0002,
+      "test_type": "Mann-Whitney U",
+      "statistic": 33368074.5,
+      "p_value": 0.43993,
+      "significant_005": false
+    },
+    {
+      "feature": "n_hashtags",
+      "description": "Số hashtag / tweet",
+      "label_0_mean": 2.4058,
+      "label_1_mean": 2.1387,
+      "test_type": "Mann-Whitney U",
+      "statistic": 34116420.5,
+      "p_value": 0.053294,
+      "significant_005": false
+    },
+    {
+      "feature": "n_mentions",
+      "description": "Số @mention / tweet",
+      "label_0_mean": 0.5285,
+      "label_1_mean": 0.831,
+      "test_type": "Mann-Whitney U",
+      "statistic": 27191791.0,
+      "p_value": 1.1146e-66,
+      "significant_005": true
+    }
+  ],
+  "top_unigrams_label_1_masked": [
+    [
+      "you",
+      464
+    ],
+    [
+      "trump",
+      217
+    ],
+    [
+      "white",
+      156
+    ],
+    [
+      "not",
+      152
+    ],
+    [
+      "libtard",
+      149
+    ],
+    [
+      "black",
+      149
+    ],
+    [
+      "like",
+      141
+    ],
+    [
+      "we",
+      119
+    ],
+    [
+      "woman",
+      116
+    ],
+    [
+      "racist",
+      113
+    ],
+    [
+      "say",
+      97
+    ],
+    [
+      "politics",
+      97
+    ],
+    [
+      "people",
+      95
+    ],
+    [
+      "liberal",
+      92
+    ],
+    [
+      "allahsoil",
+      92
+    ]
+  ],
+  "top_bigrams_label_1_masked": [
+    [
+      "libtard libtard",
+      72
+    ],
+    [
+      "libtard sjw",
+      72
+    ],
+    [
+      "liberal politics",
+      72
+    ],
+    [
+      "might libtard",
+      72
+    ],
+    [
+      "sjw liberal",
+      72
+    ],
+    [
+      "you might",
+      72
+    ],
+    [
+      "listen retweet",
+      51
+    ],
+    [
+      "feel like",
+      51
+    ],
+    [
+      "you listen",
+      49
+    ],
+    [
+      "like stomp",
+      46
+    ],
+    [
+      "stomp you",
+      46
+    ],
+    [
+      "black feel",
+      32
+    ],
+    [
+      "tampa miami",
+      32
+    ],
+    [
+      "retweet tampa",
+      32
+    ],
+    [
+      "vandalise calgary",
+      26
+    ]
+  ],
+  "top_hashtags_label_1_masked": [
+    [
+      "trump",
+      133
+    ],
+    [
+      "politics",
+      94
+    ],
+    [
+      "allahsoil",
+      92
+    ],
+    [
+      "libtard",
+      76
+    ],
+    [
+      "liberal",
+      75
+    ],
+    [
+      "sjw",
+      74
+    ],
+    [
+      "retweet",
+      57
+    ],
+    [
+      "black",
+      44
+    ],
+    [
+      "miamiâ",
+      38
+    ],
+    [
+      "hate",
+      32
+    ],
+    [
+      "tampa",
+      32
+    ],
+    [
+      "blm",
+      28
+    ],
+    [
+      "hispanic",
+      28
+    ],
+    [
+      "brexit",
+      27
+    ],
+    [
+      "bigot",
+      27
+    ]
+  ],
+  "top_discriminative_log_odds_masked": [
+    {
+      "token_masked": "allahsoil",
+      "count_label_1": 92,
+      "count_label_0": 0,
+      "log_odds_ratio": 7.1254,
+      "chi2_score": 1219.55,
+      "chi2_pvalue": 3.43324235573149e-267
+    },
+    {
+      "token_masked": "sjw",
+      "count_label_1": 74,
+      "count_label_0": 0,
+      "log_odds_ratio": 6.9103,
+      "chi2_score": 980.95,
+      "chi2_pvalue": 2.4891372327492087e-215
+    },
+    {
+      "token_masked": "libtard",
+      "count_label_1": 149,
+      "count_label_0": 3,
+      "log_odds_ratio": 6.2172,
+      "chi2_score": 1930.29,
+      "chi2_pvalue": 0.0
+    },
+    {
+      "token_masked": "paladino",
+      "count_label_1": 27,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.925,
+      "chi2_score": 357.91,
+      "chi2_pvalue": 8.018953702154679e-80
+    },
+    {
+      "token_masked": "sikh",
+      "count_label_1": 27,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.925,
+      "chi2_score": 357.91,
+      "chi2_pvalue": 8.018953702154679e-80
+    },
+    {
+      "token_masked": "vandalise",
+      "count_label_1": 26,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.8887,
+      "chi2_score": 344.66,
+      "chi2_pvalue": 6.176968270635076e-77
+    },
+    {
+      "token_masked": "teambts",
+      "count_label_1": 26,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.8887,
+      "chi2_score": 344.66,
+      "chi2_pvalue": 6.176968270635076e-77
+    },
+    {
+      "token_masked": "wso",
+      "count_label_1": 26,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.8887,
+      "chi2_score": 344.66,
+      "chi2_pvalue": 6.176968270635076e-77
+    },
+    {
+      "token_masked": "malevote",
+      "count_label_1": 24,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.8117,
+      "chi2_score": 318.14,
+      "chi2_pvalue": 3.673414360628792e-71
+    },
+    {
+      "token_masked": "emiratis",
+      "count_label_1": 22,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.7283,
+      "chi2_score": 291.63,
+      "chi2_pvalue": 2.192093338152342e-65
+    },
+    {
+      "token_masked": "seashepherd",
+      "count_label_1": 22,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.7283,
+      "chi2_score": 291.63,
+      "chi2_pvalue": 2.192093338152342e-65
+    },
+    {
+      "token_masked": "feminismiscancer",
+      "count_label_1": 20,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.6374,
+      "chi2_score": 265.12,
+      "chi2_pvalue": 1.3134877544046172e-59
+    },
+    {
+      "token_masked": "antiracism",
+      "count_label_1": 20,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.6374,
+      "chi2_score": 265.12,
+      "chi2_pvalue": 1.3134877544046172e-59
+    },
+    {
+      "token_masked": "feminismmuktbharat",
+      "count_label_1": 20,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.6374,
+      "chi2_score": 265.12,
+      "chi2_pvalue": 1.3134877544046172e-59
+    },
+    {
+      "token_masked": "feminismisterrorism",
+      "count_label_1": 20,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.6374,
+      "chi2_score": 265.12,
+      "chi2_pvalue": 1.3134877544046172e-59
+    },
+    {
+      "token_masked": "notmypresident",
+      "count_label_1": 17,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.4832,
+      "chi2_score": 225.35,
+      "chi2_pvalue": 6.151183353998419e-51
+    },
+    {
+      "token_masked": "carlpaladino",
+      "count_label_1": 15,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.3654,
+      "chi2_score": 198.84,
+      "chi2_pvalue": 3.740273616644461e-45
+    },
+    {
+      "token_masked": "hispanic",
+      "count_label_1": 29,
+      "count_label_0": 1,
+      "log_odds_ratio": 5.3009,
+      "chi2_score": 369.68,
+      "chi2_pvalue": 2.1975801612490338e-82
+    },
+    {
+      "token_masked": "putinschoice",
+      "count_label_1": 13,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.2319,
+      "chi2_score": 172.33,
+      "chi2_pvalue": 2.294388769640356e-39
+    },
+    {
+      "token_masked": "teamsuperjunior",
+      "count_label_1": 12,
+      "count_label_0": 0,
+      "log_odds_ratio": 5.1578,
+      "chi2_score": 159.07,
+      "chi2_pvalue": 1.8044821976908004e-36
+    }
+  ],
+  "domain_jaccard_top5000": 0.3196,
+  "domain_shared_words_top5000": 2422,
+  "domain_jaccards_by_k": {
+    "500": 0.2903,
+    "1000": 0.3184,
+    "2000": 0.3391,
+    "3000": 0.3384,
+    "5000": 0.3198
+  }
+}

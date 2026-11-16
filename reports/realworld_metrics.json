@@ -1,0 +1,344 @@
+{
+  "n_total": 300,
+  "n_pos": 74,
+  "n_neg": 226,
+  "cohen_kappa": 0.9204,
+  "annotator_agreement_pct": 97.0,
+  "n_disagreements": 9,
+  "threshold_used": 0.315,
+  "overall_metrics": {
+    "precision_pos": 0.4221,
+    "recall_pos": 0.8784,
+    "f1_pos": 0.5702,
+    "f1_macro": 0.6534,
+    "accuracy": 0.6733,
+    "balanced_acc": 0.7423,
+    "roc_auc": 0.8219,
+    "pr_auc": 0.5742,
+    "mcc": 0.4179,
+    "tn": 137,
+    "fp": 89,
+    "fn": 9,
+    "tp": 65
+  },
+  "metrics_by_source": [
+    {
+      "source": "A_hate_unlabeled_test",
+      "n_samples": 100,
+      "n_pos": 37,
+      "n_neg": 63,
+      "precision_pos": 0.7255,
+      "recall_pos": 1.0,
+      "f1_pos": 0.8409,
+      "f1_macro": 0.858,
+      "accuracy": 0.86,
+      "balanced_acc": 0.8889,
+      "roc_auc": 0.9088,
+      "pr_auc": 0.7687,
+      "mcc": 0.7512,
+      "tn": 49,
+      "fp": 14,
+      "fn": 0,
+      "tp": 37
+    },
+    {
+      "source": "B_Twitter_Data",
+      "n_samples": 100,
+      "n_pos": 7,
+      "n_neg": 93,
+      "precision_pos": 0.1373,
+      "recall_pos": 1.0,
+      "f1_pos": 0.2414,
+      "f1_macro": 0.4658,
+      "accuracy": 0.56,
+      "balanced_acc": 0.7634,
+      "roc_auc": 0.7803,
+      "pr_auc": 0.1552,
+      "mcc": 0.2689,
+      "tn": 49,
+      "fp": 44,
+      "fn": 0,
+      "tp": 7
+    },
+    {
+      "source": "C_Reddit_Data",
+      "n_samples": 50,
+      "n_pos": 10,
+      "n_neg": 40,
+      "precision_pos": 0.3448,
+      "recall_pos": 1.0,
+      "f1_pos": 0.5128,
+      "f1_macro": 0.6007,
+      "accuracy": 0.62,
+      "balanced_acc": 0.7625,
+      "roc_auc": 0.7625,
+      "pr_auc": 0.3519,
+      "mcc": 0.4255,
+      "tn": 21,
+      "fp": 19,
+      "fn": 0,
+      "tp": 10
+    },
+    {
+      "source": "D_adversarial_curated",
+      "n_samples": 50,
+      "n_pos": 20,
+      "n_neg": 30,
+      "precision_pos": 0.4783,
+      "recall_pos": 0.55,
+      "f1_pos": 0.5116,
+      "f1_macro": 0.5716,
+      "accuracy": 0.58,
+      "balanced_acc": 0.575,
+      "roc_auc": 0.6067,
+      "pr_auc": 0.4417,
+      "mcc": 0.1474,
+      "tn": 18,
+      "fp": 12,
+      "fn": 9,
+      "tp": 11
+    }
+  ],
+  "davidson_cross_domain_metrics": {
+    "precision_pos": 0.5876,
+    "recall_pos": 0.265,
+    "f1_pos": 0.3653,
+    "f1_macro": 0.6104,
+    "accuracy": 0.7645,
+    "balanced_acc": 0.6006,
+    "roc_auc": 0.6713,
+    "pr_auc": 0.4662,
+    "mcc": 0.2747,
+    "tn": 3897,
+    "fp": 266,
+    "fn": 1051,
+    "tp": 379,
+    "n_rows": 5593,
+    "n_pos": 1430
+  },
+  "assigned_twitter_by_sentiment": [
+    {
+      "sentiment": -1,
+      "sentiment_name": "-1 (Tiêu cực)",
+      "n_tweets": 35509,
+      "n_predicted_hate": 3700,
+      "pct_predicted_hate": 10.42,
+      "mean_hate_score": 0.1258
+    },
+    {
+      "sentiment": 0,
+      "sentiment_name": "0 (Trung tính)",
+      "n_tweets": 55211,
+      "n_predicted_hate": 3434,
+      "pct_predicted_hate": 6.22,
+      "mean_hate_score": 0.095
+    },
+    {
+      "sentiment": 1,
+      "sentiment_name": "+1 (Tích cực)",
+      "n_tweets": 72249,
+      "n_predicted_hate": 4217,
+      "pct_predicted_hate": 5.84,
+      "mean_hate_score": 0.0898
+    }
+  ],
+  "sample_errors_masked": [
+    {
+      "id": 10,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9998,
+      "text_masked": "@user #antifeminism #feminism @user #women  #womenagainstfeminism #misogyny #patriarchy #equality â¦ ",
+      "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+    },
+    {
+      "id": 12,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9526,
+      "text_masked": "@user #allahsoil the two most common traits shared by people are language and religion.  â¦â¦ ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 14,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9496,
+      "text_masked": "the latest the blicqerâ¢ daily!  thanks to @user @user @user  #america",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 26,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9831,
+      "text_masked": "@user #allahsoil reckless subprime lending was rewarded and largely concealed  â¦ â¦ #2016in4wordsâ¦ ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 36,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.996,
+      "text_masked": "@user @user #trump celebrating,#woman of #america, a #misogynistic,#abusing, ,#fantasyland of #equality",
+      "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+    },
+    {
+      "id": 39,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9488,
+      "text_masked": "be careful in criticizing #obama for his decision on #israel &amp; sanctions against #russiahacking , as #liberals will consider this ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 40,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9825,
+      "text_masked": "@user #trumpsamerica will suck bigly ny gov. cuomo condemns carl paladino for â, uglyâ remarks abt obamas ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 42,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9496,
+      "text_masked": "@user = #paidtrumpette your comments are reflections of ignorance and ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 51,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9699,
+      "text_masked": "@user remember when arabs were called racists &amp; terrorists?  #equality ",
+      "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+    },
+    {
+      "id": 54,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9455,
+      "text_masked": "@user nope not factual. your comments are reflections of ignorance and  @user",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 74,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9292,
+      "text_masked": "@user you are a complete jerk. your comments are reflections of ignorance and  .",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 75,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.5563,
+      "text_masked": "over here obama and his gaggle of left wingnuts want to disarm us law abiding americans. prayers to cox family.   ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 78,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9508,
+      "text_masked": "@user #allahsoil humans have a tendency to separate the world into good and evil .  â¦   #emiratis #2â¦",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 83,
+      "source": "A_hate_unlabeled_test",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.9455,
+      "text_masked": "tyler perry claims 'reverse racism' by critics of his tlc series - thewrap   ",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    },
+    {
+      "id": 104,
+      "source": "B_Twitter_Data",
+      "error_type": "FP (Báo động giả)",
+      "label_final": 0,
+      "y_pred": 1,
+      "score": 0.6387,
+      "text_masked": "she contesting against modi why dont you convince her contest against modi you are confident",
+      "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+    }
+  ],
+  "sample_correct_masked": [
+    {
+      "id": 251,
+      "source": "D_adversarial_curated",
+      "label_final": 1,
+      "y_pred": 1,
+      "score": 0.3207,
+      "text_masked": "Women do not belong in engineering or leadership roles because they are too emotional to think logically.",
+      "note": "Định kiến hạ thấp phụ nữ trong công việc"
+    },
+    {
+      "id": 253,
+      "source": "D_adversarial_curated",
+      "label_final": 1,
+      "y_pred": 1,
+      "score": 0.698,
+      "text_masked": "Stop letting these stupid b*****s ruin men's sports and politics, they have zero brains.",
+      "note": "Từ miệt thị giới tính + hạ thấp phụ nữ"
+    },
+    {
+      "id": 254,
+      "source": "D_adversarial_curated",
+      "label_final": 1,
+      "y_pred": 1,
+      "score": 0.7217,
+      "text_masked": "A woman's only real value is cooking, cleaning and obeying her husband without complaining.",
+      "note": "Áp đặt vai trò giới cực đoan"
+    },
+    {
+      "id": 280,
+      "source": "D_adversarial_curated",
+      "label_final": 0,
+      "y_pred": 0,
+      "score": 0.284,
+      "text_masked": "Muslim, Christian, and Jewish families gathered at the community center to share dinner.",
+      "note": "Hoạt động cộng đồng đa tôn giáo"
+    },
+    {
+      "id": 281,
+      "source": "D_adversarial_curated",
+      "label_final": 0,
+      "y_pred": 0,
+      "score": 0.0383,
+      "text_masked": "The women's national soccer team won the championship after a thrilling penalty shootout.",
+      "note": "Tin thể thao về đội tuyển nữ"
+    }
+  ]
+}

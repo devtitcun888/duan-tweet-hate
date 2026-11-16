@@ -1,0 +1,4 @@
+dataset,n_rows,n_cols,n_null_rows,n_exact_duplicates,n_clean_duplicates,label_col
+Hate Speech Train (hate_train.csv),31962,14,0,2435,3630,"label (0=Normal, 1=Racist/Sexist)"
+Assigned Twitter (Twitter_Data.csv),162980,2,11,0,0,"category (-1=Neg, 0=Neu, 1=Pos)"
+Assigned Reddit (Reddit_Data.csv),37249,2,100,350,350,"category (-1=Neg, 0=Neu, 1=Pos)"

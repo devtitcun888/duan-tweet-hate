@@ -1,0 +1,385 @@
+{
+  "final_test": {
+    "evaluated_once_at": "2026-11-16T10:26:46Z",
+    "test_file": "data/splits/test.csv",
+    "test_file_sha256": "0472faf53639bb6c31ba8fcb33c6153ac4cefe1c4f9cee77c53a332dbc0e41f2",
+    "n_test_rows": 4250,
+    "n_test_pos": 277,
+    "n_test_neg": 3973,
+    "threshold_used": 0.315,
+    "metrics_at_tuned_threshold": {
+      "precision_pos": 0.6324,
+      "recall_pos": 0.6209,
+      "f1_pos": 0.6266,
+      "f1_macro": 0.8004,
+      "accuracy": 0.9518,
+      "balanced_acc": 0.7979,
+      "roc_auc": 0.9345,
+      "pr_auc": 0.6651,
+      "mcc": 0.6008,
+      "tn": 3873,
+      "fp": 100,
+      "fn": 105,
+      "tp": 172
+    },
+    "metrics_at_default_05": {
+      "precision_pos": 0.7755,
+      "recall_pos": 0.5487,
+      "f1_pos": 0.6427,
+      "f1_macro": 0.8108,
+      "accuracy": 0.9602,
+      "balanced_acc": 0.7688,
+      "roc_auc": 0.9345,
+      "pr_auc": 0.6651,
+      "mcc": 0.6328,
+      "tn": 3929,
+      "fp": 44,
+      "fn": 125,
+      "tp": 152
+    }
+  },
+  "ci95": {
+    "n_bootstrap": 1000,
+    "seed": 42,
+    "threshold": 0.315,
+    "f1_pos": {
+      "mean": 0.6249,
+      "std": 0.0246,
+      "ci95_low": 0.5764,
+      "ci95_high": 0.6716
+    },
+    "precision_pos": {
+      "mean": 0.6307,
+      "std": 0.0296,
+      "ci95_low": 0.573,
+      "ci95_high": 0.688
+    },
+    "recall_pos": {
+      "mean": 0.6201,
+      "std": 0.0294,
+      "ci95_low": 0.5631,
+      "ci95_high": 0.6773
+    },
+    "pr_auc": {
+      "mean": 0.6642,
+      "std": 0.0286,
+      "ci95_low": 0.6072,
+      "ci95_high": 0.7195
+    },
+    "roc_auc": {
+      "mean": 0.9341,
+      "std": 0.0086,
+      "ci95_low": 0.9167,
+      "ci95_high": 0.9506
+    }
+  },
+  "n_total_errors": 205,
+  "error_causes": [
+    {
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "FN (Bỏ sót)": 65,
+      "FP (Báo động giả)": 0,
+      "total": 65,
+      "pct": 31.71
+    },
+    {
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "FN (Bỏ sót)": 0,
+      "FP (Báo động giả)": 47,
+      "total": 47,
+      "pct": 22.93
+    },
+    {
+      "cause": "Nhãn gốc nhiễu hoặc ranh giới ngữ nghĩa mờ (Noisy / Borderline Ground-Truth Label)",
+      "FN (Bỏ sót)": 3,
+      "FP (Báo động giả)": 29,
+      "total": 32,
+      "pct": 15.61
+    },
+    {
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "FN (Bỏ sót)": 18,
+      "FP (Báo động giả)": 10,
+      "total": 28,
+      "pct": 13.66
+    },
+    {
+      "cause": "Câu quá ngắn / Từ lóng / Viết tắt thiếu thông tin (Short / Slang / OOV)",
+      "FN (Bỏ sót)": 13,
+      "FP (Báo động giả)": 8,
+      "total": 21,
+      "pct": 10.24
+    },
+    {
+      "cause": "Chuỗi nhiều Hashtag / Khẩu hiệu đa chủ đề (Hashtag-Heavy / Multi-Topic)",
+      "FN (Bỏ sót)": 6,
+      "FP (Báo động giả)": 6,
+      "total": 12,
+      "pct": 5.85
+    }
+  ],
+  "representative_errors_masked": [
+    {
+      "id": 1831,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9831,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "@user is the prosecutor considering criminal charges against graves family as they did the greggs? #harambe &gt;black life white liâ¦"
+    },
+    {
+      "id": 8500,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.968,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "#obama #attacks #trump on #islamâ¦ #trump #dismantles him with one # ... -  "
+    },
+    {
+      "id": 21696,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9611,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "@user trump is a liberal elite. textbook definition of a crony capitalist. trump only cares for trump.   "
+    },
+    {
+      "id": 2237,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0018,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "travelled for #canucks game sad and disappointed of #oiler fans the  sad i can't cheer for my own team . @user @user"
+    },
+    {
+      "id": 3468,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.004,
+      "cause": "Chuỗi nhiều Hashtag / Khẩu hiệu đa chủ đề (Hashtag-Heavy / Multi-Topic)",
+      "text_masked": "episode 6 of the guns for everyone #podcast is up.  #guns #igmilitia  #pewpewlifeâ¦ "
+    },
+    {
+      "id": 12337,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0043,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "@user care about #cjreform? follow me: i cover #deathpenalty, #juvenilejustice, #bailreform, #prosecutorialmisconduct, â¦"
+    }
+  ],
+  "top_positive_coefficients_masked": [
+    {
+      "term_masked": "allahsoil",
+      "weight": 3.7374
+    },
+    {
+      "term_masked": "white",
+      "weight": 3.1309
+    },
+    {
+      "term_masked": "racism",
+      "weight": 2.8928
+    },
+    {
+      "term_masked": "racist",
+      "weight": 2.6715
+    },
+    {
+      "term_masked": "trump",
+      "weight": 2.3914
+    },
+    {
+      "term_masked": "bigot",
+      "weight": 2.3181
+    },
+    {
+      "term_masked": "woman",
+      "weight": 2.2107
+    },
+    {
+      "term_masked": "black",
+      "weight": 2.0631
+    },
+    {
+      "term_masked": "against",
+      "weight": 2.0425
+    },
+    {
+      "term_masked": "blacklivesmatter",
+      "weight": 1.9595
+    },
+    {
+      "term_masked": "obama",
+      "weight": 1.9359
+    },
+    {
+      "term_masked": "misogynist",
+      "weight": 1.8218
+    },
+    {
+      "term_masked": "maga",
+      "weight": 1.7759
+    },
+    {
+      "term_masked": "misogyny",
+      "weight": 1.7689
+    },
+    {
+      "term_masked": "boycott",
+      "weight": 1.718
+    },
+    {
+      "term_masked": "equality",
+      "weight": 1.6923
+    },
+    {
+      "term_masked": "jew",
+      "weight": 1.6061
+    },
+    {
+      "term_masked": "race",
+      "weight": 1.5972
+    },
+    {
+      "term_masked": "kk",
+      "weight": 1.578
+    },
+    {
+      "term_masked": "comment",
+      "weight": 1.5641
+    }
+  ],
+  "top_negative_coefficients_masked": [
+    {
+      "term_masked": "day",
+      "weight": -1.6496
+    },
+    {
+      "term_masked": "orlando",
+      "weight": -1.5132
+    },
+    {
+      "term_masked": "bihday",
+      "weight": -1.2928
+    },
+    {
+      "term_masked": "life",
+      "weight": -1.2448
+    },
+    {
+      "term_masked": "love",
+      "weight": -1.192
+    },
+    {
+      "term_masked": "smile",
+      "weight": -1.1528
+    },
+    {
+      "term_masked": "happy",
+      "weight": -1.1151
+    },
+    {
+      "term_masked": "sad",
+      "weight": -1.0855
+    },
+    {
+      "term_masked": "my",
+      "weight": -1.0261
+    },
+    {
+      "term_masked": "when",
+      "weight": -0.9927
+    },
+    {
+      "term_masked": "happiness",
+      "weight": -0.9918
+    },
+    {
+      "term_masked": "gun",
+      "weight": -0.9778
+    },
+    {
+      "term_masked": "hardcore",
+      "weight": -0.9713
+    },
+    {
+      "term_masked": "healthy",
+      "weight": -0.9535
+    },
+    {
+      "term_masked": "amaze",
+      "weight": -0.9133
+    },
+    {
+      "term_masked": "tomorrow",
+      "weight": -0.8938
+    },
+    {
+      "term_masked": "friday",
+      "weight": -0.8759
+    },
+    {
+      "term_masked": "summer",
+      "weight": -0.8728
+    },
+    {
+      "term_masked": "pathetic",
+      "weight": -0.8596
+    },
+    {
+      "term_masked": "weekend",
+      "weight": -0.8453
+    }
+  ],
+  "subgroup_bias": [
+    {
+      "subgroup": "Toàn bộ mẫu Lớp 0 trên Test (Overall Baseline)",
+      "n_neg_tweets": 3973,
+      "n_false_positives": 100,
+      "fpr_pct": 2.52,
+      "mean_score": 0.0401
+    },
+    {
+      "subgroup": "Giới tính / Phụ nữ (women, woman, girl, female)",
+      "n_neg_tweets": 100,
+      "n_false_positives": 4,
+      "fpr_pct": 4.0,
+      "mean_score": 0.0604
+    },
+    {
+      "subgroup": "Chủng tộc / Màu da (black, white, race, african)",
+      "n_neg_tweets": 46,
+      "n_false_positives": 14,
+      "fpr_pct": 30.43,
+      "mean_score": 0.2469
+    },
+    {
+      "subgroup": "Tôn giáo (muslim, islam, jewish, christian, god)",
+      "n_neg_tweets": 20,
+      "n_false_positives": 4,
+      "fpr_pct": 20.0,
+      "mean_score": 0.2108
+    },
+    {
+      "subgroup": "Xu hướng tính dục (gay, lgbt, queer)",
+      "n_neg_tweets": 27,
+      "n_false_positives": 2,
+      "fpr_pct": 7.41,
+      "mean_score": 0.0816
+    },
+    {
+      "subgroup": "Chính trị (trump, obama, clinton, liberal, gop)",
+      "n_neg_tweets": 66,
+      "n_false_positives": 23,
+      "fpr_pct": 34.85,
+      "mean_score": 0.3026
+    }
+  ]
+}

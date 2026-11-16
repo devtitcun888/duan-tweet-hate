@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import time
 from pathlib import Path
@@ -43,6 +44,7 @@ def train_and_eval_bilstm(
     from torch.utils.data import DataLoader, TensorDataset
 
     set_seed(seed)
+    torch.set_num_threads(min(6, os.cpu_count() or 4))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     # Build vocabulary on train_df['text_clean'] only (zero leakage)
@@ -196,25 +198,35 @@ def train_and_eval_distilbert(
     from transformers import AutoModelForSequenceClassification, AutoTokenizer
 
     set_seed(seed)
+    torch.set_num_threads(min(6, os.cpu_count() or 4))
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    # If running on CPU without CUDA, use a stratified subset so training completes in reasonable time
-    if device.type == "cpu" and len(train_df) > 6000:
+    # If running on CPU without CUDA, use a stratified subset and freeze lower layers so training completes in ~25s
+    if device.type == "cpu" and len(train_df) > 1500:
         from sklearn.model_selection import train_test_split
 
         train_sub, _ = train_test_split(
             train_df,
-            train_size=6000,
+            train_size=1500,
             stratify=train_df["label"],
             random_state=seed,
         )
         epochs = min(epochs, 2)
-        batch_size = 16
+        batch_size = 32
+        max_length = min(max_length, 48)
+        lr = 8e-5
     else:
         train_sub = train_df
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2).to(device)
+
+    if device.type == "cpu" and hasattr(model, "distilbert"):
+        for param in model.distilbert.embeddings.parameters():
+            param.requires_grad = False
+        for layer in model.distilbert.transformer.layer[:4]:
+            for param in layer.parameters():
+                param.requires_grad = False
 
     train_texts = [preprocess_for_transformer(t) for t in train_sub["text"].tolist()]
     val_texts = [preprocess_for_transformer(t) for t in val_df["text"].tolist()]

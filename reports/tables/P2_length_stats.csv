@@ -1,0 +1,5 @@
+dataset,group,metric,mean,median,std,p95,min,max
+hate_train,Label 0 (Normal),n_chars,84.14,88.0,29.6,131.0,10,273
+hate_train,Label 0 (Normal),n_words,13.09,13.0,5.51,23.0,3,34
+hate_train,Label 1 (Racist/Sexist),n_chars,90.14,96.0,27.44,127.0,12,151
+hate_train,Label 1 (Racist/Sexist),n_words,14.05,14.0,4.95,22.0,3,30

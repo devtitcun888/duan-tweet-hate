@@ -1,0 +1,327 @@
+{
+  "db_path": "db\\tweets.db",
+  "n_train_tweets_in_db": 19830,
+  "n_tokens_in_db": 165408,
+  "n_bigrams_in_db": 145591,
+  "n_assigned_in_db": 162969,
+  "n_lexicon_terms": 86,
+  "top_20_log_odds_masked": [
+    {
+      "token": "allahsoil",
+      "c1": 53,
+      "c0": 0,
+      "log_odds": 6.714
+    },
+    {
+      "token": "kk",
+      "c1": 15,
+      "c0": 0,
+      "log_odds": 5.4976
+    },
+    {
+      "token": "paladino",
+      "c1": 15,
+      "c0": 0,
+      "log_odds": 5.4976
+    },
+    {
+      "token": "teambts",
+      "c1": 15,
+      "c0": 0,
+      "log_odds": 5.4976
+    },
+    {
+      "token": "jew",
+      "c1": 14,
+      "c0": 0,
+      "log_odds": 5.4331
+    },
+    {
+      "token": "blacklivesmatter",
+      "c1": 12,
+      "c0": 0,
+      "log_odds": 5.29
+    },
+    {
+      "token": "emiratis",
+      "c1": 11,
+      "c0": 0,
+      "log_odds": 5.2099
+    },
+    {
+      "token": "notmypresident",
+      "c1": 11,
+      "c0": 0,
+      "log_odds": 5.2099
+    },
+    {
+      "token": "misogynist",
+      "c1": 20,
+      "c0": 1,
+      "log_odds": 5.0764
+    },
+    {
+      "token": "bigot",
+      "c1": 25,
+      "c0": 2,
+      "log_odds": 4.8845
+    },
+    {
+      "token": "altright",
+      "c1": 12,
+      "c0": 1,
+      "log_odds": 4.5968
+    },
+    {
+      "token": "carl",
+      "c1": 11,
+      "c0": 1,
+      "log_odds": 4.5168
+    },
+    {
+      "token": "misogyny",
+      "c1": 11,
+      "c0": 1,
+      "log_odds": 4.5168
+    },
+    {
+      "token": "remark",
+      "c1": 11,
+      "c0": 1,
+      "log_odds": 4.5168
+    },
+    {
+      "token": "xenophobia",
+      "c1": 11,
+      "c0": 1,
+      "log_odds": 4.5168
+    },
+    {
+      "token": "nazi",
+      "c1": 14,
+      "c0": 2,
+      "log_odds": 4.3345
+    },
+    {
+      "token": "racism",
+      "c1": 46,
+      "c0": 9,
+      "log_odds": 4.2726
+    },
+    {
+      "token": "stomp",
+      "c1": 12,
+      "c0": 2,
+      "log_odds": 4.1914
+    },
+    {
+      "token": "equality",
+      "c1": 11,
+      "c0": 2,
+      "log_odds": 4.1113
+    },
+    {
+      "token": "bigotry",
+      "c1": 10,
+      "c0": 2,
+      "log_odds": 4.0243
+    }
+  ],
+  "top_15_cooccur_masked": [
+    {
+      "neighbor": "you",
+      "cnt": 56,
+      "n_tweets": 40
+    },
+    {
+      "neighbor": "trump",
+      "cnt": 51,
+      "n_tweets": 31
+    },
+    {
+      "neighbor": "not",
+      "cnt": 27,
+      "n_tweets": 21
+    },
+    {
+      "neighbor": "allahsoil",
+      "cnt": 27,
+      "n_tweets": 27
+    },
+    {
+      "neighbor": "like",
+      "cnt": 24,
+      "n_tweets": 20
+    },
+    {
+      "neighbor": "say",
+      "cnt": 21,
+      "n_tweets": 19
+    },
+    {
+      "neighbor": "make",
+      "cnt": 21,
+      "n_tweets": 11
+    },
+    {
+      "neighbor": "word",
+      "cnt": 18,
+      "n_tweets": 10
+    },
+    {
+      "neighbor": "white",
+      "cnt": 18,
+      "n_tweets": 15
+    },
+    {
+      "neighbor": "they",
+      "cnt": 18,
+      "n_tweets": 11
+    },
+    {
+      "neighbor": "hate",
+      "cnt": 17,
+      "n_tweets": 13
+    },
+    {
+      "neighbor": "obama",
+      "cnt": 16,
+      "n_tweets": 10
+    },
+    {
+      "neighbor": "we",
+      "cnt": 15,
+      "n_tweets": 11
+    },
+    {
+      "neighbor": "teambts",
+      "cnt": 15,
+      "n_tweets": 15
+    },
+    {
+      "neighbor": "paladino",
+      "cnt": 14,
+      "n_tweets": 12
+    }
+  ],
+  "lexicon_coverage": [
+    {
+      "label": 0,
+      "n_tweets": 18538,
+      "n_with_lexicon": 445,
+      "pct_with_lexicon": 2.4
+    },
+    {
+      "label": 1,
+      "n_tweets": 1292,
+      "n_with_lexicon": 266,
+      "pct_with_lexicon": 20.59
+    }
+  ],
+  "lexicon_by_category": [
+    {
+      "category": "racial_slur",
+      "hits_label_1": 173,
+      "hits_label_0": 80,
+      "tweets_label_1": 164,
+      "tweets_label_0": 76
+    },
+    {
+      "category": "general_profanity",
+      "hits_label_1": 67,
+      "hits_label_0": 311,
+      "tweets_label_1": 58,
+      "tweets_label_0": 286
+    },
+    {
+      "category": "sexist_slur",
+      "hits_label_1": 59,
+      "hits_label_0": 120,
+      "tweets_label_1": 57,
+      "tweets_label_0": 109
+    },
+    {
+      "category": "religious_slur",
+      "hits_label_1": 6,
+      "hits_label_0": 1,
+      "tweets_label_1": 6,
+      "tweets_label_0": 1
+    },
+    {
+      "category": "ableist_slur",
+      "hits_label_1": 2,
+      "hits_label_0": 0,
+      "tweets_label_1": 2,
+      "tweets_label_0": 0
+    },
+    {
+      "category": "homophobic_slur",
+      "hits_label_1": 0,
+      "hits_label_0": 4,
+      "tweets_label_1": 0,
+      "tweets_label_0": 4
+    }
+  ],
+  "top_15_bigrams_sql_masked": [
+    {
+      "bigram": "listen retweet",
+      "cnt": 12
+    },
+    {
+      "bigram": "white people",
+      "cnt": 12
+    },
+    {
+      "bigram": "daily thank",
+      "cnt": 11
+    },
+    {
+      "bigram": "feel like",
+      "cnt": 11
+    },
+    {
+      "bigram": "like stomp",
+      "cnt": 11
+    },
+    {
+      "bigram": "stomp you",
+      "cnt": 11
+    },
+    {
+      "bigram": "you listen",
+      "cnt": 11
+    },
+    {
+      "bigram": "carl paladino",
+      "cnt": 10
+    },
+    {
+      "bigram": "black feel",
+      "cnt": 8
+    },
+    {
+      "bigram": "black people",
+      "cnt": 8
+    },
+    {
+      "bigram": "co chair",
+      "cnt": 8
+    },
+    {
+      "bigram": "retweet tampa",
+      "cnt": 8
+    },
+    {
+      "bigram": "tampa miami",
+      "cnt": 8
+    },
+    {
+      "bigram": "call me",
+      "cnt": 7
+    },
+    {
+      "bigram": "cow disease",
+      "cnt": 7
+    }
+  ]
+}

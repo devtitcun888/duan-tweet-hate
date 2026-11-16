@@ -1,0 +1,35 @@
+{
+  "n_bootstrap": 1000,
+  "seed": 42,
+  "threshold": 0.315,
+  "f1_pos": {
+    "mean": 0.6249,
+    "std": 0.0246,
+    "ci95_low": 0.5764,
+    "ci95_high": 0.6716
+  },
+  "precision_pos": {
+    "mean": 0.6307,
+    "std": 0.0296,
+    "ci95_low": 0.573,
+    "ci95_high": 0.688
+  },
+  "recall_pos": {
+    "mean": 0.6201,
+    "std": 0.0294,
+    "ci95_low": 0.5631,
+    "ci95_high": 0.6773
+  },
+  "pr_auc": {
+    "mean": 0.6642,
+    "std": 0.0286,
+    "ci95_low": 0.6072,
+    "ci95_high": 0.7195
+  },
+  "roc_auc": {
+    "mean": 0.9341,
+    "std": 0.0086,
+    "ci95_low": 0.9167,
+    "ci95_high": 0.9506
+  }
+}

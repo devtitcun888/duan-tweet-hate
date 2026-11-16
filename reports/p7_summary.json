@@ -1,0 +1,97 @@
+{
+  "has_cuda": false,
+  "bilstm": {
+    "metrics": {
+      "precision_pos": 0.5663,
+      "recall_pos": 0.6318,
+      "f1_pos": 0.5973,
+      "f1_macro": 0.7837,
+      "accuracy": 0.9445,
+      "balanced_acc": 0.799,
+      "roc_auc": 0.9133,
+      "pr_auc": 0.6168,
+      "mcc": 0.5685,
+      "tn": 3839,
+      "fp": 134,
+      "fn": 102,
+      "tp": 175,
+      "fit_seconds": 83.86,
+      "predict_ms_per_1k": 77.395,
+      "device": "cpu"
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.9969,
+        "val_f1": 0.3073,
+        "val_pr_auc": 0.3122
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.68,
+        "val_f1": 0.453,
+        "val_pr_auc": 0.5299
+      },
+      {
+        "epoch": 3,
+        "train_loss": 0.4748,
+        "val_f1": 0.4968,
+        "val_pr_auc": 0.5789
+      },
+      {
+        "epoch": 4,
+        "train_loss": 0.364,
+        "val_f1": 0.5262,
+        "val_pr_auc": 0.6109
+      },
+      {
+        "epoch": 5,
+        "train_loss": 0.2874,
+        "val_f1": 0.5432,
+        "val_pr_auc": 0.6182
+      },
+      {
+        "epoch": 6,
+        "train_loss": 0.2393,
+        "val_f1": 0.5973,
+        "val_pr_auc": 0.6168
+      }
+    ]
+  },
+  "distilbert": {
+    "metrics": {
+      "precision_pos": 0.301,
+      "recall_pos": 0.8412,
+      "f1_pos": 0.4434,
+      "f1_macro": 0.6824,
+      "accuracy": 0.8624,
+      "balanced_acc": 0.8525,
+      "roc_auc": 0.9266,
+      "pr_auc": 0.56,
+      "mcc": 0.4509,
+      "tn": 3432,
+      "fp": 541,
+      "fn": 44,
+      "tp": 233,
+      "fit_seconds": 257.329,
+      "predict_ms_per_1k": 17224.577,
+      "device": "cpu",
+      "n_train_used": 1500
+    },
+    "history": [
+      {
+        "epoch": 1,
+        "train_loss": 0.5298,
+        "val_f1": 0.4042,
+        "val_pr_auc": 0.508
+      },
+      {
+        "epoch": 2,
+        "train_loss": 0.334,
+        "val_f1": 0.4434,
+        "val_pr_auc": 0.56
+      }
+    ]
+  },
+  "tradeoff_conclusion": "Mô hình cổ điển tối ưu (TF-IDF + Linear Classifier) đạt hiệu năng F1/PR-AUC rất cạnh tranh, nhưng nhanh hơn hàng chục đến hàng trăm lần, nhẹ (<10MB so với ~260MB của DistilBERT) và hỗ trợ giải thích trực tiếp trọng số từng từ. Do đó mô hình cổ điển được chọn cho ứng dụng Streamlit."
+}

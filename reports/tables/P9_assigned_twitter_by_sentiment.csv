@@ -1,0 +1,4 @@
+sentiment,sentiment_name,n_tweets,n_predicted_hate,pct_predicted_hate,mean_hate_score
+-1,-1 (Tiêu cực),35509,3700,10.42,0.1258
+0,0 (Trung tính),55211,3434,6.22,0.095
+1,+1 (Tích cực),72249,4217,5.84,0.0898

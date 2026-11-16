@@ -1,0 +1,7 @@
+subgroup,n_neg_tweets,n_false_positives,fpr_pct,mean_score
+Toàn bộ mẫu Lớp 0 trên Test (Overall Baseline),3973,100,2.52,0.0401
+"Giới tính / Phụ nữ (women, woman, girl, female)",100,4,4.0,0.0604
+"Chủng tộc / Màu da (black, white, race, african)",46,14,30.43,0.2469
+"Tôn giáo (muslim, islam, jewish, christian, god)",20,4,20.0,0.2108
+"Xu hướng tính dục (gay, lgbt, queer)",27,2,7.41,0.0816
+"Chính trị (trump, obama, clinton, liberal, gop)",66,23,34.85,0.3026

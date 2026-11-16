@@ -1,0 +1,12 @@
+feature,description,label_0_mean,label_1_mean,test_type,statistic,p_value,significant_005
+has_mention,% có @user,33.56,51.43,Chi-square,292.6072,1.3443e-65,True
+has_hashtag,% có #hashtag,73.42,72.93,Chi-square,0.2378,0.6258,False
+has_exclaim,% có dấu '!',25.49,15.21,Chi-square,117.781,1.9363e-27,True
+has_question,% có dấu '?',5.91,12.53,Chi-square,152.2338,5.6327e-35,True
+has_emoji,% có Emoji,0.76,0.49,Chi-square,1.7514,0.18571,False
+has_url,% có URL,0.02,0.0,Chi-square,0.0,1.0,False
+n_chars,Số ký tự (n_chars),84.1401,90.1383,Mann-Whitney U,28949936.5,3.5917e-25,True
+n_words,Số từ (n_words),13.0913,14.0531,Mann-Whitney U,29440422.5,3.1743e-20,True
+caps_ratio,Tỉ lệ chữ HOA (caps_ratio),0.0003,0.0002,Mann-Whitney U,33368074.5,0.43993,False
+n_hashtags,Số hashtag / tweet,2.4058,2.1387,Mann-Whitney U,34116420.5,0.053294,False
+n_mentions,Số @mention / tweet,0.5285,0.831,Mann-Whitney U,27191791.0,1.1146e-66,True

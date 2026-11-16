@@ -1,0 +1,39 @@
+{
+  "evaluated_once_at": "2026-11-16T10:26:46Z",
+  "test_file": "data/splits/test.csv",
+  "test_file_sha256": "0472faf53639bb6c31ba8fcb33c6153ac4cefe1c4f9cee77c53a332dbc0e41f2",
+  "n_test_rows": 4250,
+  "n_test_pos": 277,
+  "n_test_neg": 3973,
+  "threshold_used": 0.315,
+  "metrics_at_tuned_threshold": {
+    "precision_pos": 0.6324,
+    "recall_pos": 0.6209,
+    "f1_pos": 0.6266,
+    "f1_macro": 0.8004,
+    "accuracy": 0.9518,
+    "balanced_acc": 0.7979,
+    "roc_auc": 0.9345,
+    "pr_auc": 0.6651,
+    "mcc": 0.6008,
+    "tn": 3873,
+    "fp": 100,
+    "fn": 105,
+    "tp": 172
+  },
+  "metrics_at_default_05": {
+    "precision_pos": 0.7755,
+    "recall_pos": 0.5487,
+    "f1_pos": 0.6427,
+    "f1_macro": 0.8108,
+    "accuracy": 0.9602,
+    "balanced_acc": 0.7688,
+    "roc_auc": 0.9345,
+    "pr_auc": 0.6651,
+    "mcc": 0.6328,
+    "tn": 3929,
+    "fp": 44,
+    "fn": 125,
+    "tp": 152
+  }
+}

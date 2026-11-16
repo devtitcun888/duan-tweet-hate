@@ -1,0 +1,21 @@
+id,source,error_type,label_a,label_b,label_final,y_pred,score,text_masked,note
+10,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9998,@user #antifeminism #feminism @user #women  #womenagainstfeminism #misogyny #patriarchy #equality â¦ ,Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị
+12,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9526,@user #allahsoil the two most common traits shared by people are language and religion.  â¦â¦ ,Nội dung bình thường hoặc cảm xúc cá nhân
+14,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9496,the latest the blicqerâ¢ daily!  thanks to @user @user @user  #america,Nội dung bình thường hoặc cảm xúc cá nhân
+26,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9831,@user #allahsoil reckless subprime lending was rewarded and largely concealed  â¦ â¦ #2016in4wordsâ¦ ,Nội dung bình thường hoặc cảm xúc cá nhân
+36,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.996,"@user @user #trump celebrating,#woman of #america, a #misogynistic,#abusing, ,#fantasyland of #equality",Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị
+39,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9488,"be careful in criticizing #obama for his decision on #israel &amp; sanctions against #russiahacking , as #liberals will consider this ",Nội dung bình thường hoặc cảm xúc cá nhân
+40,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9825,"@user #trumpsamerica will suck bigly ny gov. cuomo condemns carl paladino for â, uglyâ remarks abt obamas ",Nội dung bình thường hoặc cảm xúc cá nhân
+42,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9496,@user = #paidtrumpette your comments are reflections of ignorance and ,Nội dung bình thường hoặc cảm xúc cá nhân
+51,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9699,@user remember when arabs were called racists &amp; terrorists?  #equality ,Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị
+54,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9455,@user nope not factual. your comments are reflections of ignorance and  @user,Nội dung bình thường hoặc cảm xúc cá nhân
+74,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9292,@user you are a complete jerk. your comments are reflections of ignorance and  .,Nội dung bình thường hoặc cảm xúc cá nhân
+75,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.5563,over here obama and his gaggle of left wingnuts want to disarm us law abiding americans. prayers to cox family.   ,Nội dung bình thường hoặc cảm xúc cá nhân
+78,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9508,@user #allahsoil humans have a tendency to separate the world into good and evil .  â¦   #emiratis #2â¦,Nội dung bình thường hoặc cảm xúc cá nhân
+83,A_hate_unlabeled_test,FP (Báo động giả),0,0,0,1,0.9455,tyler perry claims 'reverse racism' by critics of his tlc series - thewrap   ,Nội dung bình thường hoặc cảm xúc cá nhân
+104,B_Twitter_Data,FP (Báo động giả),0,0,0,1,0.6387,she contesting against modi why dont you convince her contest against modi you are confident,Nội dung bình thường hoặc cảm xúc cá nhân
+251,D_adversarial_curated,Correct (Dự đoán đúng),1,1,1,1,0.3207,Women do not belong in engineering or leadership roles because they are too emotional to think logically.,Định kiến hạ thấp phụ nữ trong công việc
+253,D_adversarial_curated,Correct (Dự đoán đúng),1,1,1,1,0.698,"Stop letting these stupid b*****s ruin men's sports and politics, they have zero brains.",Từ miệt thị giới tính + hạ thấp phụ nữ
+254,D_adversarial_curated,Correct (Dự đoán đúng),1,1,1,1,0.7217,"A woman's only real value is cooking, cleaning and obeying her husband without complaining.",Áp đặt vai trò giới cực đoan
+280,D_adversarial_curated,Correct (Dự đoán đúng),0,0,0,0,0.284,"Muslim, Christian, and Jewish families gathered at the community center to share dinner.",Hoạt động cộng đồng đa tôn giáo
+281,D_adversarial_curated,Correct (Dự đoán đúng),0,0,0,0,0.0383,The women's national soccer team won the championship after a thrilling penalty shootout.,Tin thể thao về đội tuyển nữ

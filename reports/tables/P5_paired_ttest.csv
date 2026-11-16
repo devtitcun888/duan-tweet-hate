@@ -1,0 +1,4 @@
+run_a,run_b,mean_diff_f1,t_statistic,p_value,significant_at_005
+lr__word+char,svm_linear__word+char,0.0909,8.7064,0.001,True
+lr__word+char,lr__word_tfidf,0.0602,12.4889,0.0002,True
+svm_linear__word+char,lr__word_tfidf,-0.0307,-3.6158,0.0224,True

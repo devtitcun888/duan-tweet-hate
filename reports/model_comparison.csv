@@ -1,0 +1,15 @@
+run_id,model_key,model_name,vectorizer,balance,cv_f1_mean,cv_f1_std,precision_pos,recall_pos,f1_pos,f1_macro,accuracy,balanced_acc,roc_auc,pr_auc,mcc,tn,fp,fn,tp,fit_seconds,predict_ms_per_1k,note
+lr__word+char,lr,Logistic Regression,word+char,ros,0.6478,0.0186,0.5795,0.7365,0.6486,0.8103,0.948,0.8496,0.9466,0.709,0.6262,3825,148,73,204,3.859,111.112,Train toàn bộ tập train
+bilstm_deep__embedding_128,bilstm_deep,BiLSTM (PyTorch Embedding),embedding_128,pos_weight,0.5973,0.0,0.5663,0.6318,0.5973,0.7837,0.9445,0.799,0.9133,0.6168,0.5685,3839,134,102,175,83.86,77.395,Deep Learning bonus (cpu)
+svm_linear__word+char,svm_linear,Linear SVM (Calibrated),word+char,ros,0.5569,0.0284,0.8323,0.4657,0.5972,0.7878,0.9591,0.7296,0.9342,0.7039,0.6046,3947,26,148,129,4.239,110.788,Train toàn bộ tập train
+lr__word_tfidf,lr,Logistic Regression,word_tfidf,ros,0.5876,0.0117,0.5053,0.6895,0.5832,0.7742,0.9358,0.8212,0.932,0.6377,0.5571,3786,187,86,191,0.597,13.099,Train toàn bộ tập train
+svm_linear__word_tfidf,svm_linear,Linear SVM (Calibrated),word_tfidf,ros,0.5492,0.0321,0.7529,0.4621,0.5727,0.7745,0.9551,0.7258,0.9195,0.6267,0.5688,3931,42,149,128,0.946,18.859,Train toàn bộ tập train
+nb__word+char,nb,Complement Naive Bayes,word+char,ros,0.5713,0.0075,0.427,0.8448,0.5673,0.7604,0.916,0.8829,0.9559,0.7403,0.564,3659,314,43,234,2.563,110.1,Train toàn bộ tập train
+lgbm__word_tfidf,lgbm,LightGBM,word_tfidf,ros,0.5416,0.017,0.4562,0.6209,0.526,0.7432,0.9271,0.7847,0.9035,0.5713,0.4943,3768,205,105,172,3.593,25.428,Train toàn bộ tập train
+rf__word_tfidf,rf,Random Forest,word_tfidf,ros,0.5344,0.0237,0.4447,0.6245,0.5195,0.7393,0.9247,0.7851,0.9072,0.595,0.4881,3757,216,104,173,1.888,31.193,Train toàn bộ tập train
+nb__word_tfidf,nb,Complement Naive Bayes,word_tfidf,ros,0.5252,0.0148,0.379,0.769,0.5077,0.7269,0.9028,0.8406,0.9353,0.6765,0.4963,3624,349,64,213,0.515,14.05,Train toàn bộ tập train
+xgb__word_tfidf,xgb,XGBoost,word_tfidf,ros,0.499,0.015,0.4053,0.6643,0.5034,0.7283,0.9146,0.7982,0.8955,0.5513,0.4765,3703,270,93,184,23.328,23.811,Train toàn bộ tập train
+svm_rbf__word_tfidf,svm_rbf,RBF-Kernel SVM,word_tfidf,ros,0.3741,0.0253,0.8925,0.2996,0.4486,0.7118,0.952,0.6486,0.8994,0.5988,0.5013,3963,10,194,83,19.108,575.178,"Train trên mẫu con 8,000 dòng do độ phức tạp bậc 2"
+distilbert__subword_wp,distilbert,DistilBERT (Fine-tuned),subword_wp_80,class_weight,0.4434,0.0,0.301,0.8412,0.4434,0.6824,0.8624,0.8525,0.9266,0.56,0.4509,3432,541,44,233,257.329,17224.577,"Transformer bonus (cpu, n_train=1500)"
+knn__word_tfidf,knn,K-Nearest Neighbors (Cosine),word_tfidf,ros,0.3796,0.0118,0.2955,0.574,0.3902,0.6628,0.8831,0.7393,0.7981,0.2857,0.3553,3594,379,118,159,0.53,523.8,Train toàn bộ tập train
+dt__word_tfidf,dt,Decision Tree,word_tfidf,ros,0.3669,0.0288,0.3316,0.4549,0.3836,0.666,0.9047,0.6955,0.7296,0.2582,0.3382,3719,254,151,126,1.642,14.482,Train toàn bộ tập train

@@ -1,0 +1,126 @@
+{
+  "split_summary": {
+    "n_initial_raw": 31962,
+    "n_empty_dropped": 2,
+    "n_conflict_groups": 1,
+    "n_conflict_rows_dropped": 2,
+    "n_near_duplicate_rows_dropped": 3628,
+    "n_total_dropped": 3632,
+    "n_final_unique_clean": 28330,
+    "final_label_0": 26484,
+    "final_label_1": 1846,
+    "final_pos_rate_pct": 6.5161,
+    "splits": {
+      "train": {
+        "n_rows": 19830,
+        "label_0": 18538,
+        "label_1": 1292,
+        "pos_rate_pct": 6.5154
+      },
+      "val": {
+        "n_rows": 4250,
+        "label_0": 3973,
+        "label_1": 277,
+        "pos_rate_pct": 6.5176
+      },
+      "test": {
+        "n_rows": 4250,
+        "label_0": 3973,
+        "label_1": 277,
+        "pos_rate_pct": 6.5176
+      }
+    },
+    "word_len_before_mean": 13.3,
+    "word_len_after_mean": 12.1
+  },
+  "balance_comparison": {
+    "chosen_strategy": "ros",
+    "chosen_reason": "Chiến lược 'ros' đạt CV F1 lớp dương cao nhất (0.5876 ± 0.0117) và PR-AUC = 0.6337 trên 5-fold StratifiedKFold tập train.",
+    "table": [
+      {
+        "strategy": "none",
+        "description": "Không cân bằng (None)",
+        "precision_mean": 0.8726,
+        "precision_std": 0.0454,
+        "recall_mean": 0.1385,
+        "recall_std": 0.0131,
+        "f1_pos_mean": 0.239,
+        "f1_pos_std": 0.0207,
+        "pr_auc_mean": 0.62,
+        "pr_auc_std": 0.0199,
+        "roc_auc_mean": 0.9346,
+        "fit_seconds": 2.65
+      },
+      {
+        "strategy": "class_weight",
+        "description": "Trọng số lớp (class_weight='balanced')",
+        "precision_mean": 0.4733,
+        "precision_std": 0.0162,
+        "recall_mean": 0.7307,
+        "recall_std": 0.0295,
+        "f1_pos_mean": 0.5742,
+        "f1_pos_std": 0.0169,
+        "pr_auc_mean": 0.6263,
+        "pr_auc_std": 0.0204,
+        "roc_auc_mean": 0.9369,
+        "fit_seconds": 2.67
+      },
+      {
+        "strategy": "ros",
+        "description": "RandomOverSampler (ROS)",
+        "precision_mean": 0.5105,
+        "precision_std": 0.0218,
+        "recall_mean": 0.6935,
+        "recall_std": 0.0209,
+        "f1_pos_mean": 0.5876,
+        "f1_pos_std": 0.0117,
+        "pr_auc_mean": 0.6337,
+        "pr_auc_std": 0.0217,
+        "roc_auc_mean": 0.9367,
+        "fit_seconds": 2.86
+      },
+      {
+        "strategy": "smote",
+        "description": "SMOTE (k=5)",
+        "precision_mean": 0.507,
+        "precision_std": 0.0436,
+        "recall_mean": 0.6803,
+        "recall_std": 0.0277,
+        "f1_pos_mean": 0.5794,
+        "f1_pos_std": 0.0237,
+        "pr_auc_mean": 0.6269,
+        "pr_auc_std": 0.0228,
+        "roc_auc_mean": 0.9348,
+        "fit_seconds": 3.02
+      },
+      {
+        "strategy": "rus",
+        "description": "RandomUnderSampler (RUS)",
+        "precision_mean": 0.2827,
+        "precision_std": 0.0119,
+        "recall_mean": 0.8367,
+        "recall_std": 0.0069,
+        "f1_pos_mean": 0.4225,
+        "f1_pos_std": 0.0131,
+        "pr_auc_mean": 0.5493,
+        "pr_auc_std": 0.0251,
+        "roc_auc_mean": 0.9199,
+        "fit_seconds": 2.49
+      },
+      {
+        "strategy": "smote_tomek",
+        "description": "SMOTETomek",
+        "precision_mean": 0.507,
+        "precision_std": 0.0436,
+        "recall_mean": 0.6803,
+        "recall_std": 0.0277,
+        "f1_pos_mean": 0.5794,
+        "f1_pos_std": 0.0237,
+        "pr_auc_mean": 0.6269,
+        "pr_auc_std": 0.0228,
+        "roc_auc_mean": 0.9348,
+        "fit_seconds": 55.2
+      }
+    ]
+  }
+}

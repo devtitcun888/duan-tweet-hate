@@ -1,0 +1,129 @@
+{
+  "chosen_model_key": "svm_linear",
+  "chosen_model_name": "Linear SVM (Calibrated)",
+  "selection_reason": "Linear SVM (Calibrated) đạt Val F1 sau tinh chỉnh ngưỡng cao nhất (0.6566, PR-AUC = 0.6636) với ngưỡng quyết định tối ưu threshold = 0.3150.",
+  "best_params": {
+    "clf__C": 0.50191,
+    "clf__class_weight": "balanced",
+    "clf__loss": "squared_hinge",
+    "tfidf__max_features": 50000,
+    "tfidf__min_df": 2,
+    "tfidf__ngram_range": [
+      1,
+      3
+    ]
+  },
+  "best_threshold": 0.315,
+  "before_after_table": [
+    {
+      "model_key": "lr",
+      "model_name": "Logistic Regression",
+      "cv_f1_before": 0.5876,
+      "cv_f1_after": 0.5976,
+      "val_f1_before": 0.5832,
+      "val_f1_after_thr05": 0.6056,
+      "best_threshold": 0.565,
+      "val_f1_after_tuned_thr": 0.625,
+      "val_precision_after": 0.6367,
+      "val_recall_after": 0.6137,
+      "val_pr_auc_after": 0.6419,
+      "val_roc_auc_after": 0.9198,
+      "f1_gain_vs_baseline": 0.0418,
+      "search_seconds": 100.66,
+      "best_params_json": "{\"clf__C\": 23.39586, \"clf__class_weight\": \"balanced\", \"clf__penalty\": \"l2\", \"tfidf__max_features\": 50000, \"tfidf__min_df\": 3, \"tfidf__ngram_range\": [1, 2]}"
+    },
+    {
+      "model_key": "svm_linear",
+      "model_name": "Linear SVM (Calibrated)",
+      "cv_f1_before": 0.5492,
+      "cv_f1_after": 0.6112,
+      "val_f1_before": 0.5727,
+      "val_f1_after_thr05": 0.5996,
+      "best_threshold": 0.315,
+      "val_f1_after_tuned_thr": 0.6566,
+      "val_precision_after": 0.6877,
+      "val_recall_after": 0.6282,
+      "val_pr_auc_after": 0.6636,
+      "val_roc_auc_after": 0.9321,
+      "f1_gain_vs_baseline": 0.0839,
+      "search_seconds": 128.94,
+      "best_params_json": "{\"clf__C\": 0.50191, \"clf__class_weight\": \"balanced\", \"clf__loss\": \"squared_hinge\", \"tfidf__max_features\": 50000, \"tfidf__min_df\": 2, \"tfidf__ngram_range\": [1, 3]}"
+    },
+    {
+      "model_key": "nb",
+      "model_name": "Complement Naive Bayes",
+      "cv_f1_before": 0.5252,
+      "cv_f1_after": 0.5858,
+      "val_f1_before": 0.5077,
+      "val_f1_after_thr05": 0.5922,
+      "best_threshold": 0.5,
+      "val_f1_after_tuned_thr": 0.5922,
+      "val_precision_after": 0.4951,
+      "val_recall_after": 0.7365,
+      "val_pr_auc_after": 0.6985,
+      "val_roc_auc_after": 0.9377,
+      "f1_gain_vs_baseline": 0.0845,
+      "search_seconds": 121.42,
+      "best_params_json": "{\"clf__alpha\": 0.14971, \"clf__norm\": true, \"tfidf__max_features\": 50000, \"tfidf__min_df\": 2, \"tfidf__ngram_range\": [1, 1]}"
+    }
+  ],
+  "model_card": {
+    "model_key": "svm_linear",
+    "model_name": "Linear SVM (Calibrated)",
+    "selection_reason": "Linear SVM (Calibrated) đạt Val F1 sau tinh chỉnh ngưỡng cao nhất (0.6566, PR-AUC = 0.6636) với ngưỡng quyết định tối ưu threshold = 0.3150.",
+    "best_params": {
+      "clf__C": 0.50191,
+      "clf__class_weight": "balanced",
+      "clf__loss": "squared_hinge",
+      "tfidf__max_features": 50000,
+      "tfidf__min_df": 2,
+      "tfidf__ngram_range": [
+        1,
+        3
+      ]
+    },
+    "best_threshold": 0.315,
+    "val_metrics_before_tuning": {
+      "val_f1_before": 0.5727,
+      "val_precision_before": 0.7529,
+      "val_recall_before": 0.4621,
+      "val_pr_auc_before": 0.6267,
+      "cv_f1_before": 0.5492
+    },
+    "val_metrics_after_tuning_thr05": {
+      "precision_pos": 0.7368,
+      "recall_pos": 0.5054,
+      "f1_pos": 0.5996,
+      "f1_macro": 0.7881,
+      "accuracy": 0.956,
+      "balanced_acc": 0.7464,
+      "roc_auc": 0.9321,
+      "pr_auc": 0.6636,
+      "mcc": 0.5886,
+      "tn": 3923,
+      "fp": 50,
+      "fn": 137,
+      "tp": 140
+    },
+    "val_metrics_after_tuning_best_thr": {
+      "precision_pos": 0.6877,
+      "recall_pos": 0.6282,
+      "f1_pos": 0.6566,
+      "f1_macro": 0.8169,
+      "accuracy": 0.9572,
+      "balanced_acc": 0.8041,
+      "roc_auc": 0.9321,
+      "pr_auc": 0.6636,
+      "mcc": 0.6346,
+      "tn": 3894,
+      "fp": 79,
+      "fn": 103,
+      "tp": 174
+    },
+    "refit_on_train_plus_val_rows": 24080,
+    "train_rows": 19830,
+    "val_rows": 4250,
+    "sklearn_version": "1.9.1",
+    "created_at": "2026-11-16T10:15:27Z"
+  }
+}

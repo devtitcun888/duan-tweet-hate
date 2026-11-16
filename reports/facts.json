@@ -1,0 +1,2399 @@
+{
+  "project_title": "Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (Twitter Sentiment Analysis)",
+  "seed": 42,
+  "datasets": {
+    "assigned": {
+      "n_rows": 162980,
+      "columns": [
+        "clean_text",
+        "category"
+      ],
+      "dtypes": {
+        "clean_text": "str",
+        "category": "float64"
+      },
+      "n_null_by_column": {
+        "clean_text": 4,
+        "category": 7
+      },
+      "n_null": 11,
+      "n_duplicates_exact": 1,
+      "n_duplicates_text": 0,
+      "label_distribution": {
+        "1.0": 72250,
+        "0.0": 55213,
+        "-1.0": 35510,
+        "NaN": 7
+      },
+      "source": "kagglehub: cosmos98/twitter-and-reddit-sentimental-analysis-dataset (Twitter_Data.csv)",
+      "license": "CC0: Public Domain / Kaggle Community",
+      "download_date": "2026-11-16",
+      "n_rows_after_dropna": 162969,
+      "has_racist_sexist_label": false,
+      "note": "Twitter_Data.csv chỉ có nhãn sentiment chính trị (-1/0/1), không có nhãn racist/sexist."
+    },
+    "assigned_reddit": {
+      "n_rows": 37249,
+      "columns": [
+        "clean_comment",
+        "category"
+      ],
+      "dtypes": {
+        "clean_comment": "str",
+        "category": "int64"
+      },
+      "n_null_by_column": {
+        "clean_comment": 100,
+        "category": 0
+      },
+      "n_null": 100,
+      "n_duplicates_exact": 449,
+      "n_duplicates_text": 350,
+      "label_distribution": {
+        "1": 15830,
+        "0": 13142,
+        "-1": 8277
+      },
+      "source": "kagglehub: cosmos98/twitter-and-reddit-sentimental-analysis-dataset (Reddit_Data.csv)",
+      "license": "CC0: Public Domain / Kaggle Community",
+      "download_date": "2026-11-16",
+      "n_rows_after_dropna": 37149
+    },
+    "hate": {
+      "n_rows": 31962,
+      "columns": [
+        "id",
+        "text",
+        "label"
+      ],
+      "dtypes": {
+        "id": "int64",
+        "text": "str",
+        "label": "int64"
+      },
+      "n_null_by_column": {
+        "id": 0,
+        "text": 0,
+        "label": 0
+      },
+      "n_null": 0,
+      "n_duplicates_exact": 0,
+      "n_duplicates_text": 2435,
+      "label_distribution": {
+        "0": 29720,
+        "1": 2242
+      },
+      "source": "HuggingFace: tweets-hate-speech-detection/tweets_hate_speech_detection (Analytics Vidhya)",
+      "license": "MIT / Public Research Dataset",
+      "download_date": "2026-11-16",
+      "positive_rate_pct": 7.0146,
+      "imbalance_ratio_neg_to_pos": 13.26
+    },
+    "hate_unlabeled_test": {
+      "n_rows": 17197,
+      "columns": [
+        "id",
+        "text"
+      ],
+      "dtypes": {
+        "id": "int64",
+        "text": "str"
+      },
+      "n_null_by_column": {
+        "id": 0,
+        "text": 0
+      },
+      "n_null": 0,
+      "n_duplicates_exact": 0,
+      "n_duplicates_text": 1068,
+      "label_distribution": {},
+      "source": "HuggingFace: tweets-hate-speech-detection (test split - unlabeled)",
+      "license": "MIT / Public Research Dataset",
+      "download_date": "2026-11-16"
+    },
+    "davidson_cross_domain": {
+      "n_rows": 24783,
+      "columns": [
+        "count",
+        "hate_speech_count",
+        "offensive_language_count",
+        "neither_count",
+        "class",
+        "tweet"
+      ],
+      "dtypes": {
+        "count": "int64",
+        "hate_speech_count": "int64",
+        "offensive_language_count": "int64",
+        "neither_count": "int64",
+        "class": "int64",
+        "tweet": "str"
+      },
+      "n_null_by_column": {
+        "count": 0,
+        "hate_speech_count": 0,
+        "offensive_language_count": 0,
+        "neither_count": 0,
+        "class": 0,
+        "tweet": 0
+      },
+      "n_null": 0,
+      "n_duplicates_exact": 0,
+      "n_duplicates_text": 0,
+      "label_distribution": {
+        "1": 19190,
+        "2": 4163,
+        "0": 1430
+      },
+      "source": "Davidson et al. (ICWSM 2017) Hate Speech and Offensive Language",
+      "license": "MIT License",
+      "download_date": "2026-11-16",
+      "binary_subset_rows": 5593,
+      "binary_label_distribution": {
+        "0": 4163,
+        "1": 1430
+      }
+    },
+    "domain_jaccard_top5000": 0.3196,
+    "domain_shared_words_top5000": 2422
+  },
+  "eda_highlights": {
+    "length_stats": [
+      {
+        "dataset": "hate_train",
+        "group": "Label 0 (Normal)",
+        "metric": "n_chars",
+        "mean": 84.14,
+        "median": 88.0,
+        "std": 29.6,
+        "p95": 131.0,
+        "min": 10,
+        "max": 273
+      },
+      {
+        "dataset": "hate_train",
+        "group": "Label 0 (Normal)",
+        "metric": "n_words",
+        "mean": 13.09,
+        "median": 13.0,
+        "std": 5.51,
+        "p95": 23.0,
+        "min": 3,
+        "max": 34
+      },
+      {
+        "dataset": "hate_train",
+        "group": "Label 1 (Racist/Sexist)",
+        "metric": "n_chars",
+        "mean": 90.14,
+        "median": 96.0,
+        "std": 27.44,
+        "p95": 127.0,
+        "min": 12,
+        "max": 151
+      },
+      {
+        "dataset": "hate_train",
+        "group": "Label 1 (Racist/Sexist)",
+        "metric": "n_words",
+        "mean": 14.05,
+        "median": 14.0,
+        "std": 4.95,
+        "p95": 22.0,
+        "min": 3,
+        "max": 30
+      }
+    ],
+    "surface_tests": [
+      {
+        "feature": "has_mention",
+        "description": "% có @user",
+        "label_0_mean": 33.56,
+        "label_1_mean": 51.43,
+        "test_type": "Chi-square",
+        "statistic": 292.6072,
+        "p_value": 1.3443e-65,
+        "significant_005": true
+      },
+      {
+        "feature": "has_hashtag",
+        "description": "% có #hashtag",
+        "label_0_mean": 73.42,
+        "label_1_mean": 72.93,
+        "test_type": "Chi-square",
+        "statistic": 0.2378,
+        "p_value": 0.6258,
+        "significant_005": false
+      },
+      {
+        "feature": "has_exclaim",
+        "description": "% có dấu '!'",
+        "label_0_mean": 25.49,
+        "label_1_mean": 15.21,
+        "test_type": "Chi-square",
+        "statistic": 117.781,
+        "p_value": 1.9363e-27,
+        "significant_005": true
+      },
+      {
+        "feature": "has_question",
+        "description": "% có dấu '?'",
+        "label_0_mean": 5.91,
+        "label_1_mean": 12.53,
+        "test_type": "Chi-square",
+        "statistic": 152.2338,
+        "p_value": 5.6327e-35,
+        "significant_005": true
+      },
+      {
+        "feature": "has_emoji",
+        "description": "% có Emoji",
+        "label_0_mean": 0.76,
+        "label_1_mean": 0.49,
+        "test_type": "Chi-square",
+        "statistic": 1.7514,
+        "p_value": 0.18571,
+        "significant_005": false
+      },
+      {
+        "feature": "has_url",
+        "description": "% có URL",
+        "label_0_mean": 0.02,
+        "label_1_mean": 0.0,
+        "test_type": "Chi-square",
+        "statistic": 0.0,
+        "p_value": 1.0,
+        "significant_005": false
+      },
+      {
+        "feature": "n_chars",
+        "description": "Số ký tự (n_chars)",
+        "label_0_mean": 84.1401,
+        "label_1_mean": 90.1383,
+        "test_type": "Mann-Whitney U",
+        "statistic": 28949936.5,
+        "p_value": 3.5917e-25,
+        "significant_005": true
+      },
+      {
+        "feature": "n_words",
+        "description": "Số từ (n_words)",
+        "label_0_mean": 13.0913,
+        "label_1_mean": 14.0531,
+        "test_type": "Mann-Whitney U",
+        "statistic": 29440422.5,
+        "p_value": 3.1743e-20,
+        "significant_005": true
+      },
+      {
+        "feature": "caps_ratio",
+        "description": "Tỉ lệ chữ HOA (caps_ratio)",
+        "label_0_mean": 0.0003,
+        "label_1_mean": 0.0002,
+        "test_type": "Mann-Whitney U",
+        "statistic": 33368074.5,
+        "p_value": 0.43993,
+        "significant_005": false
+      },
+      {
+        "feature": "n_hashtags",
+        "description": "Số hashtag / tweet",
+        "label_0_mean": 2.4058,
+        "label_1_mean": 2.1387,
+        "test_type": "Mann-Whitney U",
+        "statistic": 34116420.5,
+        "p_value": 0.053294,
+        "significant_005": false
+      },
+      {
+        "feature": "n_mentions",
+        "description": "Số @mention / tweet",
+        "label_0_mean": 0.5285,
+        "label_1_mean": 0.831,
+        "test_type": "Mann-Whitney U",
+        "statistic": 27191791.0,
+        "p_value": 1.1146e-66,
+        "significant_005": true
+      }
+    ],
+    "top_unigrams_label_1_masked": [
+      [
+        "you",
+        464
+      ],
+      [
+        "trump",
+        217
+      ],
+      [
+        "white",
+        156
+      ],
+      [
+        "not",
+        152
+      ],
+      [
+        "libtard",
+        149
+      ],
+      [
+        "black",
+        149
+      ],
+      [
+        "like",
+        141
+      ],
+      [
+        "we",
+        119
+      ],
+      [
+        "woman",
+        116
+      ],
+      [
+        "racist",
+        113
+      ],
+      [
+        "say",
+        97
+      ],
+      [
+        "politics",
+        97
+      ],
+      [
+        "people",
+        95
+      ],
+      [
+        "liberal",
+        92
+      ],
+      [
+        "allahsoil",
+        92
+      ]
+    ],
+    "top_bigrams_label_1_masked": [
+      [
+        "libtard libtard",
+        72
+      ],
+      [
+        "libtard sjw",
+        72
+      ],
+      [
+        "liberal politics",
+        72
+      ],
+      [
+        "might libtard",
+        72
+      ],
+      [
+        "sjw liberal",
+        72
+      ],
+      [
+        "you might",
+        72
+      ],
+      [
+        "listen retweet",
+        51
+      ],
+      [
+        "feel like",
+        51
+      ],
+      [
+        "you listen",
+        49
+      ],
+      [
+        "like stomp",
+        46
+      ],
+      [
+        "stomp you",
+        46
+      ],
+      [
+        "black feel",
+        32
+      ],
+      [
+        "tampa miami",
+        32
+      ],
+      [
+        "retweet tampa",
+        32
+      ],
+      [
+        "vandalise calgary",
+        26
+      ]
+    ],
+    "top_hashtags_label_1_masked": [
+      [
+        "trump",
+        133
+      ],
+      [
+        "politics",
+        94
+      ],
+      [
+        "allahsoil",
+        92
+      ],
+      [
+        "libtard",
+        76
+      ],
+      [
+        "liberal",
+        75
+      ],
+      [
+        "sjw",
+        74
+      ],
+      [
+        "retweet",
+        57
+      ],
+      [
+        "black",
+        44
+      ],
+      [
+        "miamiâ",
+        38
+      ],
+      [
+        "hate",
+        32
+      ],
+      [
+        "tampa",
+        32
+      ],
+      [
+        "blm",
+        28
+      ],
+      [
+        "hispanic",
+        28
+      ],
+      [
+        "brexit",
+        27
+      ],
+      [
+        "bigot",
+        27
+      ]
+    ]
+  },
+  "sql_analysis": {
+    "n_train_tweets_in_db": 19830,
+    "n_tokens_in_db": 165408,
+    "n_bigrams_in_db": 145591,
+    "n_lexicon_terms": 86,
+    "lexicon_coverage": [
+      {
+        "label": 0,
+        "n_tweets": 18538,
+        "n_with_lexicon": 445,
+        "pct_with_lexicon": 2.4
+      },
+      {
+        "label": 1,
+        "n_tweets": 1292,
+        "n_with_lexicon": 266,
+        "pct_with_lexicon": 20.59
+      }
+    ],
+    "lexicon_by_category": [
+      {
+        "category": "racial_slur",
+        "hits_label_1": 173,
+        "hits_label_0": 80,
+        "tweets_label_1": 164,
+        "tweets_label_0": 76
+      },
+      {
+        "category": "general_profanity",
+        "hits_label_1": 67,
+        "hits_label_0": 311,
+        "tweets_label_1": 58,
+        "tweets_label_0": 286
+      },
+      {
+        "category": "sexist_slur",
+        "hits_label_1": 59,
+        "hits_label_0": 120,
+        "tweets_label_1": 57,
+        "tweets_label_0": 109
+      },
+      {
+        "category": "religious_slur",
+        "hits_label_1": 6,
+        "hits_label_0": 1,
+        "tweets_label_1": 6,
+        "tweets_label_0": 1
+      },
+      {
+        "category": "ableist_slur",
+        "hits_label_1": 2,
+        "hits_label_0": 0,
+        "tweets_label_1": 2,
+        "tweets_label_0": 0
+      },
+      {
+        "category": "homophobic_slur",
+        "hits_label_1": 0,
+        "hits_label_0": 4,
+        "tweets_label_1": 0,
+        "tweets_label_0": 4
+      }
+    ],
+    "top_20_log_odds_masked": [
+      {
+        "token": "allahsoil",
+        "c1": 53,
+        "c0": 0,
+        "log_odds": 6.714
+      },
+      {
+        "token": "kk",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "paladino",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "teambts",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "jew",
+        "c1": 14,
+        "c0": 0,
+        "log_odds": 5.4331
+      },
+      {
+        "token": "blacklivesmatter",
+        "c1": 12,
+        "c0": 0,
+        "log_odds": 5.29
+      },
+      {
+        "token": "emiratis",
+        "c1": 11,
+        "c0": 0,
+        "log_odds": 5.2099
+      },
+      {
+        "token": "notmypresident",
+        "c1": 11,
+        "c0": 0,
+        "log_odds": 5.2099
+      },
+      {
+        "token": "misogynist",
+        "c1": 20,
+        "c0": 1,
+        "log_odds": 5.0764
+      },
+      {
+        "token": "bigot",
+        "c1": 25,
+        "c0": 2,
+        "log_odds": 4.8845
+      },
+      {
+        "token": "altright",
+        "c1": 12,
+        "c0": 1,
+        "log_odds": 4.5968
+      },
+      {
+        "token": "carl",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "misogyny",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "remark",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "xenophobia",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "nazi",
+        "c1": 14,
+        "c0": 2,
+        "log_odds": 4.3345
+      },
+      {
+        "token": "racism",
+        "c1": 46,
+        "c0": 9,
+        "log_odds": 4.2726
+      },
+      {
+        "token": "stomp",
+        "c1": 12,
+        "c0": 2,
+        "log_odds": 4.1914
+      },
+      {
+        "token": "equality",
+        "c1": 11,
+        "c0": 2,
+        "log_odds": 4.1113
+      },
+      {
+        "token": "bigotry",
+        "c1": 10,
+        "c0": 2,
+        "log_odds": 4.0243
+      }
+    ],
+    "top_15_cooccur_masked": [
+      {
+        "neighbor": "you",
+        "cnt": 56,
+        "n_tweets": 40
+      },
+      {
+        "neighbor": "trump",
+        "cnt": 51,
+        "n_tweets": 31
+      },
+      {
+        "neighbor": "not",
+        "cnt": 27,
+        "n_tweets": 21
+      },
+      {
+        "neighbor": "allahsoil",
+        "cnt": 27,
+        "n_tweets": 27
+      },
+      {
+        "neighbor": "like",
+        "cnt": 24,
+        "n_tweets": 20
+      },
+      {
+        "neighbor": "say",
+        "cnt": 21,
+        "n_tweets": 19
+      },
+      {
+        "neighbor": "make",
+        "cnt": 21,
+        "n_tweets": 11
+      },
+      {
+        "neighbor": "word",
+        "cnt": 18,
+        "n_tweets": 10
+      },
+      {
+        "neighbor": "white",
+        "cnt": 18,
+        "n_tweets": 15
+      },
+      {
+        "neighbor": "they",
+        "cnt": 18,
+        "n_tweets": 11
+      },
+      {
+        "neighbor": "hate",
+        "cnt": 17,
+        "n_tweets": 13
+      },
+      {
+        "neighbor": "obama",
+        "cnt": 16,
+        "n_tweets": 10
+      },
+      {
+        "neighbor": "we",
+        "cnt": 15,
+        "n_tweets": 11
+      },
+      {
+        "neighbor": "teambts",
+        "cnt": 15,
+        "n_tweets": 15
+      },
+      {
+        "neighbor": "paladino",
+        "cnt": 14,
+        "n_tweets": 12
+      }
+    ]
+  },
+  "preprocessing_and_splits": {
+    "n_initial_raw": 31962,
+    "n_empty_dropped": 2,
+    "n_conflict_groups": 1,
+    "n_conflict_rows_dropped": 2,
+    "n_near_duplicate_rows_dropped": 3628,
+    "n_total_dropped": 3632,
+    "n_final_unique_clean": 28330,
+    "final_label_0": 26484,
+    "final_label_1": 1846,
+    "final_pos_rate_pct": 6.5161,
+    "splits": {
+      "train": {
+        "n_rows": 19830,
+        "label_0": 18538,
+        "label_1": 1292,
+        "pos_rate_pct": 6.5154
+      },
+      "val": {
+        "n_rows": 4250,
+        "label_0": 3973,
+        "label_1": 277,
+        "pos_rate_pct": 6.5176
+      },
+      "test": {
+        "n_rows": 4250,
+        "label_0": 3973,
+        "label_1": 277,
+        "pos_rate_pct": 6.5176
+      }
+    },
+    "word_len_before_mean": 13.3,
+    "word_len_after_mean": 12.1
+  },
+  "balance_choice": {
+    "chosen_strategy": "ros",
+    "chosen_reason": "Chiến lược 'ros' đạt CV F1 lớp dương cao nhất (0.5876 ± 0.0117) và PR-AUC = 0.6337 trên 5-fold StratifiedKFold tập train.",
+    "table": [
+      {
+        "strategy": "none",
+        "description": "Không cân bằng (None)",
+        "precision_mean": 0.8726,
+        "precision_std": 0.0454,
+        "recall_mean": 0.1385,
+        "recall_std": 0.0131,
+        "f1_pos_mean": 0.239,
+        "f1_pos_std": 0.0207,
+        "pr_auc_mean": 0.62,
+        "pr_auc_std": 0.0199,
+        "roc_auc_mean": 0.9346,
+        "fit_seconds": 2.65
+      },
+      {
+        "strategy": "class_weight",
+        "description": "Trọng số lớp (class_weight='balanced')",
+        "precision_mean": 0.4733,
+        "precision_std": 0.0162,
+        "recall_mean": 0.7307,
+        "recall_std": 0.0295,
+        "f1_pos_mean": 0.5742,
+        "f1_pos_std": 0.0169,
+        "pr_auc_mean": 0.6263,
+        "pr_auc_std": 0.0204,
+        "roc_auc_mean": 0.9369,
+        "fit_seconds": 2.67
+      },
+      {
+        "strategy": "ros",
+        "description": "RandomOverSampler (ROS)",
+        "precision_mean": 0.5105,
+        "precision_std": 0.0218,
+        "recall_mean": 0.6935,
+        "recall_std": 0.0209,
+        "f1_pos_mean": 0.5876,
+        "f1_pos_std": 0.0117,
+        "pr_auc_mean": 0.6337,
+        "pr_auc_std": 0.0217,
+        "roc_auc_mean": 0.9367,
+        "fit_seconds": 2.86
+      },
+      {
+        "strategy": "smote",
+        "description": "SMOTE (k=5)",
+        "precision_mean": 0.507,
+        "precision_std": 0.0436,
+        "recall_mean": 0.6803,
+        "recall_std": 0.0277,
+        "f1_pos_mean": 0.5794,
+        "f1_pos_std": 0.0237,
+        "pr_auc_mean": 0.6269,
+        "pr_auc_std": 0.0228,
+        "roc_auc_mean": 0.9348,
+        "fit_seconds": 3.02
+      },
+      {
+        "strategy": "rus",
+        "description": "RandomUnderSampler (RUS)",
+        "precision_mean": 0.2827,
+        "precision_std": 0.0119,
+        "recall_mean": 0.8367,
+        "recall_std": 0.0069,
+        "f1_pos_mean": 0.4225,
+        "f1_pos_std": 0.0131,
+        "pr_auc_mean": 0.5493,
+        "pr_auc_std": 0.0251,
+        "roc_auc_mean": 0.9199,
+        "fit_seconds": 2.49
+      },
+      {
+        "strategy": "smote_tomek",
+        "description": "SMOTETomek",
+        "precision_mean": 0.507,
+        "precision_std": 0.0436,
+        "recall_mean": 0.6803,
+        "recall_std": 0.0277,
+        "f1_pos_mean": 0.5794,
+        "f1_pos_std": 0.0237,
+        "pr_auc_mean": 0.6269,
+        "pr_auc_std": 0.0228,
+        "roc_auc_mean": 0.9348,
+        "fit_seconds": 55.2
+      }
+    ]
+  },
+  "models": [
+    {
+      "run_id": "lr__word+char",
+      "model_key": "lr",
+      "model_name": "Logistic Regression",
+      "vectorizer": "word+char",
+      "balance": "ros",
+      "cv_f1_mean": 0.6478,
+      "cv_f1_std": 0.0186,
+      "precision_pos": 0.5795,
+      "recall_pos": 0.7365,
+      "f1_pos": 0.6486,
+      "f1_macro": 0.8103,
+      "accuracy": 0.948,
+      "balanced_acc": 0.8496,
+      "roc_auc": 0.9466,
+      "pr_auc": 0.709,
+      "mcc": 0.6262,
+      "tn": 3825,
+      "fp": 148,
+      "fn": 73,
+      "tp": 204,
+      "fit_seconds": 3.859,
+      "predict_ms_per_1k": 111.112,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "bilstm_deep__embedding_128",
+      "model_key": "bilstm_deep",
+      "model_name": "BiLSTM (PyTorch Embedding)",
+      "vectorizer": "embedding_128",
+      "balance": "pos_weight",
+      "cv_f1_mean": 0.5973,
+      "cv_f1_std": 0.0,
+      "precision_pos": 0.5663,
+      "recall_pos": 0.6318,
+      "f1_pos": 0.5973,
+      "f1_macro": 0.7837,
+      "accuracy": 0.9445,
+      "balanced_acc": 0.799,
+      "roc_auc": 0.9133,
+      "pr_auc": 0.6168,
+      "mcc": 0.5685,
+      "tn": 3839,
+      "fp": 134,
+      "fn": 102,
+      "tp": 175,
+      "fit_seconds": 83.86,
+      "predict_ms_per_1k": 77.395,
+      "note": "Deep Learning bonus (cpu)"
+    },
+    {
+      "run_id": "svm_linear__word+char",
+      "model_key": "svm_linear",
+      "model_name": "Linear SVM (Calibrated)",
+      "vectorizer": "word+char",
+      "balance": "ros",
+      "cv_f1_mean": 0.5569,
+      "cv_f1_std": 0.0284,
+      "precision_pos": 0.8323,
+      "recall_pos": 0.4657,
+      "f1_pos": 0.5972,
+      "f1_macro": 0.7878,
+      "accuracy": 0.9591,
+      "balanced_acc": 0.7296,
+      "roc_auc": 0.9342,
+      "pr_auc": 0.7039,
+      "mcc": 0.6046,
+      "tn": 3947,
+      "fp": 26,
+      "fn": 148,
+      "tp": 129,
+      "fit_seconds": 4.239,
+      "predict_ms_per_1k": 110.788,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "lr__word_tfidf",
+      "model_key": "lr",
+      "model_name": "Logistic Regression",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.5876,
+      "cv_f1_std": 0.0117,
+      "precision_pos": 0.5053,
+      "recall_pos": 0.6895,
+      "f1_pos": 0.5832,
+      "f1_macro": 0.7742,
+      "accuracy": 0.9358,
+      "balanced_acc": 0.8212,
+      "roc_auc": 0.932,
+      "pr_auc": 0.6377,
+      "mcc": 0.5571,
+      "tn": 3786,
+      "fp": 187,
+      "fn": 86,
+      "tp": 191,
+      "fit_seconds": 0.597,
+      "predict_ms_per_1k": 13.099,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "svm_linear__word_tfidf",
+      "model_key": "svm_linear",
+      "model_name": "Linear SVM (Calibrated)",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.5492,
+      "cv_f1_std": 0.0321,
+      "precision_pos": 0.7529,
+      "recall_pos": 0.4621,
+      "f1_pos": 0.5727,
+      "f1_macro": 0.7745,
+      "accuracy": 0.9551,
+      "balanced_acc": 0.7258,
+      "roc_auc": 0.9195,
+      "pr_auc": 0.6267,
+      "mcc": 0.5688,
+      "tn": 3931,
+      "fp": 42,
+      "fn": 149,
+      "tp": 128,
+      "fit_seconds": 0.946,
+      "predict_ms_per_1k": 18.859,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "nb__word+char",
+      "model_key": "nb",
+      "model_name": "Complement Naive Bayes",
+      "vectorizer": "word+char",
+      "balance": "ros",
+      "cv_f1_mean": 0.5713,
+      "cv_f1_std": 0.0075,
+      "precision_pos": 0.427,
+      "recall_pos": 0.8448,
+      "f1_pos": 0.5673,
+      "f1_macro": 0.7604,
+      "accuracy": 0.916,
+      "balanced_acc": 0.8829,
+      "roc_auc": 0.9559,
+      "pr_auc": 0.7403,
+      "mcc": 0.564,
+      "tn": 3659,
+      "fp": 314,
+      "fn": 43,
+      "tp": 234,
+      "fit_seconds": 2.563,
+      "predict_ms_per_1k": 110.1,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "lgbm__word_tfidf",
+      "model_key": "lgbm",
+      "model_name": "LightGBM",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.5416,
+      "cv_f1_std": 0.017,
+      "precision_pos": 0.4562,
+      "recall_pos": 0.6209,
+      "f1_pos": 0.526,
+      "f1_macro": 0.7432,
+      "accuracy": 0.9271,
+      "balanced_acc": 0.7847,
+      "roc_auc": 0.9035,
+      "pr_auc": 0.5713,
+      "mcc": 0.4943,
+      "tn": 3768,
+      "fp": 205,
+      "fn": 105,
+      "tp": 172,
+      "fit_seconds": 3.593,
+      "predict_ms_per_1k": 25.428,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "rf__word_tfidf",
+      "model_key": "rf",
+      "model_name": "Random Forest",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.5344,
+      "cv_f1_std": 0.0237,
+      "precision_pos": 0.4447,
+      "recall_pos": 0.6245,
+      "f1_pos": 0.5195,
+      "f1_macro": 0.7393,
+      "accuracy": 0.9247,
+      "balanced_acc": 0.7851,
+      "roc_auc": 0.9072,
+      "pr_auc": 0.595,
+      "mcc": 0.4881,
+      "tn": 3757,
+      "fp": 216,
+      "fn": 104,
+      "tp": 173,
+      "fit_seconds": 1.888,
+      "predict_ms_per_1k": 31.193,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "nb__word_tfidf",
+      "model_key": "nb",
+      "model_name": "Complement Naive Bayes",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.5252,
+      "cv_f1_std": 0.0148,
+      "precision_pos": 0.379,
+      "recall_pos": 0.769,
+      "f1_pos": 0.5077,
+      "f1_macro": 0.7269,
+      "accuracy": 0.9028,
+      "balanced_acc": 0.8406,
+      "roc_auc": 0.9353,
+      "pr_auc": 0.6765,
+      "mcc": 0.4963,
+      "tn": 3624,
+      "fp": 349,
+      "fn": 64,
+      "tp": 213,
+      "fit_seconds": 0.515,
+      "predict_ms_per_1k": 14.05,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "xgb__word_tfidf",
+      "model_key": "xgb",
+      "model_name": "XGBoost",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.499,
+      "cv_f1_std": 0.015,
+      "precision_pos": 0.4053,
+      "recall_pos": 0.6643,
+      "f1_pos": 0.5034,
+      "f1_macro": 0.7283,
+      "accuracy": 0.9146,
+      "balanced_acc": 0.7982,
+      "roc_auc": 0.8955,
+      "pr_auc": 0.5513,
+      "mcc": 0.4765,
+      "tn": 3703,
+      "fp": 270,
+      "fn": 93,
+      "tp": 184,
+      "fit_seconds": 23.328,
+      "predict_ms_per_1k": 23.811,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "svm_rbf__word_tfidf",
+      "model_key": "svm_rbf",
+      "model_name": "RBF-Kernel SVM",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.3741,
+      "cv_f1_std": 0.0253,
+      "precision_pos": 0.8925,
+      "recall_pos": 0.2996,
+      "f1_pos": 0.4486,
+      "f1_macro": 0.7118,
+      "accuracy": 0.952,
+      "balanced_acc": 0.6486,
+      "roc_auc": 0.8994,
+      "pr_auc": 0.5988,
+      "mcc": 0.5013,
+      "tn": 3963,
+      "fp": 10,
+      "fn": 194,
+      "tp": 83,
+      "fit_seconds": 19.108,
+      "predict_ms_per_1k": 575.178,
+      "note": "Train trên mẫu con 8,000 dòng do độ phức tạp bậc 2"
+    },
+    {
+      "run_id": "distilbert__subword_wp",
+      "model_key": "distilbert",
+      "model_name": "DistilBERT (Fine-tuned)",
+      "vectorizer": "subword_wp_80",
+      "balance": "class_weight",
+      "cv_f1_mean": 0.4434,
+      "cv_f1_std": 0.0,
+      "precision_pos": 0.301,
+      "recall_pos": 0.8412,
+      "f1_pos": 0.4434,
+      "f1_macro": 0.6824,
+      "accuracy": 0.8624,
+      "balanced_acc": 0.8525,
+      "roc_auc": 0.9266,
+      "pr_auc": 0.56,
+      "mcc": 0.4509,
+      "tn": 3432,
+      "fp": 541,
+      "fn": 44,
+      "tp": 233,
+      "fit_seconds": 257.329,
+      "predict_ms_per_1k": 17224.577,
+      "note": "Transformer bonus (cpu, n_train=1500)"
+    },
+    {
+      "run_id": "knn__word_tfidf",
+      "model_key": "knn",
+      "model_name": "K-Nearest Neighbors (Cosine)",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.3796,
+      "cv_f1_std": 0.0118,
+      "precision_pos": 0.2955,
+      "recall_pos": 0.574,
+      "f1_pos": 0.3902,
+      "f1_macro": 0.6628,
+      "accuracy": 0.8831,
+      "balanced_acc": 0.7393,
+      "roc_auc": 0.7981,
+      "pr_auc": 0.2857,
+      "mcc": 0.3553,
+      "tn": 3594,
+      "fp": 379,
+      "fn": 118,
+      "tp": 159,
+      "fit_seconds": 0.53,
+      "predict_ms_per_1k": 523.8,
+      "note": "Train toàn bộ tập train"
+    },
+    {
+      "run_id": "dt__word_tfidf",
+      "model_key": "dt",
+      "model_name": "Decision Tree",
+      "vectorizer": "word_tfidf",
+      "balance": "ros",
+      "cv_f1_mean": 0.3669,
+      "cv_f1_std": 0.0288,
+      "precision_pos": 0.3316,
+      "recall_pos": 0.4549,
+      "f1_pos": 0.3836,
+      "f1_macro": 0.666,
+      "accuracy": 0.9047,
+      "balanced_acc": 0.6955,
+      "roc_auc": 0.7296,
+      "pr_auc": 0.2582,
+      "mcc": 0.3382,
+      "tn": 3719,
+      "fp": 254,
+      "fn": 151,
+      "tp": 126,
+      "fit_seconds": 1.642,
+      "predict_ms_per_1k": 14.482,
+      "note": "Train toàn bộ tập train"
+    }
+  ],
+  "paired_ttests": [
+    {
+      "run_a": "lr__word+char",
+      "run_b": "svm_linear__word+char",
+      "mean_diff_f1": 0.0909,
+      "t_statistic": 8.7064,
+      "p_value": 0.001,
+      "significant_at_005": true
+    },
+    {
+      "run_a": "lr__word+char",
+      "run_b": "lr__word_tfidf",
+      "mean_diff_f1": 0.0602,
+      "t_statistic": 12.4889,
+      "p_value": 0.0002,
+      "significant_at_005": true
+    },
+    {
+      "run_a": "svm_linear__word+char",
+      "run_b": "lr__word_tfidf",
+      "mean_diff_f1": -0.0307,
+      "t_statistic": -3.6158,
+      "p_value": 0.0224,
+      "significant_at_005": true
+    }
+  ],
+  "tuning_before_after": [
+    {
+      "model_key": "lr",
+      "model_name": "Logistic Regression",
+      "cv_f1_before": 0.5876,
+      "cv_f1_after": 0.5976,
+      "val_f1_before": 0.5832,
+      "val_f1_after_thr05": 0.6056,
+      "best_threshold": 0.565,
+      "val_f1_after_tuned_thr": 0.625,
+      "val_precision_after": 0.6367,
+      "val_recall_after": 0.6137,
+      "val_pr_auc_after": 0.6419,
+      "val_roc_auc_after": 0.9198,
+      "f1_gain_vs_baseline": 0.0418,
+      "search_seconds": 100.66,
+      "best_params_json": "{\"clf__C\": 23.39586, \"clf__class_weight\": \"balanced\", \"clf__penalty\": \"l2\", \"tfidf__max_features\": 50000, \"tfidf__min_df\": 3, \"tfidf__ngram_range\": [1, 2]}"
+    },
+    {
+      "model_key": "svm_linear",
+      "model_name": "Linear SVM (Calibrated)",
+      "cv_f1_before": 0.5492,
+      "cv_f1_after": 0.6112,
+      "val_f1_before": 0.5727,
+      "val_f1_after_thr05": 0.5996,
+      "best_threshold": 0.315,
+      "val_f1_after_tuned_thr": 0.6566,
+      "val_precision_after": 0.6877,
+      "val_recall_after": 0.6282,
+      "val_pr_auc_after": 0.6636,
+      "val_roc_auc_after": 0.9321,
+      "f1_gain_vs_baseline": 0.0839,
+      "search_seconds": 128.94,
+      "best_params_json": "{\"clf__C\": 0.50191, \"clf__class_weight\": \"balanced\", \"clf__loss\": \"squared_hinge\", \"tfidf__max_features\": 50000, \"tfidf__min_df\": 2, \"tfidf__ngram_range\": [1, 3]}"
+    },
+    {
+      "model_key": "nb",
+      "model_name": "Complement Naive Bayes",
+      "cv_f1_before": 0.5252,
+      "cv_f1_after": 0.5858,
+      "val_f1_before": 0.5077,
+      "val_f1_after_thr05": 0.5922,
+      "best_threshold": 0.5,
+      "val_f1_after_tuned_thr": 0.5922,
+      "val_precision_after": 0.4951,
+      "val_recall_after": 0.7365,
+      "val_pr_auc_after": 0.6985,
+      "val_roc_auc_after": 0.9377,
+      "f1_gain_vs_baseline": 0.0845,
+      "search_seconds": 121.42,
+      "best_params_json": "{\"clf__alpha\": 0.14971, \"clf__norm\": true, \"tfidf__max_features\": 50000, \"tfidf__min_df\": 2, \"tfidf__ngram_range\": [1, 1]}"
+    }
+  ],
+  "best_model": {
+    "name": "Linear SVM (Calibrated)",
+    "key": "svm_linear",
+    "selection_reason": "Linear SVM (Calibrated) đạt Val F1 sau tinh chỉnh ngưỡng cao nhất (0.6566, PR-AUC = 0.6636) với ngưỡng quyết định tối ưu threshold = 0.3150.",
+    "params": {
+      "clf__C": 0.50191,
+      "clf__class_weight": "balanced",
+      "clf__loss": "squared_hinge",
+      "tfidf__max_features": 50000,
+      "tfidf__min_df": 2,
+      "tfidf__ngram_range": [
+        1,
+        3
+      ]
+    },
+    "threshold": 0.315,
+    "val_metrics_before_tuning": {
+      "val_f1_before": 0.5727,
+      "val_precision_before": 0.7529,
+      "val_recall_before": 0.4621,
+      "val_pr_auc_before": 0.6267,
+      "cv_f1_before": 0.5492
+    },
+    "val_metrics_after_tuning_thr05": {
+      "precision_pos": 0.7368,
+      "recall_pos": 0.5054,
+      "f1_pos": 0.5996,
+      "f1_macro": 0.7881,
+      "accuracy": 0.956,
+      "balanced_acc": 0.7464,
+      "roc_auc": 0.9321,
+      "pr_auc": 0.6636,
+      "mcc": 0.5886,
+      "tn": 3923,
+      "fp": 50,
+      "fn": 137,
+      "tp": 140
+    },
+    "val_metrics_after_tuning_best_thr": {
+      "precision_pos": 0.6877,
+      "recall_pos": 0.6282,
+      "f1_pos": 0.6566,
+      "f1_macro": 0.8169,
+      "accuracy": 0.9572,
+      "balanced_acc": 0.8041,
+      "roc_auc": 0.9321,
+      "pr_auc": 0.6636,
+      "mcc": 0.6346,
+      "tn": 3894,
+      "fp": 79,
+      "fn": 103,
+      "tp": 174
+    }
+  },
+  "bonus_models": {
+    "has_cuda": false,
+    "bilstm": {
+      "precision_pos": 0.5663,
+      "recall_pos": 0.6318,
+      "f1_pos": 0.5973,
+      "f1_macro": 0.7837,
+      "accuracy": 0.9445,
+      "balanced_acc": 0.799,
+      "roc_auc": 0.9133,
+      "pr_auc": 0.6168,
+      "mcc": 0.5685,
+      "tn": 3839,
+      "fp": 134,
+      "fn": 102,
+      "tp": 175,
+      "fit_seconds": 83.86,
+      "predict_ms_per_1k": 77.395,
+      "device": "cpu"
+    },
+    "distilbert": {
+      "precision_pos": 0.301,
+      "recall_pos": 0.8412,
+      "f1_pos": 0.4434,
+      "f1_macro": 0.6824,
+      "accuracy": 0.8624,
+      "balanced_acc": 0.8525,
+      "roc_auc": 0.9266,
+      "pr_auc": 0.56,
+      "mcc": 0.4509,
+      "tn": 3432,
+      "fp": 541,
+      "fn": 44,
+      "tp": 233,
+      "fit_seconds": 257.329,
+      "predict_ms_per_1k": 17224.577,
+      "device": "cpu",
+      "n_train_used": 1500
+    },
+    "tradeoff_conclusion": "Mô hình cổ điển tối ưu (TF-IDF + Linear Classifier) đạt hiệu năng F1/PR-AUC rất cạnh tranh, nhưng nhanh hơn hàng chục đến hàng trăm lần, nhẹ (<10MB so với ~260MB của DistilBERT) và hỗ trợ giải thích trực tiếp trọng số từng từ. Do đó mô hình cổ điển được chọn cho ứng dụng Streamlit."
+  },
+  "final_test": {
+    "evaluated_once_at": "2026-11-16T10:26:46Z",
+    "test_file_sha256": "0472faf53639bb6c31ba8fcb33c6153ac4cefe1c4f9cee77c53a332dbc0e41f2",
+    "n_test_rows": 4250,
+    "n_test_pos": 277,
+    "n_test_neg": 3973,
+    "threshold": 0.315,
+    "f1_pos": 0.6266,
+    "precision_pos": 0.6324,
+    "recall_pos": 0.6209,
+    "f1_macro": 0.8004,
+    "accuracy": 0.9518,
+    "balanced_acc": 0.7979,
+    "roc_auc": 0.9345,
+    "pr_auc": 0.6651,
+    "mcc": 0.6008,
+    "tn": 3873,
+    "fp": 100,
+    "fn": 105,
+    "tp": 172,
+    "default_05_f1_pos": 0.6427,
+    "default_05_precision_pos": 0.7755,
+    "default_05_recall_pos": 0.5487,
+    "ci95": {
+      "n_bootstrap": 1000,
+      "seed": 42,
+      "threshold": 0.315,
+      "f1_pos": {
+        "mean": 0.6249,
+        "std": 0.0246,
+        "ci95_low": 0.5764,
+        "ci95_high": 0.6716
+      },
+      "precision_pos": {
+        "mean": 0.6307,
+        "std": 0.0296,
+        "ci95_low": 0.573,
+        "ci95_high": 0.688
+      },
+      "recall_pos": {
+        "mean": 0.6201,
+        "std": 0.0294,
+        "ci95_low": 0.5631,
+        "ci95_high": 0.6773
+      },
+      "pr_auc": {
+        "mean": 0.6642,
+        "std": 0.0286,
+        "ci95_low": 0.6072,
+        "ci95_high": 0.7195
+      },
+      "roc_auc": {
+        "mean": 0.9341,
+        "std": 0.0086,
+        "ci95_low": 0.9167,
+        "ci95_high": 0.9506
+      }
+    }
+  },
+  "realworld": {
+    "n": 300,
+    "n_pos": 74,
+    "n_neg": 226,
+    "kappa": 0.9204,
+    "agreement_pct": 97.0,
+    "n_disagreements": 9,
+    "overall_metrics": {
+      "precision_pos": 0.4221,
+      "recall_pos": 0.8784,
+      "f1_pos": 0.5702,
+      "f1_macro": 0.6534,
+      "accuracy": 0.6733,
+      "balanced_acc": 0.7423,
+      "roc_auc": 0.8219,
+      "pr_auc": 0.5742,
+      "mcc": 0.4179,
+      "tn": 137,
+      "fp": 89,
+      "fn": 9,
+      "tp": 65
+    },
+    "f1_by_source": [
+      {
+        "source": "A_hate_unlabeled_test",
+        "n_samples": 100,
+        "n_pos": 37,
+        "n_neg": 63,
+        "precision_pos": 0.7255,
+        "recall_pos": 1.0,
+        "f1_pos": 0.8409,
+        "f1_macro": 0.858,
+        "accuracy": 0.86,
+        "balanced_acc": 0.8889,
+        "roc_auc": 0.9088,
+        "pr_auc": 0.7687,
+        "mcc": 0.7512,
+        "tn": 49,
+        "fp": 14,
+        "fn": 0,
+        "tp": 37
+      },
+      {
+        "source": "B_Twitter_Data",
+        "n_samples": 100,
+        "n_pos": 7,
+        "n_neg": 93,
+        "precision_pos": 0.1373,
+        "recall_pos": 1.0,
+        "f1_pos": 0.2414,
+        "f1_macro": 0.4658,
+        "accuracy": 0.56,
+        "balanced_acc": 0.7634,
+        "roc_auc": 0.7803,
+        "pr_auc": 0.1552,
+        "mcc": 0.2689,
+        "tn": 49,
+        "fp": 44,
+        "fn": 0,
+        "tp": 7
+      },
+      {
+        "source": "C_Reddit_Data",
+        "n_samples": 50,
+        "n_pos": 10,
+        "n_neg": 40,
+        "precision_pos": 0.3448,
+        "recall_pos": 1.0,
+        "f1_pos": 0.5128,
+        "f1_macro": 0.6007,
+        "accuracy": 0.62,
+        "balanced_acc": 0.7625,
+        "roc_auc": 0.7625,
+        "pr_auc": 0.3519,
+        "mcc": 0.4255,
+        "tn": 21,
+        "fp": 19,
+        "fn": 0,
+        "tp": 10
+      },
+      {
+        "source": "D_adversarial_curated",
+        "n_samples": 50,
+        "n_pos": 20,
+        "n_neg": 30,
+        "precision_pos": 0.4783,
+        "recall_pos": 0.55,
+        "f1_pos": 0.5116,
+        "f1_macro": 0.5716,
+        "accuracy": 0.58,
+        "balanced_acc": 0.575,
+        "roc_auc": 0.6067,
+        "pr_auc": 0.4417,
+        "mcc": 0.1474,
+        "tn": 18,
+        "fp": 12,
+        "fn": 9,
+        "tp": 11
+      }
+    ],
+    "davidson_cross_domain": {
+      "precision_pos": 0.5876,
+      "recall_pos": 0.265,
+      "f1_pos": 0.3653,
+      "f1_macro": 0.6104,
+      "accuracy": 0.7645,
+      "balanced_acc": 0.6006,
+      "roc_auc": 0.6713,
+      "pr_auc": 0.4662,
+      "mcc": 0.2747,
+      "tn": 3897,
+      "fp": 266,
+      "fn": 1051,
+      "tp": 379,
+      "n_rows": 5593,
+      "n_pos": 1430
+    },
+    "assigned_twitter_by_sentiment": [
+      {
+        "sentiment": -1,
+        "sentiment_name": "-1 (Tiêu cực)",
+        "n_tweets": 35509,
+        "n_predicted_hate": 3700,
+        "pct_predicted_hate": 10.42,
+        "mean_hate_score": 0.1258
+      },
+      {
+        "sentiment": 0,
+        "sentiment_name": "0 (Trung tính)",
+        "n_tweets": 55211,
+        "n_predicted_hate": 3434,
+        "pct_predicted_hate": 6.22,
+        "mean_hate_score": 0.095
+      },
+      {
+        "sentiment": 1,
+        "sentiment_name": "+1 (Tích cực)",
+        "n_tweets": 72249,
+        "n_predicted_hate": 4217,
+        "pct_predicted_hate": 5.84,
+        "mean_hate_score": 0.0898
+      }
+    ],
+    "sample_errors_masked": [
+      {
+        "id": 10,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9998,
+        "text_masked": "@user #antifeminism #feminism @user #women  #womenagainstfeminism #misogyny #patriarchy #equality â¦ ",
+        "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+      },
+      {
+        "id": 12,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9526,
+        "text_masked": "@user #allahsoil the two most common traits shared by people are language and religion.  â¦â¦ ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 14,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9496,
+        "text_masked": "the latest the blicqerâ¢ daily!  thanks to @user @user @user  #america",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 26,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9831,
+        "text_masked": "@user #allahsoil reckless subprime lending was rewarded and largely concealed  â¦ â¦ #2016in4wordsâ¦ ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 36,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.996,
+        "text_masked": "@user @user #trump celebrating,#woman of #america, a #misogynistic,#abusing, ,#fantasyland of #equality",
+        "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+      },
+      {
+        "id": 39,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9488,
+        "text_masked": "be careful in criticizing #obama for his decision on #israel &amp; sanctions against #russiahacking , as #liberals will consider this ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 40,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9825,
+        "text_masked": "@user #trumpsamerica will suck bigly ny gov. cuomo condemns carl paladino for â, uglyâ remarks abt obamas ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 42,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9496,
+        "text_masked": "@user = #paidtrumpette your comments are reflections of ignorance and ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 51,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9699,
+        "text_masked": "@user remember when arabs were called racists &amp; terrorists?  #equality ",
+        "note": "Nhắc đến nhóm đối tượng/chính trị nhưng không mang tính miệt thị"
+      },
+      {
+        "id": 54,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9455,
+        "text_masked": "@user nope not factual. your comments are reflections of ignorance and  @user",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 74,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9292,
+        "text_masked": "@user you are a complete jerk. your comments are reflections of ignorance and  .",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 75,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.5563,
+        "text_masked": "over here obama and his gaggle of left wingnuts want to disarm us law abiding americans. prayers to cox family.   ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 78,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9508,
+        "text_masked": "@user #allahsoil humans have a tendency to separate the world into good and evil .  â¦   #emiratis #2â¦",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 83,
+        "source": "A_hate_unlabeled_test",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.9455,
+        "text_masked": "tyler perry claims 'reverse racism' by critics of his tlc series - thewrap   ",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      },
+      {
+        "id": 104,
+        "source": "B_Twitter_Data",
+        "error_type": "FP (Báo động giả)",
+        "label_final": 0,
+        "y_pred": 1,
+        "score": 0.6387,
+        "text_masked": "she contesting against modi why dont you convince her contest against modi you are confident",
+        "note": "Nội dung bình thường hoặc cảm xúc cá nhân"
+      }
+    ],
+    "sample_correct_masked": [
+      {
+        "id": 251,
+        "source": "D_adversarial_curated",
+        "label_final": 1,
+        "y_pred": 1,
+        "score": 0.3207,
+        "text_masked": "Women do not belong in engineering or leadership roles because they are too emotional to think logically.",
+        "note": "Định kiến hạ thấp phụ nữ trong công việc"
+      },
+      {
+        "id": 253,
+        "source": "D_adversarial_curated",
+        "label_final": 1,
+        "y_pred": 1,
+        "score": 0.698,
+        "text_masked": "Stop letting these stupid b*****s ruin men's sports and politics, they have zero brains.",
+        "note": "Từ miệt thị giới tính + hạ thấp phụ nữ"
+      },
+      {
+        "id": 254,
+        "source": "D_adversarial_curated",
+        "label_final": 1,
+        "y_pred": 1,
+        "score": 0.7217,
+        "text_masked": "A woman's only real value is cooking, cleaning and obeying her husband without complaining.",
+        "note": "Áp đặt vai trò giới cực đoan"
+      },
+      {
+        "id": 280,
+        "source": "D_adversarial_curated",
+        "label_final": 0,
+        "y_pred": 0,
+        "score": 0.284,
+        "text_masked": "Muslim, Christian, and Jewish families gathered at the community center to share dinner.",
+        "note": "Hoạt động cộng đồng đa tôn giáo"
+      },
+      {
+        "id": 281,
+        "source": "D_adversarial_curated",
+        "label_final": 0,
+        "y_pred": 0,
+        "score": 0.0383,
+        "text_masked": "The women's national soccer team won the championship after a thrilling penalty shootout.",
+        "note": "Tin thể thao về đội tuyển nữ"
+      }
+    ]
+  },
+  "top_discriminative_terms_masked": {
+    "log_odds_top20": [
+      {
+        "token": "allahsoil",
+        "c1": 53,
+        "c0": 0,
+        "log_odds": 6.714
+      },
+      {
+        "token": "kk",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "paladino",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "teambts",
+        "c1": 15,
+        "c0": 0,
+        "log_odds": 5.4976
+      },
+      {
+        "token": "jew",
+        "c1": 14,
+        "c0": 0,
+        "log_odds": 5.4331
+      },
+      {
+        "token": "blacklivesmatter",
+        "c1": 12,
+        "c0": 0,
+        "log_odds": 5.29
+      },
+      {
+        "token": "emiratis",
+        "c1": 11,
+        "c0": 0,
+        "log_odds": 5.2099
+      },
+      {
+        "token": "notmypresident",
+        "c1": 11,
+        "c0": 0,
+        "log_odds": 5.2099
+      },
+      {
+        "token": "misogynist",
+        "c1": 20,
+        "c0": 1,
+        "log_odds": 5.0764
+      },
+      {
+        "token": "bigot",
+        "c1": 25,
+        "c0": 2,
+        "log_odds": 4.8845
+      },
+      {
+        "token": "altright",
+        "c1": 12,
+        "c0": 1,
+        "log_odds": 4.5968
+      },
+      {
+        "token": "carl",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "misogyny",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "remark",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "xenophobia",
+        "c1": 11,
+        "c0": 1,
+        "log_odds": 4.5168
+      },
+      {
+        "token": "nazi",
+        "c1": 14,
+        "c0": 2,
+        "log_odds": 4.3345
+      },
+      {
+        "token": "racism",
+        "c1": 46,
+        "c0": 9,
+        "log_odds": 4.2726
+      },
+      {
+        "token": "stomp",
+        "c1": 12,
+        "c0": 2,
+        "log_odds": 4.1914
+      },
+      {
+        "token": "equality",
+        "c1": 11,
+        "c0": 2,
+        "log_odds": 4.1113
+      },
+      {
+        "token": "bigotry",
+        "c1": 10,
+        "c0": 2,
+        "log_odds": 4.0243
+      }
+    ],
+    "model_positive_top20": [
+      {
+        "term_masked": "allahsoil",
+        "weight": 3.7374
+      },
+      {
+        "term_masked": "white",
+        "weight": 3.1309
+      },
+      {
+        "term_masked": "racism",
+        "weight": 2.8928
+      },
+      {
+        "term_masked": "racist",
+        "weight": 2.6715
+      },
+      {
+        "term_masked": "trump",
+        "weight": 2.3914
+      },
+      {
+        "term_masked": "bigot",
+        "weight": 2.3181
+      },
+      {
+        "term_masked": "woman",
+        "weight": 2.2107
+      },
+      {
+        "term_masked": "black",
+        "weight": 2.0631
+      },
+      {
+        "term_masked": "against",
+        "weight": 2.0425
+      },
+      {
+        "term_masked": "blacklivesmatter",
+        "weight": 1.9595
+      },
+      {
+        "term_masked": "obama",
+        "weight": 1.9359
+      },
+      {
+        "term_masked": "misogynist",
+        "weight": 1.8218
+      },
+      {
+        "term_masked": "maga",
+        "weight": 1.7759
+      },
+      {
+        "term_masked": "misogyny",
+        "weight": 1.7689
+      },
+      {
+        "term_masked": "boycott",
+        "weight": 1.718
+      },
+      {
+        "term_masked": "equality",
+        "weight": 1.6923
+      },
+      {
+        "term_masked": "jew",
+        "weight": 1.6061
+      },
+      {
+        "term_masked": "race",
+        "weight": 1.5972
+      },
+      {
+        "term_masked": "kk",
+        "weight": 1.578
+      },
+      {
+        "term_masked": "comment",
+        "weight": 1.5641
+      }
+    ],
+    "model_negative_top20": [
+      {
+        "term_masked": "day",
+        "weight": -1.6496
+      },
+      {
+        "term_masked": "orlando",
+        "weight": -1.5132
+      },
+      {
+        "term_masked": "bihday",
+        "weight": -1.2928
+      },
+      {
+        "term_masked": "life",
+        "weight": -1.2448
+      },
+      {
+        "term_masked": "love",
+        "weight": -1.192
+      },
+      {
+        "term_masked": "smile",
+        "weight": -1.1528
+      },
+      {
+        "term_masked": "happy",
+        "weight": -1.1151
+      },
+      {
+        "term_masked": "sad",
+        "weight": -1.0855
+      },
+      {
+        "term_masked": "my",
+        "weight": -1.0261
+      },
+      {
+        "term_masked": "when",
+        "weight": -0.9927
+      },
+      {
+        "term_masked": "happiness",
+        "weight": -0.9918
+      },
+      {
+        "term_masked": "gun",
+        "weight": -0.9778
+      },
+      {
+        "term_masked": "hardcore",
+        "weight": -0.9713
+      },
+      {
+        "term_masked": "healthy",
+        "weight": -0.9535
+      },
+      {
+        "term_masked": "amaze",
+        "weight": -0.9133
+      },
+      {
+        "term_masked": "tomorrow",
+        "weight": -0.8938
+      },
+      {
+        "term_masked": "friday",
+        "weight": -0.8759
+      },
+      {
+        "term_masked": "summer",
+        "weight": -0.8728
+      },
+      {
+        "term_masked": "pathetic",
+        "weight": -0.8596
+      },
+      {
+        "term_masked": "weekend",
+        "weight": -0.8453
+      }
+    ]
+  },
+  "error_causes": [
+    {
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "FN (Bỏ sót)": 65,
+      "FP (Báo động giả)": 0,
+      "total": 65,
+      "pct": 31.71
+    },
+    {
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "FN (Bỏ sót)": 0,
+      "FP (Báo động giả)": 47,
+      "total": 47,
+      "pct": 22.93
+    },
+    {
+      "cause": "Nhãn gốc nhiễu hoặc ranh giới ngữ nghĩa mờ (Noisy / Borderline Ground-Truth Label)",
+      "FN (Bỏ sót)": 3,
+      "FP (Báo động giả)": 29,
+      "total": 32,
+      "pct": 15.61
+    },
+    {
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "FN (Bỏ sót)": 18,
+      "FP (Báo động giả)": 10,
+      "total": 28,
+      "pct": 13.66
+    },
+    {
+      "cause": "Câu quá ngắn / Từ lóng / Viết tắt thiếu thông tin (Short / Slang / OOV)",
+      "FN (Bỏ sót)": 13,
+      "FP (Báo động giả)": 8,
+      "total": 21,
+      "pct": 10.24
+    },
+    {
+      "cause": "Chuỗi nhiều Hashtag / Khẩu hiệu đa chủ đề (Hashtag-Heavy / Multi-Topic)",
+      "FN (Bỏ sót)": 6,
+      "FP (Báo động giả)": 6,
+      "total": 12,
+      "pct": 5.85
+    }
+  ],
+  "errors_20_masked": [
+    {
+      "id": 1831,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9831,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "@user is the prosecutor considering criminal charges against graves family as they did the greggs? #harambe &gt;black life white liâ¦",
+      "text_clean_masked": "be the prosecutor consider criminal charge against graf family a they do the greggs harambe black life white li"
+    },
+    {
+      "id": 8500,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.968,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "#obama #attacks #trump on #islamâ¦ #trump #dismantles him with one # ... -  ",
+      "text_clean_masked": "obama attack trump on islam trump dismantle him with one"
+    },
+    {
+      "id": 21696,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9611,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "@user trump is a liberal elite. textbook definition of a crony capitalist. trump only cares for trump.   ",
+      "text_clean_masked": "trump be a liberal elite textbook definition of a crony capitalist trump only care for trump"
+    },
+    {
+      "id": 25804,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9567,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "@user ali, spoke the #truth about white folks....#period #facts #idiot #moron #theverycoreofamerica  ",
+      "text_clean_masked": "ali speak the truth about white folk period fact idiot moron theverycoreofamerica"
+    },
+    {
+      "id": 14162,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.934,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "movie ð¥ review.... x-men apocalypse now  #uspresidential#isis men precipitating carnage  #trump and putin needed",
+      "text_clean_masked": "movie review men apocalypse now uspresidentialisis men precipitate carnage trump and putin need"
+    },
+    {
+      "id": 25493,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9296,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "@user what if obama showed the same anger and disgust towards islamic terrorist as he does trump... ",
+      "text_clean_masked": "what if obama show the same anger and disgust towards islamic terrorist a he doe trump"
+    },
+    {
+      "id": 27935,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9178,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "@user how did you slip through?  you are a threat to america  ! #bigotry #misogyny #ignorance #alwaystrup @user",
+      "text_clean_masked": "how do you slip through you be a threat to america bigotry misogyny ignorance alwaystrup"
+    },
+    {
+      "id": 11879,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9057,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "did you tweet those comments!?   #bekindtooneanother ",
+      "text_clean_masked": "do you tweet those comment bekindtooneanother"
+    },
+    {
+      "id": 28217,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.9046,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "@user @user @user everybody hates the white crayon ",
+      "text_clean_masked": "everybody hate the white crayon"
+    },
+    {
+      "id": 27657,
+      "error_type": "FP (Báo động giả)",
+      "label": 0,
+      "y_pred": 1,
+      "score": 0.8846,
+      "cause": "Từ nhạy cảm / Từ chỉ nhóm người trong ngữ cảnh trung tính hoặc phản đối kỳ thị (Sensitive Term in Neutral/Counter-Speech Context)",
+      "text_masked": "black f*****g rapping sexy women   bihday nude  ",
+      "text_clean_masked": "black f**k rap sexy woman bihday nude"
+    },
+    {
+      "id": 2237,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0018,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "travelled for #canucks game sad and disappointed of #oiler fans the  sad i can't cheer for my own team . @user @user",
+      "text_clean_masked": "travel for canuck game sad and disappoint of oiler fan the sad i can't cheer for my own team"
+    },
+    {
+      "id": 3468,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.004,
+      "cause": "Chuỗi nhiều Hashtag / Khẩu hiệu đa chủ đề (Hashtag-Heavy / Multi-Topic)",
+      "text_masked": "episode 6 of the guns for everyone #podcast is up.  #guns #igmilitia  #pewpewlifeâ¦ ",
+      "text_clean_masked": "episode of the gun for everyone podcast be up gun igmilitia pewpewlife"
+    },
+    {
+      "id": 12337,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0043,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "@user care about #cjreform? follow me: i cover #deathpenalty, #juvenilejustice, #bailreform, #prosecutorialmisconduct, â¦",
+      "text_clean_masked": "care about cjreform follow me i cover deathpenalty juvenilejustice bailreform prosecutorialmisconduct"
+    },
+    {
+      "id": 18747,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0043,
+      "cause": "Câu quá ngắn / Từ lóng / Viết tắt thiếu thông tin (Short / Slang / OOV)",
+      "text_masked": "i almost always trust brazilians ",
+      "text_clean_masked": "i almost always trust brazilian"
+    },
+    {
+      "id": 13764,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0069,
+      "cause": "Câu quá ngắn / Từ lóng / Viết tắt thiếu thông tin (Short / Slang / OOV)",
+      "text_masked": "almost as  as dad #5wordtrumplethinskin",
+      "text_clean_masked": "almost a a dad wordtrumplethinskin"
+    },
+    {
+      "id": 17764,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0075,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "@user @user @user    #smileyong along with #kingconrad @user make me go through hell @user   ð¡ðâ¦ ",
+      "text_clean_masked": "smileyong along with kingconrad make me go through hell"
+    },
+    {
+      "id": 1480,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0087,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "smh i cant take these one sided standards ",
+      "text_clean_masked": "smh i cant take these one side standard"
+    },
+    {
+      "id": 8092,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0126,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "@user my story: how #race and  have played a role in my life -  ",
+      "text_clean_masked": "my story how race and have play a role in my life"
+    },
+    {
+      "id": 7244,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0139,
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "text_masked": "pathetic fallacy? infantile ? just in case anyone wondered whether @user had a brain we have prooâ¦ ",
+      "text_clean_masked": "pathetic fallacy infantile just in case anyone wonder whether have a brain we have proo"
+    },
+    {
+      "id": 1275,
+      "error_type": "FN (Bỏ sót)",
+      "label": 1,
+      "y_pred": 0,
+      "score": 0.0144,
+      "cause": "Kỳ thị ngầm / Định kiến không dùng từ tục trực tiếp (Implicit Hate / Missing Context)",
+      "text_masked": "is a very profitable thing im #america ",
+      "text_clean_masked": "be a very profitable thing im america"
+    }
+  ],
+  "subgroup_bias": [
+    {
+      "subgroup": "Toàn bộ mẫu Lớp 0 trên Test (Overall Baseline)",
+      "n_neg_tweets": 3973,
+      "n_false_positives": 100,
+      "fpr_pct": 2.52,
+      "mean_score": 0.0401
+    },
+    {
+      "subgroup": "Giới tính / Phụ nữ (women, woman, girl, female)",
+      "n_neg_tweets": 100,
+      "n_false_positives": 4,
+      "fpr_pct": 4.0,
+      "mean_score": 0.0604
+    },
+    {
+      "subgroup": "Chủng tộc / Màu da (black, white, race, african)",
+      "n_neg_tweets": 46,
+      "n_false_positives": 14,
+      "fpr_pct": 30.43,
+      "mean_score": 0.2469
+    },
+    {
+      "subgroup": "Tôn giáo (muslim, islam, jewish, christian, god)",
+      "n_neg_tweets": 20,
+      "n_false_positives": 4,
+      "fpr_pct": 20.0,
+      "mean_score": 0.2108
+    },
+    {
+      "subgroup": "Xu hướng tính dục (gay, lgbt, queer)",
+      "n_neg_tweets": 27,
+      "n_false_positives": 2,
+      "fpr_pct": 7.41,
+      "mean_score": 0.0816
+    },
+    {
+      "subgroup": "Chính trị (trump, obama, clinton, liberal, gop)",
+      "n_neg_tweets": 66,
+      "n_false_positives": 23,
+      "fpr_pct": 34.85,
+      "mean_score": 0.3026
+    }
+  ]
+}
