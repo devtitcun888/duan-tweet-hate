@@ -1,0 +1,7 @@
+label_3,metric,mean,median,std,p95
+CLEAN,n_chars,45.27,32.0,200.61,115.0
+CLEAN,n_words,10.48,8.0,20.57,27.0
+OFFENSIVE,n_chars,44.05,31.0,46.01,124.0
+OFFENSIVE,n_words,10.74,8.0,10.68,29.0
+HATE,n_chars,83.78,59.0,74.69,251.0
+HATE,n_words,19.97,14.0,17.47,59.0

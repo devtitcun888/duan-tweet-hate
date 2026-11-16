@@ -1,0 +1,50 @@
+timestamp,task,model,vectorizer,balance,params_json,dev_primary_f1,dev_pr_auc_or_acc,fit_seconds
+2026-11-16T10:58:56Z,bin_A_balance,lr,word_tfidf,none,{},0.534,0.7102,0.61
+2026-11-16T10:58:56Z,bin_A_balance,lr,word_tfidf,class_weight,{},0.6252,0.7119,0.602
+2026-11-16T10:58:57Z,bin_A_balance,lr,word_tfidf,ros,{},0.6364,0.715,0.709
+2026-11-16T10:58:58Z,bin_A_balance,lr,word_tfidf,smote,{},0.473,0.5588,0.847
+2026-11-16T10:58:59Z,bin_A_balance,lr,word_tfidf,rus,{},0.5288,0.6576,0.549
+2026-11-16T10:58:59Z,bin_A,lr,word_tfidf,class_weight,{},0.6252,0.7119,0.599
+2026-11-16T10:59:02Z,bin_A,lr,word+char,class_weight,{},0.6448,0.7404,2.954
+2026-11-16T10:59:03Z,bin_A,svm_linear,word_tfidf,class_weight,{},0.6087,0.7087,0.744
+2026-11-16T10:59:07Z,bin_A,svm_linear,word+char,class_weight,{},0.6458,0.7381,3.258
+2026-11-16T10:59:07Z,bin_A,nb,word_tfidf,class_weight,{},0.4865,0.6658,0.536
+2026-11-16T10:59:10Z,bin_A,nb,word+char,class_weight,{},0.5178,0.6357,2.099
+2026-11-16T10:59:12Z,bin_A,lgbm,word_tfidf,class_weight,{},0.6,0.6708,1.945
+2026-11-16T10:59:37Z,bin_A,lgbm,word+char,class_weight,{},0.6415,0.7019,25.151
+2026-11-16T11:00:03Z,bin_A,xgb,word_tfidf,class_weight,{},0.6175,0.6653,25.694
+2026-11-16T11:03:24Z,bin_A,xgb,word+char,class_weight,{},0.6106,0.6805,200.921
+2026-11-16T11:03:27Z,bin_A,rf,word_tfidf,class_weight,{},0.5927,0.6161,2.186
+2026-11-16T11:03:39Z,bin_A,rf,word+char,class_weight,{},0.6177,0.6285,11.722
+2026-11-16T11:03:40Z,bin_A,knn,word_tfidf,class_weight,{},0.3641,0.4361,0.609
+2026-11-16T11:03:44Z,bin_A,knn,word+char,class_weight,{},0.399,0.4421,2.204
+2026-11-16T11:03:45Z,bin_A,dt,word_tfidf,class_weight,{},0.4944,0.4072,1.482
+2026-11-16T11:04:00Z,bin_A,dt,word+char,class_weight,{},0.4418,0.296,14.436
+2026-11-16T11:04:02Z,bin_A,lr,char_tfidf,class_weight,{},0.5957,0.7071,1.956
+2026-11-16T11:04:05Z,bin_A,svm_linear,char_tfidf,class_weight,{},0.6192,0.7063,2.429
+2026-11-16T11:04:05Z,bin_B,lr,word_tfidf,class_weight,{},0.6752,0.7426,0.68
+2026-11-16T11:04:09Z,bin_B,lr,word+char,class_weight,{},0.7095,0.772,3.034
+2026-11-16T11:04:09Z,bin_B,svm_linear,word_tfidf,class_weight,{},0.6452,0.747,0.767
+2026-11-16T11:04:13Z,bin_B,svm_linear,word+char,class_weight,{},0.6714,0.7757,3.41
+2026-11-16T11:04:14Z,bin_B,nb,word_tfidf,class_weight,{},0.5849,0.6952,0.597
+2026-11-16T11:04:16Z,bin_B,nb,word+char,class_weight,{},0.6088,0.6839,2.326
+2026-11-16T11:04:19Z,bin_B,lgbm,word_tfidf,class_weight,{},0.6357,0.696,2.278
+2026-11-16T11:04:46Z,bin_B,lgbm,word+char,class_weight,{},0.6616,0.7379,26.53
+2026-11-16T11:04:48Z,bin_B,rf,word_tfidf,class_weight,{},0.6171,0.6447,2.616
+2026-11-16T11:05:02Z,bin_B,rf,word+char,class_weight,{},0.6255,0.6632,13.259
+2026-11-16T11:05:03Z,multi3,lr,word_tfidf,class_weight,{},0.6065,0.8129,1.332
+2026-11-16T11:05:09Z,multi3,lr,word+char,class_weight,{},0.6361,0.8338,5.131
+2026-11-16T11:05:10Z,multi3,svm_linear,word_tfidf,class_weight,{},0.5745,0.8589,1.027
+2026-11-16T11:05:15Z,multi3,svm_linear,word+char,class_weight,{},0.5837,0.8626,4.94
+2026-11-16T11:05:16Z,multi3,nb,word_tfidf,class_weight,{},0.5506,0.7683,0.585
+2026-11-16T11:05:18Z,multi3,nb,word+char,class_weight,{},0.5433,0.7661,2.318
+2026-11-16T11:05:23Z,multi3,lgbm,word_tfidf,class_weight,{},0.5974,0.7972,4.703
+2026-11-16T11:06:33Z,multi3,lgbm,word+char,class_weight,{},0.6334,0.8275,69.899
+2026-11-16T11:06:36Z,multi3,rf,word_tfidf,class_weight,{},0.5931,0.8069,3.157
+2026-11-16T11:06:57Z,multi3,rf,word+char,class_weight,{},0.6054,0.8252,20.135
+2026-11-16T11:20:52Z,bin_A,phobert,segmented_bpe,class_weight,"{""model_name"": ""vinai/phobert-base-v2"", ""seed"": 42, ""n_train"": 2000, ""device"": ""cpu""}",0.5696,0.5961,68.44
+2026-11-16T11:20:54Z,bin_A,phobert,segmented_bpe,class_weight,"{""model_name"": ""vinai/phobert-base-v2"", ""seed"": 43, ""n_train"": 2000, ""device"": ""cpu""}",0.5764,0.5974,68.48
+2026-11-16T11:20:56Z,bin_A,phobert,segmented_bpe,class_weight,"{""model_name"": ""vinai/phobert-base-v2"", ""seed"": 44, ""n_train"": 2000, ""device"": ""cpu""}",0.5737,0.6149,68.42
+2026-11-16T11:24:44Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 42, ""n_train"": 2000, ""device"": ""cpu""}",0.4962,0.4836,77.62
+2026-11-16T11:24:47Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 43, ""n_train"": 2000, ""device"": ""cpu""}",0.4762,0.4831,77.52
+2026-11-16T11:24:49Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 44, ""n_train"": 2000, ""device"": ""cpu""}",0.4859,0.4885,77.54

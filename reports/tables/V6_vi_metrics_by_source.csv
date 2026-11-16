@@ -1,0 +1,4 @@
+source,n_samples_bin_A,n_hate,n_clean,precision_pos,recall_pos,f1_pos,f1_macro,accuracy,balanced_acc,roc_auc,pr_auc,mcc,tn,fp,fn,tp
+A_vihsd_test_sample,60,25,35,0.9412,0.64,0.7619,0.8168,0.8333,0.8057,0.9623,0.9524,0.6689,34,1,9,16
+B_public_social_manual,68,18,50,0.9474,1.0,0.973,0.9814,0.9853,0.99,1.0,1.0,0.9635,49,1,0,18
+C_adversarial_curated_vi,55,19,36,0.6842,0.6842,0.6842,0.7588,0.7818,0.7588,0.8787,0.7983,0.5175,30,6,6,13

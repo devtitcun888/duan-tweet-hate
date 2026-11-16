@@ -1,0 +1,4 @@
+label_3,pct_exclaim,pct_question,pct_emoji,pct_repeat_chars,pct_unaccented
+CLEAN,3.35,4.04,15.46,3.07,7.62
+OFFENSIVE,3.61,3.8,10.71,2.24,8.78
+HATE,7.51,6.69,6.61,2.03,6.57

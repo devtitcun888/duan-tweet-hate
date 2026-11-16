@@ -1,0 +1,162 @@
+{
+  "best_bin_A": {
+    "task": "bin_A (HATE vs CLEAN, bỏ OFFENSIVE)",
+    "model_key": "svm_linear",
+    "model_name": "Linear SVM (Calibrated)",
+    "vectorizer": "word+char",
+    "C": 0.4,
+    "best_threshold": 0.285,
+    "dev_metrics_tuned": {
+      "precision_pos": 0.637,
+      "recall_pos": 0.7148,
+      "f1_pos": 0.6736,
+      "f1_macro": 0.8153,
+      "accuracy": 0.924,
+      "balanced_acc": 0.8323,
+      "roc_auc": 0.9431,
+      "pr_auc": 0.7405,
+      "mcc": 0.6321,
+      "tn": 2080,
+      "fp": 110,
+      "fn": 77,
+      "tp": 193
+    },
+    "dev_metrics_default_05": {
+      "threshold": 0.5,
+      "precision": 0.7453,
+      "recall": 0.5852,
+      "f1": 0.6556
+    }
+  },
+  "best_bin_B": {
+    "task": "bin_B (OFFENSIVE+HATE vs CLEAN)",
+    "model_key": "svm_linear",
+    "model_name": "Linear SVM (Calibrated)",
+    "vectorizer": "word+char",
+    "C": 0.4,
+    "best_threshold": 0.315,
+    "dev_metrics_tuned": {
+      "precision_pos": 0.696,
+      "recall_pos": 0.7552,
+      "f1_pos": 0.7244,
+      "f1_macro": 0.8303,
+      "accuracy": 0.8963,
+      "balanced_acc": 0.8413,
+      "roc_auc": 0.9304,
+      "pr_auc": 0.776,
+      "mcc": 0.6615,
+      "tn": 2031,
+      "fp": 159,
+      "fn": 118,
+      "tp": 364
+    }
+  },
+  "best_multi3": {
+    "model_key": "lr",
+    "model_name": "Logistic Regression",
+    "vectorizer": "word+char",
+    "dev_f1_macro": 0.6361,
+    "dev_accuracy": 0.8338,
+    "dev_f1_clean": 0.919,
+    "dev_f1_offensive": 0.4183,
+    "dev_f1_hate": 0.571
+  },
+  "ablation": [
+    {
+      "config": "Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)",
+      "segment": true,
+      "expand_teencode": true,
+      "remove_stopwords": false,
+      "precision_pos": 0.7368,
+      "recall_pos": 0.5185,
+      "f1_pos": 0.6087,
+      "pr_auc": 0.7087,
+      "roc_auc": 0.9335
+    },
+    {
+      "config": "Không tách từ (segment=False)",
+      "segment": false,
+      "expand_teencode": true,
+      "remove_stopwords": false,
+      "precision_pos": 0.7042,
+      "recall_pos": 0.5556,
+      "f1_pos": 0.6211,
+      "pr_auc": 0.7148,
+      "roc_auc": 0.9353
+    },
+    {
+      "config": "Không chuẩn hóa Teencode (expand_teencode=False)",
+      "segment": true,
+      "expand_teencode": false,
+      "remove_stopwords": false,
+      "precision_pos": 0.7553,
+      "recall_pos": 0.5259,
+      "f1_pos": 0.6201,
+      "pr_auc": 0.714,
+      "roc_auc": 0.9347
+    },
+    {
+      "config": "Bỏ Stopwords (remove_stopwords=True)",
+      "segment": true,
+      "expand_teencode": true,
+      "remove_stopwords": true,
+      "precision_pos": 0.7382,
+      "recall_pos": 0.5222,
+      "f1_pos": 0.6117,
+      "pr_auc": 0.7121,
+      "roc_auc": 0.9338
+    }
+  ],
+  "balance_comparison": [
+    {
+      "strategy": "none",
+      "description": "Không cân bằng (None)",
+      "precision_pos": 0.8346,
+      "recall_pos": 0.3926,
+      "f1_pos": 0.534,
+      "pr_auc": 0.7102,
+      "roc_auc": 0.9335,
+      "fit_seconds": 0.61
+    },
+    {
+      "strategy": "class_weight",
+      "description": "Trọng số lớp (class_weight='balanced')",
+      "precision_pos": 0.521,
+      "recall_pos": 0.7815,
+      "f1_pos": 0.6252,
+      "pr_auc": 0.7119,
+      "roc_auc": 0.9365,
+      "fit_seconds": 0.602
+    },
+    {
+      "strategy": "ros",
+      "description": "RandomOverSampler (ROS)",
+      "precision_pos": 0.5516,
+      "recall_pos": 0.7519,
+      "f1_pos": 0.6364,
+      "pr_auc": 0.715,
+      "roc_auc": 0.936,
+      "fit_seconds": 0.709
+    },
+    {
+      "strategy": "smote",
+      "description": "SMOTE (k=5)",
+      "precision_pos": 0.3622,
+      "recall_pos": 0.6815,
+      "f1_pos": 0.473,
+      "pr_auc": 0.5588,
+      "roc_auc": 0.8629,
+      "fit_seconds": 0.847
+    },
+    {
+      "strategy": "rus",
+      "description": "RandomUnderSampler (RUS)",
+      "precision_pos": 0.3915,
+      "recall_pos": 0.8148,
+      "f1_pos": 0.5288,
+      "pr_auc": 0.6576,
+      "roc_auc": 0.9173,
+      "fit_seconds": 0.549
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "project_title": "Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (Twitter Sentiment Analysis)",
+  "project_title": "Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (Twitter Sentiment Analysis) & Mở rộng Tiếng Việt (ViHSD)",
   "seed": 42,
   "datasets": {
     "assigned": {
@@ -2395,5 +2395,2231 @@
       "fpr_pct": 34.85,
       "mean_score": 0.3026
     }
-  ]
+  ],
+  "vi": {
+    "dataset": {
+      "n": 33400,
+      "split_sizes": {
+        "train": 24048,
+        "dev": 2672,
+        "test": 6680
+      },
+      "splits_detail": {
+        "train": {
+          "n_rows": 24048,
+          "n_null_or_empty": 2,
+          "n_duplicates_exact": 1536,
+          "label_distribution": {
+            "CLEAN": 19886,
+            "OFFENSIVE": 1606,
+            "HATE": 2556
+          },
+          "label_pct": {
+            "CLEAN": 82.69,
+            "OFFENSIVE": 6.68,
+            "HATE": 10.63
+          }
+        },
+        "dev": {
+          "n_rows": 2672,
+          "n_null_or_empty": 0,
+          "n_duplicates_exact": 22,
+          "label_distribution": {
+            "CLEAN": 2190,
+            "OFFENSIVE": 212,
+            "HATE": 270
+          },
+          "label_pct": {
+            "CLEAN": 81.96,
+            "OFFENSIVE": 7.93,
+            "HATE": 10.1
+          }
+        },
+        "test": {
+          "n_rows": 6680,
+          "n_null_or_empty": 0,
+          "n_duplicates_exact": 107,
+          "label_distribution": {
+            "CLEAN": 5548,
+            "OFFENSIVE": 444,
+            "HATE": 688
+          },
+          "label_pct": {
+            "CLEAN": 83.05,
+            "OFFENSIVE": 6.65,
+            "HATE": 10.3
+          }
+        }
+      },
+      "label_dist": {
+        "CLEAN": 27624,
+        "OFFENSIVE": 2262,
+        "HATE": 3514
+      },
+      "label_pct": {
+        "CLEAN": 82.71,
+        "OFFENSIVE": 6.77,
+        "HATE": 10.52
+      },
+      "source": "huggingface:visolex/ViHSD",
+      "citation": "Luu, S.T., Nguyen, K.V., Nguyen, N.L.-T. (2021). A Large-Scale Dataset for Hate Speech Detection on Vietnamese Social Media Texts. IEA/AIE 2021, pp. 415-426.",
+      "license_note": "Dùng cho mục đích học tập/nghiên cứu, trích dẫn Luu et al. (2021); không phân phối lại dữ liệu thô.",
+      "cross_split_overlap": {
+        "train_intersect_dev": 322,
+        "train_intersect_test": 791,
+        "dev_intersect_test": 92,
+        "note": "Chia chuẩn chính thức của tác giả ViHSD có một số câu bình luận ngắn phổ biến (vd: 'hay quá', 'đúng rồi') xuất hiện ở nhiều split; giữ nguyên chia chuẩn để so sánh công bằng với bài báo gốc."
+      },
+      "linguistic_characteristics": {
+        "pct_unaccented_comments": 7.78,
+        "n_unaccented_comments": 2597,
+        "pct_comments_with_teencode": 24.18,
+        "pct_tokens_teencode": 3.09,
+        "top_teencode_terms": [
+          [
+            "ko",
+            1965
+          ],
+          [
+            "k",
+            1347
+          ],
+          [
+            "v",
+            1069
+          ],
+          [
+            "đc",
+            917
+          ],
+          [
+            "vn",
+            534
+          ],
+          [
+            "r",
+            443
+          ],
+          [
+            "ng",
+            407
+          ],
+          [
+            "ad",
+            396
+          ],
+          [
+            "vs",
+            350
+          ],
+          [
+            "ae",
+            320
+          ],
+          [
+            "j",
+            318
+          ],
+          [
+            "dc",
+            265
+          ],
+          [
+            "ok",
+            264
+          ],
+          [
+            "cmt",
+            251
+          ],
+          [
+            "h",
+            189
+          ]
+        ],
+        "pct_comments_with_emoji": 14.25,
+        "char_length_mean": 48.92,
+        "char_length_median": 33.0,
+        "word_length_mean": 11.5,
+        "word_length_median": 8.0
+      },
+      "eda_summary": {
+        "n_train_tokens_in_db": 223577,
+        "length_stats": [
+          {
+            "label_3": "CLEAN",
+            "metric": "n_chars",
+            "mean": 45.27,
+            "median": 32.0,
+            "std": 200.61,
+            "p95": 115.0
+          },
+          {
+            "label_3": "CLEAN",
+            "metric": "n_words",
+            "mean": 10.48,
+            "median": 8.0,
+            "std": 20.57,
+            "p95": 27.0
+          },
+          {
+            "label_3": "OFFENSIVE",
+            "metric": "n_chars",
+            "mean": 44.05,
+            "median": 31.0,
+            "std": 46.01,
+            "p95": 124.0
+          },
+          {
+            "label_3": "OFFENSIVE",
+            "metric": "n_words",
+            "mean": 10.74,
+            "median": 8.0,
+            "std": 10.68,
+            "p95": 29.0
+          },
+          {
+            "label_3": "HATE",
+            "metric": "n_chars",
+            "mean": 83.78,
+            "median": 59.0,
+            "std": 74.69,
+            "p95": 251.0
+          },
+          {
+            "label_3": "HATE",
+            "metric": "n_words",
+            "mean": 19.97,
+            "median": 14.0,
+            "std": 17.47,
+            "p95": 59.0
+          }
+        ],
+        "surface_by_label": [
+          {
+            "label_3": "CLEAN",
+            "pct_exclaim": 3.35,
+            "pct_question": 4.04,
+            "pct_emoji": 15.46,
+            "pct_repeat_chars": 3.07,
+            "pct_unaccented": 7.62
+          },
+          {
+            "label_3": "OFFENSIVE",
+            "pct_exclaim": 3.61,
+            "pct_question": 3.8,
+            "pct_emoji": 10.71,
+            "pct_repeat_chars": 2.24,
+            "pct_unaccented": 8.78
+          },
+          {
+            "label_3": "HATE",
+            "pct_exclaim": 7.51,
+            "pct_question": 6.69,
+            "pct_emoji": 6.61,
+            "pct_repeat_chars": 2.03,
+            "pct_unaccented": 6.57
+          }
+        ],
+        "lexicon_coverage": [
+          {
+            "label_3": "CLEAN",
+            "n_comments": 19886,
+            "n_with_lexicon": 725,
+            "pct_with_lexicon": 3.65
+          },
+          {
+            "label_3": "OFFENSIVE",
+            "n_comments": 1606,
+            "n_with_lexicon": 607,
+            "pct_with_lexicon": 37.8
+          },
+          {
+            "label_3": "HATE",
+            "n_comments": 2556,
+            "n_with_lexicon": 918,
+            "pct_with_lexicon": 35.92
+          }
+        ],
+        "top_15_log_odds_hate_masked": [
+          {
+            "token": "cặc",
+            "c_hate": 18,
+            "c_off": 13,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.4645,
+            "log_odds_off_vs_clean": 5.1978,
+            "token_masked": "c***"
+          },
+          {
+            "token": "súc_vật",
+            "c_hate": 13,
+            "c_off": 2,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.1592,
+            "log_odds_off_vs_clean": 3.6573,
+            "token_masked": "s***"
+          },
+          {
+            "token": "thối_nát",
+            "c_hate": 12,
+            "c_off": 3,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.0851,
+            "log_odds_off_vs_clean": 3.945,
+            "token_masked": "thối_nát"
+          },
+          {
+            "token": "độc_tài",
+            "c_hate": 12,
+            "c_off": 0,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.0851,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "độc_tài"
+          },
+          {
+            "token": "lưu_manh",
+            "c_hate": 10,
+            "c_off": 0,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 3.918,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "lưu_manh"
+          },
+          {
+            "token": "đỉ",
+            "c_hate": 10,
+            "c_off": 0,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 3.918,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "đỉ"
+          },
+          {
+            "token": "bán_nước",
+            "c_hate": 18,
+            "c_off": 1,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.7714,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "bán_nước"
+          },
+          {
+            "token": "cán_bộ",
+            "c_hate": 16,
+            "c_off": 1,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.6602,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "cán_bộ"
+          },
+          {
+            "token": "câm",
+            "c_hate": 16,
+            "c_off": 1,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.6602,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "câm"
+          },
+          {
+            "token": "loz",
+            "c_hate": 24,
+            "c_off": 10,
+            "c_clean": 2,
+            "log_odds_hate_vs_clean": 3.6404,
+            "log_odds_off_vs_clean": 3.858,
+            "token_masked": "loz"
+          },
+          {
+            "token": "thần_kinh",
+            "c_hate": 15,
+            "c_off": 6,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.5995,
+            "log_odds_off_vs_clean": 3.8115,
+            "token_masked": "thần_kinh"
+          },
+          {
+            "token": "sủa",
+            "c_hate": 58,
+            "c_off": 9,
+            "c_clean": 7,
+            "log_odds_hate_vs_clean": 3.5182,
+            "log_odds_off_vs_clean": 2.7818,
+            "token_masked": "s***"
+          },
+          {
+            "token": "xạo",
+            "c_hate": 58,
+            "c_off": 19,
+            "c_clean": 7,
+            "log_odds_hate_vs_clean": 3.5182,
+            "log_odds_off_vs_clean": 3.475,
+            "token_masked": "xạo"
+          },
+          {
+            "token": "lồn",
+            "c_hate": 109,
+            "c_off": 56,
+            "c_clean": 15,
+            "log_odds_hate_vs_clean": 3.448,
+            "log_odds_off_vs_clean": 3.8292,
+            "token_masked": "l***"
+          },
+          {
+            "token": "liềm",
+            "c_hate": 12,
+            "c_off": 1,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.3919,
+            "log_odds_off_vs_clean": 2.5587,
+            "token_masked": "liềm"
+          }
+        ],
+        "top_15_log_odds_off_masked": [
+          {
+            "token": "cặc",
+            "c_hate": 18,
+            "c_off": 13,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.4645,
+            "log_odds_off_vs_clean": 5.1978,
+            "token_masked": "c***"
+          },
+          {
+            "token": "cl",
+            "c_hate": 14,
+            "c_off": 23,
+            "c_clean": 3,
+            "log_odds_hate_vs_clean": 2.8419,
+            "log_odds_off_vs_clean": 4.3505,
+            "token_masked": "c***"
+          },
+          {
+            "token": "cc",
+            "c_hate": 64,
+            "c_off": 53,
+            "c_clean": 10,
+            "log_odds_hate_vs_clean": 3.2966,
+            "log_odds_off_vs_clean": 4.1498,
+            "token_masked": "c***"
+          },
+          {
+            "token": "thối_nát",
+            "c_hate": 12,
+            "c_off": 3,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.0851,
+            "log_odds_off_vs_clean": 3.945,
+            "token_masked": "thối_nát"
+          },
+          {
+            "token": "loz",
+            "c_hate": 24,
+            "c_off": 10,
+            "c_clean": 2,
+            "log_odds_hate_vs_clean": 3.6404,
+            "log_odds_off_vs_clean": 3.858,
+            "token_masked": "loz"
+          },
+          {
+            "token": "lồn",
+            "c_hate": 109,
+            "c_off": 56,
+            "c_clean": 15,
+            "log_odds_hate_vs_clean": 3.448,
+            "log_odds_off_vs_clean": 3.8292,
+            "token_masked": "l***"
+          },
+          {
+            "token": "thần_kinh",
+            "c_hate": 15,
+            "c_off": 6,
+            "c_clean": 1,
+            "log_odds_hate_vs_clean": 3.5995,
+            "log_odds_off_vs_clean": 3.8115,
+            "token_masked": "thần_kinh"
+          },
+          {
+            "token": "súc_vật",
+            "c_hate": 13,
+            "c_off": 2,
+            "c_clean": 0,
+            "log_odds_hate_vs_clean": 4.1592,
+            "log_odds_off_vs_clean": 3.6573,
+            "token_masked": "s***"
+          },
+          {
+            "token": "xạo",
+            "c_hate": 58,
+            "c_off": 19,
+            "c_clean": 7,
+            "log_odds_hate_vs_clean": 3.5182,
+            "log_odds_off_vs_clean": 3.475,
+            "token_masked": "xạo"
+          },
+          {
+            "token": "lol",
+            "c_hate": 54,
+            "c_off": 37,
+            "c_clean": 16,
+            "log_odds_hate_vs_clean": 2.6942,
+            "log_odds_off_vs_clean": 3.3631,
+            "token_masked": "lol"
+          },
+          {
+            "token": "dm",
+            "c_hate": 38,
+            "c_off": 32,
+            "c_clean": 14,
+            "log_odds_hate_vs_clean": 2.4756,
+            "log_odds_off_vs_clean": 3.3472,
+            "token_masked": "dm"
+          },
+          {
+            "token": "địt",
+            "c_hate": 19,
+            "c_off": 10,
+            "c_clean": 4,
+            "log_odds_hate_vs_clean": 2.9064,
+            "log_odds_off_vs_clean": 3.3472,
+            "token_masked": "đ***"
+          },
+          {
+            "token": "nhục",
+            "c_hate": 30,
+            "c_off": 14,
+            "c_clean": 6,
+            "log_odds_hate_vs_clean": 3.0082,
+            "log_odds_off_vs_clean": 3.3208,
+            "token_masked": "nhục"
+          },
+          {
+            "token": "đm",
+            "c_hate": 75,
+            "c_off": 49,
+            "c_clean": 24,
+            "log_odds_hate_vs_clean": 2.632,
+            "log_odds_off_vs_clean": 3.2519,
+            "token_masked": "đ***"
+          },
+          {
+            "token": "lz",
+            "c_hate": 8,
+            "c_off": 5,
+            "c_clean": 2,
+            "log_odds_hate_vs_clean": 2.6187,
+            "log_odds_off_vs_clean": 3.2519,
+            "token_masked": "lz"
+          }
+        ],
+        "top_15_cooccur_masked": [
+          {
+            "neighbor": "không",
+            "cnt": 177,
+            "n_comments": 96,
+            "neighbor_masked": "không"
+          },
+          {
+            "neighbor": "cái",
+            "cnt": 160,
+            "n_comments": 91,
+            "neighbor_masked": "cái"
+          },
+          {
+            "neighbor": "gì",
+            "cnt": 157,
+            "n_comments": 86,
+            "neighbor_masked": "gì"
+          },
+          {
+            "neighbor": "nó",
+            "cnt": 121,
+            "n_comments": 60,
+            "neighbor_masked": "nó"
+          },
+          {
+            "neighbor": "mày",
+            "cnt": 120,
+            "n_comments": 51,
+            "neighbor_masked": "mày"
+          },
+          {
+            "neighbor": "con",
+            "cnt": 118,
+            "n_comments": 67,
+            "neighbor_masked": "con"
+          },
+          {
+            "neighbor": "chó",
+            "cnt": 93,
+            "n_comments": 48,
+            "neighbor_masked": "c***"
+          },
+          {
+            "neighbor": "thằng",
+            "cnt": 92,
+            "n_comments": 53,
+            "neighbor_masked": "thằng"
+          },
+          {
+            "neighbor": "đi",
+            "cnt": 91,
+            "n_comments": 58,
+            "neighbor_masked": "đi"
+          },
+          {
+            "neighbor": "nói",
+            "cnt": 85,
+            "n_comments": 48,
+            "neighbor_masked": "nói"
+          },
+          {
+            "neighbor": "làm",
+            "cnt": 79,
+            "n_comments": 52,
+            "neighbor_masked": "làm"
+          },
+          {
+            "neighbor": "chửi",
+            "cnt": 79,
+            "n_comments": 30,
+            "neighbor_masked": "chửi"
+          },
+          {
+            "neighbor": "lại",
+            "cnt": 75,
+            "n_comments": 40,
+            "neighbor_masked": "lại"
+          },
+          {
+            "neighbor": "rồi",
+            "cnt": 73,
+            "n_comments": 53,
+            "neighbor_masked": "rồi"
+          },
+          {
+            "neighbor": "người",
+            "cnt": 70,
+            "n_comments": 37,
+            "neighbor_masked": "người"
+          }
+        ]
+      }
+    },
+    "binary_variants": {
+      "A": "HATE vs CLEAN (bỏ OFFENSIVE)",
+      "B": "OFFENSIVE+HATE vs CLEAN",
+      "multi3": "3 lớp CLEAN / OFFENSIVE / HATE (Macro-F1)"
+    },
+    "models": [
+      {
+        "task": "bin_A",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6252,
+        "precision": 0.521,
+        "recall": 0.7815,
+        "f1_pos": 0.6252,
+        "f1_macro": 0.7828,
+        "pr_auc": 0.7119,
+        "roc_auc": 0.9365,
+        "accuracy": 0.8972,
+        "fit_seconds": 0.599
+      },
+      {
+        "task": "bin_A",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6448,
+        "precision": 0.5583,
+        "recall": 0.763,
+        "f1_pos": 0.6448,
+        "f1_macro": 0.7959,
+        "pr_auc": 0.7404,
+        "roc_auc": 0.944,
+        "accuracy": 0.9077,
+        "fit_seconds": 2.954
+      },
+      {
+        "task": "bin_A",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6087,
+        "precision": 0.7368,
+        "recall": 0.5185,
+        "f1_pos": 0.6087,
+        "f1_macro": 0.7842,
+        "pr_auc": 0.7087,
+        "roc_auc": 0.9335,
+        "accuracy": 0.9268,
+        "fit_seconds": 0.744
+      },
+      {
+        "task": "bin_A",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6458,
+        "precision": 0.7381,
+        "recall": 0.5741,
+        "f1_pos": 0.6458,
+        "f1_macro": 0.8038,
+        "pr_auc": 0.7381,
+        "roc_auc": 0.9416,
+        "accuracy": 0.9309,
+        "fit_seconds": 3.258
+      },
+      {
+        "task": "bin_A",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.4865,
+        "precision": 0.3435,
+        "recall": 0.8333,
+        "f1_pos": 0.4865,
+        "f1_macro": 0.6838,
+        "pr_auc": 0.6658,
+        "roc_auc": 0.905,
+        "accuracy": 0.8069,
+        "fit_seconds": 0.536
+      },
+      {
+        "task": "bin_A",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.5178,
+        "precision": 0.3748,
+        "recall": 0.837,
+        "f1_pos": 0.5178,
+        "f1_macro": 0.7069,
+        "pr_auc": 0.6357,
+        "roc_auc": 0.8986,
+        "accuracy": 0.8289,
+        "fit_seconds": 2.099
+      },
+      {
+        "task": "bin_A",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6,
+        "precision": 0.4976,
+        "recall": 0.7556,
+        "f1_pos": 0.6,
+        "f1_macro": 0.7679,
+        "pr_auc": 0.6708,
+        "roc_auc": 0.9094,
+        "accuracy": 0.8894,
+        "fit_seconds": 1.945
+      },
+      {
+        "task": "bin_A",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6415,
+        "precision": 0.5574,
+        "recall": 0.7556,
+        "f1_pos": 0.6415,
+        "f1_macro": 0.7941,
+        "pr_auc": 0.7019,
+        "roc_auc": 0.918,
+        "accuracy": 0.9073,
+        "fit_seconds": 25.151
+      },
+      {
+        "task": "bin_A",
+        "model_key": "xgb",
+        "model_name": "XGBoost",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6175,
+        "precision": 0.5203,
+        "recall": 0.7593,
+        "f1_pos": 0.6175,
+        "f1_macro": 0.7789,
+        "pr_auc": 0.6653,
+        "roc_auc": 0.9036,
+        "accuracy": 0.8967,
+        "fit_seconds": 25.694
+      },
+      {
+        "task": "bin_A",
+        "model_key": "xgb",
+        "model_name": "XGBoost",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6106,
+        "precision": 0.5269,
+        "recall": 0.7259,
+        "f1_pos": 0.6106,
+        "f1_macro": 0.7761,
+        "pr_auc": 0.6805,
+        "roc_auc": 0.9083,
+        "accuracy": 0.8984,
+        "fit_seconds": 200.921
+      },
+      {
+        "task": "bin_A",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.5927,
+        "precision": 0.5359,
+        "recall": 0.663,
+        "f1_pos": 0.5927,
+        "f1_macro": 0.7679,
+        "pr_auc": 0.6161,
+        "roc_auc": 0.8937,
+        "accuracy": 0.9,
+        "fit_seconds": 2.186
+      },
+      {
+        "task": "bin_A",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6177,
+        "precision": 0.5728,
+        "recall": 0.6704,
+        "f1_pos": 0.6177,
+        "f1_macro": 0.783,
+        "pr_auc": 0.6285,
+        "roc_auc": 0.9071,
+        "accuracy": 0.9089,
+        "fit_seconds": 11.722
+      },
+      {
+        "task": "bin_A",
+        "model_key": "knn",
+        "model_name": "Cosine KNN",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.3641,
+        "precision": 0.6837,
+        "recall": 0.2481,
+        "f1_pos": 0.3641,
+        "f1_macro": 0.6564,
+        "pr_auc": 0.4361,
+        "roc_auc": 0.7778,
+        "accuracy": 0.9049,
+        "fit_seconds": 0.609
+      },
+      {
+        "task": "bin_A",
+        "model_key": "knn",
+        "model_name": "Cosine KNN",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.399,
+        "precision": 0.6847,
+        "recall": 0.2815,
+        "f1_pos": 0.399,
+        "f1_macro": 0.6742,
+        "pr_auc": 0.4421,
+        "roc_auc": 0.7851,
+        "accuracy": 0.9069,
+        "fit_seconds": 2.204
+      },
+      {
+        "task": "bin_A",
+        "model_key": "dt",
+        "model_name": "Decision Tree",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.4944,
+        "precision": 0.4363,
+        "recall": 0.5704,
+        "f1_pos": 0.4944,
+        "f1_macro": 0.7105,
+        "pr_auc": 0.4072,
+        "roc_auc": 0.6984,
+        "accuracy": 0.872,
+        "fit_seconds": 1.482
+      },
+      {
+        "task": "bin_A",
+        "model_key": "dt",
+        "model_name": "Decision Tree",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.4418,
+        "precision": 0.3734,
+        "recall": 0.5407,
+        "f1_pos": 0.4418,
+        "f1_macro": 0.6776,
+        "pr_auc": 0.296,
+        "roc_auc": 0.6466,
+        "accuracy": 0.85,
+        "fit_seconds": 14.436
+      },
+      {
+        "task": "bin_A",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "char_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.5957,
+        "precision": 0.4828,
+        "recall": 0.7778,
+        "f1_pos": 0.5957,
+        "f1_macro": 0.7641,
+        "pr_auc": 0.7071,
+        "roc_auc": 0.9329,
+        "accuracy": 0.8841,
+        "fit_seconds": 1.956
+      },
+      {
+        "task": "bin_A",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "char_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6192,
+        "precision": 0.7115,
+        "recall": 0.5481,
+        "f1_pos": 0.6192,
+        "f1_macro": 0.7891,
+        "pr_auc": 0.7063,
+        "roc_auc": 0.9328,
+        "accuracy": 0.926,
+        "fit_seconds": 2.429
+      },
+      {
+        "task": "bin_B",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6752,
+        "precision": 0.6053,
+        "recall": 0.7635,
+        "f1_pos": 0.6752,
+        "f1_macro": 0.796,
+        "pr_auc": 0.7426,
+        "roc_auc": 0.9144,
+        "accuracy": 0.8675,
+        "fit_seconds": 0.68
+      },
+      {
+        "task": "bin_B",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.7095,
+        "precision": 0.6436,
+        "recall": 0.7905,
+        "f1_pos": 0.7095,
+        "f1_macro": 0.8182,
+        "pr_auc": 0.772,
+        "roc_auc": 0.9282,
+        "accuracy": 0.8832,
+        "fit_seconds": 3.034
+      },
+      {
+        "task": "bin_B",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6452,
+        "precision": 0.757,
+        "recall": 0.5622,
+        "f1_pos": 0.6452,
+        "f1_macro": 0.7895,
+        "pr_auc": 0.747,
+        "roc_auc": 0.9155,
+        "accuracy": 0.8885,
+        "fit_seconds": 0.767
+      },
+      {
+        "task": "bin_B",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6714,
+        "precision": 0.773,
+        "recall": 0.5934,
+        "f1_pos": 0.6714,
+        "f1_macro": 0.8045,
+        "pr_auc": 0.7757,
+        "roc_auc": 0.9298,
+        "accuracy": 0.8952,
+        "fit_seconds": 3.41
+      },
+      {
+        "task": "bin_B",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.5849,
+        "precision": 0.4621,
+        "recall": 0.7967,
+        "f1_pos": 0.5849,
+        "f1_macro": 0.7249,
+        "pr_auc": 0.6952,
+        "roc_auc": 0.8841,
+        "accuracy": 0.796,
+        "fit_seconds": 0.597
+      },
+      {
+        "task": "bin_B",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6088,
+        "precision": 0.4858,
+        "recall": 0.8154,
+        "f1_pos": 0.6088,
+        "f1_macro": 0.7421,
+        "pr_auc": 0.6839,
+        "roc_auc": 0.8787,
+        "accuracy": 0.811,
+        "fit_seconds": 2.326
+      },
+      {
+        "task": "bin_B",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6357,
+        "precision": 0.5857,
+        "recall": 0.695,
+        "f1_pos": 0.6357,
+        "f1_macro": 0.7731,
+        "pr_auc": 0.696,
+        "roc_auc": 0.8818,
+        "accuracy": 0.8563,
+        "fit_seconds": 2.278
+      },
+      {
+        "task": "bin_B",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6616,
+        "precision": 0.6076,
+        "recall": 0.7261,
+        "f1_pos": 0.6616,
+        "f1_macro": 0.789,
+        "pr_auc": 0.7379,
+        "roc_auc": 0.9063,
+        "accuracy": 0.866,
+        "fit_seconds": 26.53
+      },
+      {
+        "task": "bin_B",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6171,
+        "precision": 0.5704,
+        "recall": 0.6722,
+        "f1_pos": 0.6171,
+        "f1_macro": 0.7618,
+        "pr_auc": 0.6447,
+        "roc_auc": 0.8645,
+        "accuracy": 0.8496,
+        "fit_seconds": 2.616
+      },
+      {
+        "task": "bin_B",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.6255,
+        "precision": 0.5929,
+        "recall": 0.6618,
+        "f1_pos": 0.6255,
+        "f1_macro": 0.7686,
+        "pr_auc": 0.6632,
+        "roc_auc": 0.8828,
+        "accuracy": 0.857,
+        "fit_seconds": 13.259
+      },
+      {
+        "task": "multi3",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.6065,
+        "precision": 0.5788,
+        "recall": 0.6514,
+        "f1_pos": 0.5356,
+        "f1_macro": 0.6065,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8129,
+        "fit_seconds": 1.332
+      },
+      {
+        "task": "multi3",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.6361,
+        "precision": 0.6097,
+        "recall": 0.6757,
+        "f1_pos": 0.571,
+        "f1_macro": 0.6361,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8338,
+        "fit_seconds": 5.131
+      },
+      {
+        "task": "multi3",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5745,
+        "precision": 0.6868,
+        "recall": 0.5408,
+        "f1_pos": 0.5391,
+        "f1_macro": 0.5745,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8589,
+        "fit_seconds": 1.027
+      },
+      {
+        "task": "multi3",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5837,
+        "precision": 0.6929,
+        "recall": 0.5513,
+        "f1_pos": 0.5576,
+        "f1_macro": 0.5837,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8626,
+        "fit_seconds": 4.94
+      },
+      {
+        "task": "multi3",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5506,
+        "precision": 0.5375,
+        "recall": 0.6203,
+        "f1_pos": 0.4786,
+        "f1_macro": 0.5506,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.7683,
+        "fit_seconds": 0.585
+      },
+      {
+        "task": "multi3",
+        "model_key": "nb",
+        "model_name": "Complement Naive Bayes",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5433,
+        "precision": 0.5364,
+        "recall": 0.6152,
+        "f1_pos": 0.472,
+        "f1_macro": 0.5433,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.7661,
+        "fit_seconds": 2.318
+      },
+      {
+        "task": "multi3",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5974,
+        "precision": 0.5677,
+        "recall": 0.6489,
+        "f1_pos": 0.5258,
+        "f1_macro": 0.5974,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.7972,
+        "fit_seconds": 4.703
+      },
+      {
+        "task": "multi3",
+        "model_key": "lgbm",
+        "model_name": "LightGBM",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.6334,
+        "precision": 0.6111,
+        "recall": 0.6695,
+        "f1_pos": 0.552,
+        "f1_macro": 0.6334,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8275,
+        "fit_seconds": 69.899
+      },
+      {
+        "task": "multi3",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word_tfidf",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.5931,
+        "precision": 0.5766,
+        "recall": 0.6317,
+        "f1_pos": 0.5262,
+        "f1_macro": 0.5931,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8069,
+        "fit_seconds": 3.157
+      },
+      {
+        "task": "multi3",
+        "model_key": "rf",
+        "model_name": "Random Forest",
+        "vectorizer": "word+char",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_macro",
+        "primary_metric": 0.6054,
+        "precision": 0.6141,
+        "recall": 0.6202,
+        "f1_pos": 0.5287,
+        "f1_macro": 0.6054,
+        "pr_auc": 0.0,
+        "roc_auc": 0.0,
+        "accuracy": 0.8252,
+        "fit_seconds": 20.135
+      },
+      {
+        "task": "bin_A",
+        "model_key": "phobert",
+        "model_name": "vinai/phobert-base-v2",
+        "vectorizer": "segmented_bpe",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.5732,
+        "precision": 0.5029,
+        "recall": 0.6667,
+        "f1_pos": 0.5732,
+        "f1_macro": 0.0,
+        "pr_auc": 0.6028,
+        "roc_auc": 0.8996,
+        "accuracy": 0.0,
+        "fit_seconds": 68.45
+      },
+      {
+        "task": "bin_A",
+        "model_key": "xlmr",
+        "model_name": "xlm-roberta-base",
+        "vectorizer": "unsegmented_spm",
+        "balance": "class_weight",
+        "primary_metric_name": "f1_pos",
+        "primary_metric": 0.4861,
+        "precision": 0.3977,
+        "recall": 0.6284,
+        "f1_pos": 0.4861,
+        "f1_macro": 0.0,
+        "pr_auc": 0.4851,
+        "roc_auc": 0.8639,
+        "accuracy": 0.0,
+        "fit_seconds": 77.56
+      }
+    ],
+    "best": {
+      "task": "bin_A",
+      "model": "Linear SVM (Calibrated)",
+      "model_key": "svm_linear",
+      "vectorizer": "word+char",
+      "params": {
+        "C": 0.4,
+        "threshold": 0.285
+      },
+      "best_bin_A": {
+        "task": "bin_A (HATE vs CLEAN, bỏ OFFENSIVE)",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word+char",
+        "C": 0.4,
+        "best_threshold": 0.285,
+        "dev_metrics_tuned": {
+          "precision_pos": 0.637,
+          "recall_pos": 0.7148,
+          "f1_pos": 0.6736,
+          "f1_macro": 0.8153,
+          "accuracy": 0.924,
+          "balanced_acc": 0.8323,
+          "roc_auc": 0.9431,
+          "pr_auc": 0.7405,
+          "mcc": 0.6321,
+          "tn": 2080,
+          "fp": 110,
+          "fn": 77,
+          "tp": 193
+        },
+        "dev_metrics_default_05": {
+          "threshold": 0.5,
+          "precision": 0.7453,
+          "recall": 0.5852,
+          "f1": 0.6556
+        }
+      },
+      "best_bin_B": {
+        "task": "bin_B (OFFENSIVE+HATE vs CLEAN)",
+        "model_key": "svm_linear",
+        "model_name": "Linear SVM (Calibrated)",
+        "vectorizer": "word+char",
+        "C": 0.4,
+        "best_threshold": 0.315,
+        "dev_metrics_tuned": {
+          "precision_pos": 0.696,
+          "recall_pos": 0.7552,
+          "f1_pos": 0.7244,
+          "f1_macro": 0.8303,
+          "accuracy": 0.8963,
+          "balanced_acc": 0.8413,
+          "roc_auc": 0.9304,
+          "pr_auc": 0.776,
+          "mcc": 0.6615,
+          "tn": 2031,
+          "fp": 159,
+          "fn": 118,
+          "tp": 364
+        }
+      },
+      "best_multi3": {
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
+        "vectorizer": "word+char",
+        "dev_f1_macro": 0.6361,
+        "dev_accuracy": 0.8338,
+        "dev_f1_clean": 0.919,
+        "dev_f1_offensive": 0.4183,
+        "dev_f1_hate": 0.571
+      },
+      "ablation": [
+        {
+          "config": "Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)",
+          "segment": true,
+          "expand_teencode": true,
+          "remove_stopwords": false,
+          "precision_pos": 0.7368,
+          "recall_pos": 0.5185,
+          "f1_pos": 0.6087,
+          "pr_auc": 0.7087,
+          "roc_auc": 0.9335
+        },
+        {
+          "config": "Không tách từ (segment=False)",
+          "segment": false,
+          "expand_teencode": true,
+          "remove_stopwords": false,
+          "precision_pos": 0.7042,
+          "recall_pos": 0.5556,
+          "f1_pos": 0.6211,
+          "pr_auc": 0.7148,
+          "roc_auc": 0.9353
+        },
+        {
+          "config": "Không chuẩn hóa Teencode (expand_teencode=False)",
+          "segment": true,
+          "expand_teencode": false,
+          "remove_stopwords": false,
+          "precision_pos": 0.7553,
+          "recall_pos": 0.5259,
+          "f1_pos": 0.6201,
+          "pr_auc": 0.714,
+          "roc_auc": 0.9347
+        },
+        {
+          "config": "Bỏ Stopwords (remove_stopwords=True)",
+          "segment": true,
+          "expand_teencode": true,
+          "remove_stopwords": true,
+          "precision_pos": 0.7382,
+          "recall_pos": 0.5222,
+          "f1_pos": 0.6117,
+          "pr_auc": 0.7121,
+          "roc_auc": 0.9338
+        }
+      ],
+      "balance_comparison": [
+        {
+          "strategy": "none",
+          "description": "Không cân bằng (None)",
+          "precision_pos": 0.8346,
+          "recall_pos": 0.3926,
+          "f1_pos": 0.534,
+          "pr_auc": 0.7102,
+          "roc_auc": 0.9335,
+          "fit_seconds": 0.61
+        },
+        {
+          "strategy": "class_weight",
+          "description": "Trọng số lớp (class_weight='balanced')",
+          "precision_pos": 0.521,
+          "recall_pos": 0.7815,
+          "f1_pos": 0.6252,
+          "pr_auc": 0.7119,
+          "roc_auc": 0.9365,
+          "fit_seconds": 0.602
+        },
+        {
+          "strategy": "ros",
+          "description": "RandomOverSampler (ROS)",
+          "precision_pos": 0.5516,
+          "recall_pos": 0.7519,
+          "f1_pos": 0.6364,
+          "pr_auc": 0.715,
+          "roc_auc": 0.936,
+          "fit_seconds": 0.709
+        },
+        {
+          "strategy": "smote",
+          "description": "SMOTE (k=5)",
+          "precision_pos": 0.3622,
+          "recall_pos": 0.6815,
+          "f1_pos": 0.473,
+          "pr_auc": 0.5588,
+          "roc_auc": 0.8629,
+          "fit_seconds": 0.847
+        },
+        {
+          "strategy": "rus",
+          "description": "RandomUnderSampler (RUS)",
+          "precision_pos": 0.3915,
+          "recall_pos": 0.8148,
+          "f1_pos": 0.5288,
+          "pr_auc": 0.6576,
+          "roc_auc": 0.9173,
+          "fit_seconds": 0.549
+        }
+      ]
+    },
+    "transformers": {
+      "phobert": {
+        "model_name": "vinai/phobert-base-v2",
+        "input_type": "Văn bản ĐÃ tách từ (ViTokenizer)",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "f1_pos_mean": 0.5732,
+        "f1_pos_std": 0.0034,
+        "pr_auc_mean": 0.6028,
+        "pr_auc_std": 0.0105,
+        "roc_auc_mean": 0.8996,
+        "precision_mean": 0.5029,
+        "recall_mean": 0.6667,
+        "fit_seconds_mean": 68.45,
+        "device": "cpu",
+        "n_train_used": 2000,
+        "seed_runs": [
+          {
+            "precision_pos": 0.4972,
+            "recall_pos": 0.6667,
+            "f1_pos": 0.5696,
+            "f1_macro": 0.7531,
+            "accuracy": 0.8894,
+            "balanced_acc": 0.7918,
+            "roc_auc": 0.8977,
+            "pr_auc": 0.5961,
+            "mcc": 0.5149,
+            "tn": 2008,
+            "fp": 182,
+            "fn": 90,
+            "tp": 180,
+            "fit_seconds": 68.44,
+            "seed": 42,
+            "n_train_used": 2000,
+            "device": "cpu"
+          },
+          {
+            "precision_pos": 0.5014,
+            "recall_pos": 0.6778,
+            "f1_pos": 0.5764,
+            "f1_macro": 0.7568,
+            "accuracy": 0.8907,
+            "balanced_acc": 0.7973,
+            "roc_auc": 0.8984,
+            "pr_auc": 0.5974,
+            "mcc": 0.5229,
+            "tn": 2008,
+            "fp": 182,
+            "fn": 87,
+            "tp": 183,
+            "fit_seconds": 68.48,
+            "seed": 43,
+            "n_train_used": 2000,
+            "device": "cpu"
+          },
+          {
+            "precision_pos": 0.5101,
+            "recall_pos": 0.6556,
+            "f1_pos": 0.5737,
+            "f1_macro": 0.7563,
+            "accuracy": 0.8931,
+            "balanced_acc": 0.789,
+            "roc_auc": 0.9028,
+            "pr_auc": 0.6149,
+            "mcc": 0.519,
+            "tn": 2020,
+            "fp": 170,
+            "fn": 93,
+            "tp": 177,
+            "fit_seconds": 68.42,
+            "seed": 44,
+            "n_train_used": 2000,
+            "device": "cpu"
+          }
+        ]
+      },
+      "xlmr": {
+        "model_name": "xlm-roberta-base",
+        "input_type": "Văn bản CHƯA tách từ (Raw SentencePiece)",
+        "seeds": [
+          42,
+          43,
+          44
+        ],
+        "f1_pos_mean": 0.4861,
+        "f1_pos_std": 0.01,
+        "pr_auc_mean": 0.4851,
+        "pr_auc_std": 0.003,
+        "roc_auc_mean": 0.8639,
+        "precision_mean": 0.3977,
+        "recall_mean": 0.6284,
+        "fit_seconds_mean": 77.56,
+        "device": "cpu",
+        "n_train_used": 2000,
+        "seed_runs": [
+          {
+            "precision_pos": 0.4177,
+            "recall_pos": 0.6111,
+            "f1_pos": 0.4962,
+            "f1_macro": 0.7088,
+            "accuracy": 0.8638,
+            "balanced_acc": 0.753,
+            "roc_auc": 0.862,
+            "pr_auc": 0.4836,
+            "mcc": 0.4309,
+            "tn": 1960,
+            "fp": 230,
+            "fn": 105,
+            "tp": 165,
+            "fit_seconds": 77.62,
+            "seed": 42,
+            "n_train_used": 2000,
+            "device": "cpu"
+          },
+          {
+            "precision_pos": 0.3704,
+            "recall_pos": 0.6667,
+            "f1_pos": 0.4762,
+            "f1_macro": 0.6905,
+            "accuracy": 0.839,
+            "balanced_acc": 0.7635,
+            "roc_auc": 0.8643,
+            "pr_auc": 0.4831,
+            "mcc": 0.4137,
+            "tn": 1884,
+            "fp": 306,
+            "fn": 90,
+            "tp": 180,
+            "fit_seconds": 77.52,
+            "seed": 43,
+            "n_train_used": 2000,
+            "device": "cpu"
+          },
+          {
+            "precision_pos": 0.4049,
+            "recall_pos": 0.6074,
+            "f1_pos": 0.4859,
+            "f1_macro": 0.7021,
+            "accuracy": 0.8589,
+            "balanced_acc": 0.7487,
+            "roc_auc": 0.8655,
+            "pr_auc": 0.4885,
+            "mcc": 0.4192,
+            "tn": 1949,
+            "fp": 241,
+            "fn": 106,
+            "tp": 164,
+            "fit_seconds": 77.54,
+            "seed": 44,
+            "n_train_used": 2000,
+            "device": "cpu"
+          }
+        ]
+      }
+    },
+    "final_test": {
+      "evaluated_once_at": "2026-11-16T11:10:12Z",
+      "test_file": "data/splits_vi/test.csv",
+      "test_file_sha256": "76622e343d841901660d98d7cf73bfabb71ed4dc37dfe07eadc847d1d1fc720d",
+      "bin_A": {
+        "threshold": 0.285,
+        "metrics_tuned": {
+          "precision_pos": 0.6307,
+          "recall_pos": 0.7049,
+          "f1_pos": 0.6658,
+          "f1_macro": 0.8108,
+          "accuracy": 0.9219,
+          "balanced_acc": 0.8269,
+          "roc_auc": 0.9372,
+          "pr_auc": 0.7198,
+          "mcc": 0.6229,
+          "tn": 5264,
+          "fp": 284,
+          "fn": 203,
+          "tp": 485
+        },
+        "metrics_default_05": {
+          "precision_pos": 0.7655,
+          "recall_pos": 0.5029,
+          "f1_pos": 0.607,
+          "f1_macro": 0.7837,
+          "accuracy": 0.9282,
+          "balanced_acc": 0.7419,
+          "roc_auc": 0.9372,
+          "pr_auc": 0.7198,
+          "mcc": 0.5846,
+          "tn": 5442,
+          "fp": 106,
+          "fn": 342,
+          "tp": 346
+        },
+        "ci95": {
+          "f1_pos": {
+            "mean": 0.6651,
+            "std": 0.0139,
+            "ci95_low": 0.6379,
+            "ci95_high": 0.6912
+          },
+          "precision_pos": {
+            "mean": 0.6302,
+            "std": 0.0171,
+            "ci95_low": 0.5979,
+            "ci95_high": 0.6635
+          },
+          "recall_pos": {
+            "mean": 0.7045,
+            "std": 0.0172,
+            "ci95_low": 0.6707,
+            "ci95_high": 0.7402
+          },
+          "pr_auc": {
+            "mean": 0.7194,
+            "std": 0.016,
+            "ci95_low": 0.6888,
+            "ci95_high": 0.7509
+          },
+          "roc_auc": {
+            "mean": 0.9369,
+            "std": 0.0045,
+            "ci95_low": 0.9283,
+            "ci95_high": 0.9454
+          }
+        }
+      },
+      "bin_B": {
+        "threshold": 0.315,
+        "metrics_tuned": {
+          "precision_pos": 0.6564,
+          "recall_pos": 0.7173,
+          "f1_pos": 0.6855,
+          "f1_macro": 0.8089,
+          "accuracy": 0.8885,
+          "balanced_acc": 0.8204,
+          "roc_auc": 0.9238,
+          "pr_auc": 0.753,
+          "mcc": 0.6188,
+          "tn": 5123,
+          "fp": 425,
+          "fn": 320,
+          "tp": 812
+        }
+      },
+      "multi3": {
+        "f1_macro": 0.6481,
+        "precision_macro": 0.6181,
+        "recall_macro": 0.6915,
+        "accuracy": 0.8431,
+        "per_class": {
+          "CLEAN": {
+            "precision": 0.9511,
+            "recall": 0.8901,
+            "f1": 0.9196
+          },
+          "OFFENSIVE": {
+            "precision": 0.3908,
+            "recall": 0.4955,
+            "f1": 0.4369
+          },
+          "HATE": {
+            "precision": 0.5124,
+            "recall": 0.689,
+            "f1": 0.5877
+          }
+        },
+        "confusion_matrix": [
+          [
+            4938,
+            260,
+            350
+          ],
+          [
+            123,
+            220,
+            101
+          ],
+          [
+            131,
+            83,
+            474
+          ]
+        ]
+      },
+      "robustness": {
+        "orig": {
+          "f1_pos": 0.6658,
+          "precision_pos": 0.6307,
+          "recall_pos": 0.7049,
+          "pr_auc": 0.7198,
+          "f1_drop": 0.0
+        },
+        "no_accents": {
+          "f1_pos": 0.5102,
+          "precision_pos": 0.4346,
+          "recall_pos": 0.6177,
+          "pr_auc": 0.5284,
+          "f1_drop": 0.1556
+        },
+        "teencode_with_normalizer": {
+          "f1_pos": 0.6204,
+          "precision_pos": 0.6232,
+          "recall_pos": 0.6177,
+          "pr_auc": 0.6723,
+          "f1_drop": 0.0454
+        },
+        "teencode_without_normalizer": {
+          "f1_pos": 0.6152,
+          "precision_pos": 0.5951,
+          "recall_pos": 0.6366,
+          "pr_auc": 0.6621,
+          "f1_drop": 0.0506
+        }
+      },
+      "error_causes": [
+        {
+          "cause": "Nhãn gốc nhiễu hoặc ranh giới mờ giữa CLEAN – OFFENSIVE – HATE (Borderline / Noisy Label)",
+          "FN (Bỏ sót)": 26,
+          "FP (Báo động giả)": 158,
+          "total": 184,
+          "pct": 37.78
+        },
+        {
+          "cause": "Kỳ thị ngầm / Từ lóng vùng miền hoặc ẩn dụ không dùng từ tục (Implicit Hate / Regional Slang)",
+          "FN (Bỏ sót)": 139,
+          "FP (Báo động giả)": 0,
+          "total": 139,
+          "pct": 28.54
+        },
+        {
+          "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+          "FN (Bỏ sót)": 15,
+          "FP (Báo động giả)": 41,
+          "total": 56,
+          "pct": 11.5
+        },
+        {
+          "cause": "Bình luận không dấu / Teencode biến thể nặng (Unaccented / Heavy Teencode)",
+          "FN (Bỏ sót)": 11,
+          "FP (Báo động giả)": 26,
+          "total": 37,
+          "pct": 7.6
+        },
+        {
+          "cause": "Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context)",
+          "FN (Bỏ sót)": 12,
+          "FP (Báo động giả)": 25,
+          "total": 37,
+          "pct": 7.6
+        },
+        {
+          "cause": "Chửi thề 'thân mật' / Cảm thán hoặc Phản đối kỳ thị chứa từ nhạy cảm (Friendly Profanity / Counter-Speech)",
+          "FN (Bỏ sót)": 0,
+          "FP (Báo động giả)": 34,
+          "total": 34,
+          "pct": 6.98
+        }
+      ],
+      "top_positive_words_masked": [
+        {
+          "term_masked": "n***",
+          "weight": 2.0902
+        },
+        {
+          "term_masked": "c***",
+          "weight": 1.7661
+        },
+        {
+          "term_masked": "c***",
+          "weight": 1.5539
+        },
+        {
+          "term_masked": "đ***",
+          "weight": 1.4614
+        },
+        {
+          "term_masked": "bò",
+          "weight": 1.3727
+        },
+        {
+          "term_masked": "s***",
+          "weight": 1.3028
+        },
+        {
+          "term_masked": "l",
+          "weight": 1.2697
+        },
+        {
+          "term_masked": "l***",
+          "weight": 1.2563
+        },
+        {
+          "term_masked": "lũ",
+          "weight": 1.2536
+        },
+        {
+          "term_masked": "con này",
+          "weight": 1.2409
+        },
+        {
+          "term_masked": "bọn",
+          "weight": 1.2048
+        },
+        {
+          "term_masked": "lòn",
+          "weight": 1.1624
+        },
+        {
+          "term_masked": "khùng",
+          "weight": 1.1492
+        },
+        {
+          "term_masked": "non quá",
+          "weight": 1.1401
+        },
+        {
+          "term_masked": "xàm",
+          "weight": 1.1218
+        }
+      ],
+      "top_negative_words_masked": [
+        {
+          "term_masked": "cái này",
+          "weight": -0.9732
+        },
+        {
+          "term_masked": "cho con",
+          "weight": -0.7628
+        },
+        {
+          "term_masked": "về việt",
+          "weight": -0.6884
+        },
+        {
+          "term_masked": "thịt c***",
+          "weight": -0.6329
+        },
+        {
+          "term_masked": "t",
+          "weight": -0.6199
+        },
+        {
+          "term_masked": "đọc",
+          "weight": -0.5568
+        },
+        {
+          "term_masked": "không đi",
+          "weight": -0.5469
+        },
+        {
+          "term_masked": "chục",
+          "weight": -0.5426
+        },
+        {
+          "term_masked": "cái gì",
+          "weight": -0.5085
+        },
+        {
+          "term_masked": "như này",
+          "weight": -0.501
+        },
+        {
+          "term_masked": "lm",
+          "weight": -0.4973
+        },
+        {
+          "term_masked": "mẹ con",
+          "weight": -0.4959
+        },
+        {
+          "term_masked": "vui",
+          "weight": -0.4864
+        },
+        {
+          "term_masked": "chết rồi",
+          "weight": -0.4835
+        },
+        {
+          "term_masked": "hon",
+          "weight": -0.483
+        }
+      ]
+    },
+    "robustness": {
+      "orig": {
+        "f1_pos": 0.6658,
+        "precision_pos": 0.6307,
+        "recall_pos": 0.7049,
+        "pr_auc": 0.7198,
+        "f1_drop": 0.0
+      },
+      "no_accents": {
+        "f1_pos": 0.5102,
+        "precision_pos": 0.4346,
+        "recall_pos": 0.6177,
+        "pr_auc": 0.5284,
+        "f1_drop": 0.1556
+      },
+      "teencode_with_normalizer": {
+        "f1_pos": 0.6204,
+        "precision_pos": 0.6232,
+        "recall_pos": 0.6177,
+        "pr_auc": 0.6723,
+        "f1_drop": 0.0454
+      },
+      "teencode_without_normalizer": {
+        "f1_pos": 0.6152,
+        "precision_pos": 0.5951,
+        "recall_pos": 0.6366,
+        "pr_auc": 0.6621,
+        "f1_drop": 0.0506
+      }
+    },
+    "realworld": {
+      "n": 210,
+      "n_bin_A": 183,
+      "kappa": 0.8743,
+      "kappa_weighted": 0.9538,
+      "kappa_bin_A": 0.9121,
+      "agreement_pct": 92.86,
+      "n_disagreements": 15,
+      "overall_bin_A": {
+        "precision_pos": 0.8545,
+        "recall_pos": 0.7581,
+        "f1_pos": 0.8034,
+        "f1_macro": 0.8555,
+        "accuracy": 0.8743,
+        "balanced_acc": 0.846,
+        "roc_auc": 0.9493,
+        "pr_auc": 0.9074,
+        "mcc": 0.7143,
+        "tn": 113,
+        "fp": 8,
+        "fn": 15,
+        "tp": 47
+      },
+      "overall_bin_B": {
+        "precision_pos": 0.881,
+        "recall_pos": 0.8315,
+        "f1_pos": 0.8555,
+        "f1_macro": 0.8771,
+        "accuracy": 0.881,
+        "balanced_acc": 0.8744,
+        "roc_auc": 0.9357,
+        "pr_auc": 0.9069,
+        "mcc": 0.7553,
+        "tn": 111,
+        "fp": 10,
+        "fn": 15,
+        "tp": 74
+      },
+      "overall_multi3_f1_macro": 0.7319,
+      "f1_by_source": [
+        {
+          "source": "A_vihsd_test_sample",
+          "n_samples_bin_A": 60,
+          "n_hate": 25,
+          "n_clean": 35,
+          "precision_pos": 0.9412,
+          "recall_pos": 0.64,
+          "f1_pos": 0.7619,
+          "f1_macro": 0.8168,
+          "accuracy": 0.8333,
+          "balanced_acc": 0.8057,
+          "roc_auc": 0.9623,
+          "pr_auc": 0.9524,
+          "mcc": 0.6689,
+          "tn": 34,
+          "fp": 1,
+          "fn": 9,
+          "tp": 16
+        },
+        {
+          "source": "B_public_social_manual",
+          "n_samples_bin_A": 68,
+          "n_hate": 18,
+          "n_clean": 50,
+          "precision_pos": 0.9474,
+          "recall_pos": 1.0,
+          "f1_pos": 0.973,
+          "f1_macro": 0.9814,
+          "accuracy": 0.9853,
+          "balanced_acc": 0.99,
+          "roc_auc": 1.0,
+          "pr_auc": 1.0,
+          "mcc": 0.9635,
+          "tn": 49,
+          "fp": 1,
+          "fn": 0,
+          "tp": 18
+        },
+        {
+          "source": "C_adversarial_curated_vi",
+          "n_samples_bin_A": 55,
+          "n_hate": 19,
+          "n_clean": 36,
+          "precision_pos": 0.6842,
+          "recall_pos": 0.6842,
+          "f1_pos": 0.6842,
+          "f1_macro": 0.7588,
+          "accuracy": 0.7818,
+          "balanced_acc": 0.7588,
+          "roc_auc": 0.8787,
+          "pr_auc": 0.7983,
+          "mcc": 0.5175,
+          "tn": 30,
+          "fp": 6,
+          "fn": 6,
+          "tp": 13
+        }
+      ],
+      "sample_errors_masked": [
+        {
+          "id": 5,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.0424,
+          "text_masked": "Đem đưa lên cơ sơ xo thẩm quyền THP bốc phân mà ăn :)",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 7,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FP (Báo động giả)",
+          "label_final": "CLEAN",
+          "y_pred": 1,
+          "score": 0.3173,
+          "text_masked": "Tiến Chiểu sao thằng này lại là chủ tịch",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 15,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.2087,
+          "text_masked": "An Nguyễn Đức giờ mình nói chung (giống như làm toán đặt thừa số chung vậy mà) là vầy : mình đi vệ sinh là đã góp phần nuôi sống cái đám \" đầy tớ của nhân dân\" rồi ....",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 19,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.092,
+          "text_masked": "từ dịch này thấy ý thức người nhật xăng đổ nửa bình, nhưng giấy vệ sinh không thể thiếu. không hy sinh bản thân để cứu người khác, nhưng dính dịch thì kéo nhiều người dính theo.",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 20,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.1938,
+          "text_masked": "@user Năng Sinh Tồn ngáo đá hả bạn có làm j bn chưa mà chửi người ta",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 26,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.2292,
+          "text_masked": "Thôi bớt ngựa ông... đừng đi tùm lum để khéo mắc bệnh rồi cách li... là dân việt nam mừng lắm rồi",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 29,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.0538,
+          "text_masked": "Cô ba vàng giả cái () cát không.😂",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 45,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.1927,
+          "text_masked": "đảng ko đủi thì nhân dân đủi :v rồi đảng bỏ tù dân vì gây rối :v tóm váy ngậm tiền rồi thì ráng nghe chửi đi đảng ơi :D",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 50,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.121,
+          "text_masked": "mấy con cá đấy gọi chung là quân đội và cớm :v",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 52,
+          "source": "A_vihsd_test_sample",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.2209,
+          "text_masked": "Phạm Văn Lộc vãi lol lộc",
+          "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
+        },
+        {
+          "id": 93,
+          "source": "B_public_social_manual",
+          "error_type": "FP (Báo động giả)",
+          "label_final": "CLEAN",
+          "y_pred": 1,
+          "score": 0.3499,
+          "text_masked": "Cuốn sách này phân tích rất sâu về lịch sử văn hóa các vùng miền Việt Nam.",
+          "note": "Giới thiệu sách"
+        },
+        {
+          "id": 153,
+          "source": "C_adversarial_curated_vi",
+          "error_type": "FP (Báo động giả)",
+          "label_final": "CLEAN",
+          "y_pred": 1,
+          "score": 0.342,
+          "text_masked": "cam on ban da chia se tai lieu hoc may rat bo ich cho sinh vien",
+          "note": "Tiếng Việt không dấu — cảm ơn"
+        },
+        {
+          "id": 156,
+          "source": "C_adversarial_curated_vi",
+          "error_type": "FP (Báo động giả)",
+          "label_final": "CLEAN",
+          "y_pred": 1,
+          "score": 0.2954,
+          "text_masked": "chung ta can ton trong su khac biet van hoa giua cac vung mien",
+          "note": "Tiếng Việt không dấu — thông điệp tích cực"
+        },
+        {
+          "id": 161,
+          "source": "C_adversarial_curated_vi",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.0559,
+          "text_masked": "bon moi ro ha dang nay khong xung dang duoc song",
+          "note": "Tiếng Việt không dấu — kỳ thị nhóm"
+        }
+      ]
+    }
+  }
 }

@@ -55,3 +55,18 @@
      - `reports/figures/P10_app_tab3_stats.png` (Giao diện Tab 3 thống kê & hồ sơ mô hình)
 3. **Phương án dự phòng 3 (Chạy trực tiếp trong Notebook `08_realworld_test.ipynb`):**
    - Mở sẵn `notebooks/08_realworld_test.ipynb` có kết quả suy luận của `src/predict.py::Predictor` để gõ thử bất kỳ câu nào của giảng viên ngay trong ô code Python.
+
+
+---
+
+## C. KỊCH BẢN DEMO MỞ RỘNG ĐA NGÔN NGỮ TIẾNG VIỆT (V7 — 6 CÂU MẪU CHUẨN)
+
+1. **Mẫu 1 & 2 (Tiếng Anh — Chế độ `Tự động`):**
+   - Bấm nút **1. [EN] Bình thường** và **2. [EN] Phản cảm — Racist/Sexist**: Hệ thống tự động nhận diện `lang = EN`, nạp mô hình `English — Linear SVM (Calibrated)` (ngưỡng `0.315`) và hiển thị định nghĩa nhãn *Racist / Sexist Hate Speech*.
+2. **Mẫu 3 & 4 (Tiếng Việt có dấu — Chế độ `Tự động`):**
+   - Bấm nút **3. [VI có dấu] Bình thường** (*"Đội tuyển bóng đá Việt Nam hôm qua thi đấu rất nỗ lực..."*) $ightarrow$ Hệ thống phát hiện ký tự có dấu tiếng Việt, định tuyến sang `Tiếng Việt — Linear SVM (ViHSD bin_A)` và trả về Nhãn `0` (Xanh).
+   - Bấm nút **4. [VI có dấu] Phản cảm — Thù ghét/Xúc phạm** $ightarrow$ Hệ thống trả về Nhãn `1` (Đỏ), giải thích rõ các từ ghép đã tách từ (`s***`, `ó***`, `v***`) và hiển thị rõ định nghĩa nhãn *Tiếng Việt: Thù ghét / Xúc phạm cá nhân hoặc nhóm (ViHSD)*.
+3. **Mẫu 5 (Tiếng Việt không dấu — Minh họa độ bền & chế độ chọn tay):**
+   - Bấm nút **5. [VI không dấu]** (*"thang oc cho nay ngu dot va mat day kinh khung cut khoi day ngay"*): Giải thích cho hội đồng thấy khi gõ không dấu, bộ nhận diện tự động có thể cảnh báo hoặc nếu chuyển nút Radio sang **`Tiếng Việt`**, chế độ chọn tay sẽ ghi đè tự động và phân loại câu này.
+4. **Mẫu 6 (Câu quá ngắn / Không rõ ngôn ngữ — Kiểm tra cơ chế an toàn):**
+   - Bấm nút **6. [Quá ngắn / Không rõ ngôn ngữ]** (`"ok bro"`): Ở chế độ `Tự động`, hệ thống trả về `lang = unknown` và **hiển thị cảnh báo vàng không đoán bừa**.

@@ -1,0 +1,154 @@
+{
+  "dataset_name": "ViHSD (Vietnamese Hate Speech Detection — Luu et al., 2021)",
+  "source_used": "huggingface:visolex/ViHSD",
+  "citation": "Luu, S.T., Nguyen, K.V., Nguyen, N.L.-T. (2021). A Large-Scale Dataset for Hate Speech Detection on Vietnamese Social Media Texts. IEA/AIE 2021, pp. 415-426.",
+  "license_note": "Dùng cho mục đích học tập/nghiên cứu, trích dẫn Luu et al. (2021); không phân phối lại dữ liệu thô.",
+  "download_date": "2026-11-16",
+  "n_total_rows": 33400,
+  "published_reference_counts": {
+    "total": 33400,
+    "train": 24048,
+    "dev": 2672,
+    "test": 6680,
+    "CLEAN": 27624,
+    "HATE": 3514,
+    "OFFENSIVE": 2262
+  },
+  "n_null_or_empty": 2,
+  "overall_label_distribution": {
+    "CLEAN": 27624,
+    "OFFENSIVE": 2262,
+    "HATE": 3514
+  },
+  "overall_label_pct": {
+    "CLEAN": 82.71,
+    "OFFENSIVE": 6.77,
+    "HATE": 10.52
+  },
+  "splits": {
+    "train": {
+      "n_rows": 24048,
+      "n_null_or_empty": 2,
+      "n_duplicates_exact": 1536,
+      "label_distribution": {
+        "CLEAN": 19886,
+        "OFFENSIVE": 1606,
+        "HATE": 2556
+      },
+      "label_pct": {
+        "CLEAN": 82.69,
+        "OFFENSIVE": 6.68,
+        "HATE": 10.63
+      }
+    },
+    "dev": {
+      "n_rows": 2672,
+      "n_null_or_empty": 0,
+      "n_duplicates_exact": 22,
+      "label_distribution": {
+        "CLEAN": 2190,
+        "OFFENSIVE": 212,
+        "HATE": 270
+      },
+      "label_pct": {
+        "CLEAN": 81.96,
+        "OFFENSIVE": 7.93,
+        "HATE": 10.1
+      }
+    },
+    "test": {
+      "n_rows": 6680,
+      "n_null_or_empty": 0,
+      "n_duplicates_exact": 107,
+      "label_distribution": {
+        "CLEAN": 5548,
+        "OFFENSIVE": 444,
+        "HATE": 688
+      },
+      "label_pct": {
+        "CLEAN": 83.05,
+        "OFFENSIVE": 6.65,
+        "HATE": 10.3
+      }
+    }
+  },
+  "cross_split_overlap_unique_texts": {
+    "train_intersect_dev": 322,
+    "train_intersect_test": 791,
+    "dev_intersect_test": 92,
+    "note": "Chia chuẩn chính thức của tác giả ViHSD có một số câu bình luận ngắn phổ biến (vd: 'hay quá', 'đúng rồi') xuất hiện ở nhiều split; giữ nguyên chia chuẩn để so sánh công bằng với bài báo gốc."
+  },
+  "linguistic_characteristics": {
+    "pct_unaccented_comments": 7.78,
+    "n_unaccented_comments": 2597,
+    "pct_comments_with_teencode": 24.18,
+    "pct_tokens_teencode": 3.09,
+    "top_teencode_terms": [
+      [
+        "ko",
+        1965
+      ],
+      [
+        "k",
+        1347
+      ],
+      [
+        "v",
+        1069
+      ],
+      [
+        "đc",
+        917
+      ],
+      [
+        "vn",
+        534
+      ],
+      [
+        "r",
+        443
+      ],
+      [
+        "ng",
+        407
+      ],
+      [
+        "ad",
+        396
+      ],
+      [
+        "vs",
+        350
+      ],
+      [
+        "ae",
+        320
+      ],
+      [
+        "j",
+        318
+      ],
+      [
+        "dc",
+        265
+      ],
+      [
+        "ok",
+        264
+      ],
+      [
+        "cmt",
+        251
+      ],
+      [
+        "h",
+        189
+      ]
+    ],
+    "pct_comments_with_emoji": 14.25,
+    "char_length_mean": 48.92,
+    "char_length_median": 33.0,
+    "word_length_mean": 11.5,
+    "word_length_median": 8.0
+  }
+}

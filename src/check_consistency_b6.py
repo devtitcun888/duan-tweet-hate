@@ -128,6 +128,40 @@ def run_consistency_check() -> dict[str, Any]:
         ),
     ]
 
+    if "vi" in facts:
+        vi = facts["vi"]
+        vi_ft = vi["final_test"]
+        vi_rw = vi["realworld"]
+        key_facts.extend(
+            [
+                (
+                    "Quy mô bộ dữ liệu Tiếng Việt ViHSD (V1)",
+                    f"{vi['dataset']['n']:,}",
+                    ["reports/report.docx", "reports/slides.pptx", "reports/speaker_script.md", "reports/qa_bank.md", "reports/cheat_sheet.md", "README.md"],
+                ),
+                (
+                    "Test F1 Tiếng Việt bài toán chính bin_A (V5)",
+                    f"{vi_ft['bin_A']['metrics_tuned']['f1_pos']:.4f}",
+                    ["reports/report.docx", "reports/slides.pptx", "reports/speaker_script.md", "reports/qa_bank.md", "reports/cheat_sheet.md", "README.md"],
+                ),
+                (
+                    "Test Macro-F1 Tiếng Việt 3 lớp multi3 (V5)",
+                    f"{vi_ft['multi3']['f1_macro']:.4f}",
+                    ["reports/report.docx", "reports/slides.pptx", "reports/speaker_script.md", "reports/qa_bank.md", "reports/cheat_sheet.md", "README.md"],
+                ),
+                (
+                    "Độ bền Không dấu (strip_accents Test F1 — V5)",
+                    f"{vi['robustness']['no_accents']['f1_pos']:.4f}",
+                    ["reports/report.docx", "reports/slides.pptx", "reports/speaker_script.md", "reports/qa_bank.md", "reports/cheat_sheet.md", "README.md"],
+                ),
+                (
+                    "Cohen's Kappa 3 lớp Tập Thực tế Tiếng Việt (V6)",
+                    f"{vi_rw['kappa']:.4f}",
+                    ["reports/report.docx", "reports/slides.pptx", "reports/speaker_script.md", "reports/qa_bank.md", "reports/cheat_sheet.md", "README.md"],
+                ),
+            ]
+        )
+
     verification_rows = []
     all_passed = True
     for label, expected_str, target_docs in key_facts:

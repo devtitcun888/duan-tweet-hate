@@ -1,4 +1,4 @@
-"""B0 Facts Aggregator: Collects all verified numbers from P1-P9 artifacts into reports/facts.json."""
+"""B0 & V8 Facts Aggregator: Collects all verified English (P1-P9) and Vietnamese (V1-V6) numbers into reports/facts.json."""
 
 from __future__ import annotations
 
@@ -8,7 +8,7 @@ from typing import Any
 
 import pandas as pd
 
-from src.utils import get_project_root, mask_profanity
+from src.utils import get_project_root
 
 PROJECT_ROOT = get_project_root()
 REPORTS_DIR = PROJECT_ROOT / "reports"
@@ -16,7 +16,7 @@ TAB_DIR = REPORTS_DIR / "tables"
 
 
 def build_facts_json() -> dict[str, Any]:
-    """Read all generated artifacts and write reports/facts.json with zero missing numbers."""
+    """Read all generated English and Vietnamese artifacts and write reports/facts.json."""
     data_report = json.loads((REPORTS_DIR / "data_report.json").read_text(encoding="utf-8"))
     p2 = json.loads((REPORTS_DIR / "p2_findings.json").read_text(encoding="utf-8"))
     p3 = json.loads((REPORTS_DIR / "p3_sql_summary.json").read_text(encoding="utf-8"))
@@ -30,7 +30,6 @@ def build_facts_json() -> dict[str, Any]:
     comp_df = pd.read_csv(REPORTS_DIR / "model_comparison.csv")
     errors_df = pd.read_csv(TAB_DIR / "P8_errors.csv")
 
-    # Select 20 representative misclassified examples (10 FP + 10 FN) from test set
     fp_10 = errors_df[errors_df["error_type"].str.startswith("FP")].head(10)
     fn_10 = errors_df[errors_df["error_type"].str.startswith("FN")].head(10)
     errors_20 = pd.concat([fp_10, fn_10], ignore_index=True).to_dict(orient="records")
@@ -39,7 +38,7 @@ def build_facts_json() -> dict[str, Any]:
     ft_05 = p8["final_test"]["metrics_at_default_05"]
 
     facts: dict[str, Any] = {
-        "project_title": "Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (Twitter Sentiment Analysis)",
+        "project_title": "Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (Twitter Sentiment Analysis) & Mở rộng Tiếng Việt (ViHSD)",
         "seed": 42,
         "datasets": {
             "assigned": data_report["assigned_twitter"],
@@ -137,6 +136,68 @@ def build_facts_json() -> dict[str, Any]:
         "subgroup_bias": p8["subgroup_bias"],
     }
 
+    # Add Vietnamese Extension (V1-V8) if artifacts exist
+    vi_rep_path = REPORTS_DIR / "vi_data_report.json"
+    if vi_rep_path.exists():
+        vi_rep = json.loads(vi_rep_path.read_text(encoding="utf-8"))
+        vi_eda = json.loads((REPORTS_DIR / "vi_eda_summary.json").read_text(encoding="utf-8"))
+        vi_v3 = json.loads((REPORTS_DIR / "vi_v3_summary.json").read_text(encoding="utf-8"))
+        vi_v4 = json.loads((REPORTS_DIR / "vi_v4_summary.json").read_text(encoding="utf-8")) if (REPORTS_DIR / "vi_v4_summary.json").exists() else {}
+        vi_v5 = json.loads((REPORTS_DIR / "vi_final_test_metrics.json").read_text(encoding="utf-8"))
+        vi_v6 = json.loads((REPORTS_DIR / "vi_realworld_metrics.json").read_text(encoding="utf-8"))
+        vi_comp_df = pd.read_csv(REPORTS_DIR / "vi_model_comparison.csv")
+
+        facts["vi"] = {
+            "dataset": {
+                "n": vi_rep["n_total_rows"],
+                "split_sizes": {k: v["n_rows"] for k, v in vi_rep["splits"].items()},
+                "splits_detail": vi_rep["splits"],
+                "label_dist": vi_rep["overall_label_distribution"],
+                "label_pct": vi_rep["overall_label_pct"],
+                "source": vi_rep["source_used"],
+                "citation": vi_rep["citation"],
+                "license_note": vi_rep["license_note"],
+                "cross_split_overlap": vi_rep["cross_split_overlap_unique_texts"],
+                "linguistic_characteristics": vi_rep["linguistic_characteristics"],
+                "eda_summary": vi_eda,
+            },
+            "binary_variants": {
+                "A": "HATE vs CLEAN (bỏ OFFENSIVE)",
+                "B": "OFFENSIVE+HATE vs CLEAN",
+                "multi3": "3 lớp CLEAN / OFFENSIVE / HATE (Macro-F1)",
+            },
+            "models": vi_comp_df.to_dict(orient="records"),
+            "best": {
+                "task": "bin_A",
+                "model": vi_v3["best_bin_A"]["model_name"],
+                "model_key": vi_v3["best_bin_A"]["model_key"],
+                "vectorizer": vi_v3["best_bin_A"]["vectorizer"],
+                "params": {"C": vi_v3["best_bin_A"]["C"], "threshold": vi_v3["best_bin_A"]["best_threshold"]},
+                "best_bin_A": vi_v3["best_bin_A"],
+                "best_bin_B": vi_v3["best_bin_B"],
+                "best_multi3": vi_v3["best_multi3"],
+                "ablation": vi_v3["ablation"],
+                "balance_comparison": vi_v3["balance_comparison"],
+            },
+            "transformers": vi_v4,
+            "final_test": vi_v5,
+            "robustness": vi_v5["robustness"],
+            "realworld": {
+                "n": vi_v6["n_total_3class"],
+                "n_bin_A": vi_v6["n_bin_A"],
+                "kappa": vi_v6["kappa_3class_unweighted"],
+                "kappa_weighted": vi_v6["kappa_3class_quadratic_weighted"],
+                "kappa_bin_A": vi_v6["kappa_bin_A"],
+                "agreement_pct": vi_v6["agreement_pct"],
+                "n_disagreements": vi_v6["n_disagreements"],
+                "overall_bin_A": vi_v6["overall_bin_A"],
+                "overall_bin_B": vi_v6["overall_bin_B"],
+                "overall_multi3_f1_macro": vi_v6["overall_multi3_f1_macro"],
+                "f1_by_source": vi_v6["f1_by_source_bin_A"],
+                "sample_errors_masked": vi_v6["sample_errors_masked"],
+            },
+        }
+
     out_path = REPORTS_DIR / "facts.json"
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(facts, f, indent=2, ensure_ascii=False)
@@ -145,4 +206,4 @@ def build_facts_json() -> dict[str, Any]:
 
 if __name__ == "__main__":
     f = build_facts_json()
-    print("facts.json generated successfully. Final Test F1:", f["final_test"]["f1_pos"])
+    print("facts.json updated. Has vi:", "vi" in f)

@@ -1,0 +1,465 @@
+{
+  "n_train_tokens_in_db": 223577,
+  "length_stats": [
+    {
+      "label_3": "CLEAN",
+      "metric": "n_chars",
+      "mean": 45.27,
+      "median": 32.0,
+      "std": 200.61,
+      "p95": 115.0
+    },
+    {
+      "label_3": "CLEAN",
+      "metric": "n_words",
+      "mean": 10.48,
+      "median": 8.0,
+      "std": 20.57,
+      "p95": 27.0
+    },
+    {
+      "label_3": "OFFENSIVE",
+      "metric": "n_chars",
+      "mean": 44.05,
+      "median": 31.0,
+      "std": 46.01,
+      "p95": 124.0
+    },
+    {
+      "label_3": "OFFENSIVE",
+      "metric": "n_words",
+      "mean": 10.74,
+      "median": 8.0,
+      "std": 10.68,
+      "p95": 29.0
+    },
+    {
+      "label_3": "HATE",
+      "metric": "n_chars",
+      "mean": 83.78,
+      "median": 59.0,
+      "std": 74.69,
+      "p95": 251.0
+    },
+    {
+      "label_3": "HATE",
+      "metric": "n_words",
+      "mean": 19.97,
+      "median": 14.0,
+      "std": 17.47,
+      "p95": 59.0
+    }
+  ],
+  "surface_by_label": [
+    {
+      "label_3": "CLEAN",
+      "pct_exclaim": 3.35,
+      "pct_question": 4.04,
+      "pct_emoji": 15.46,
+      "pct_repeat_chars": 3.07,
+      "pct_unaccented": 7.62
+    },
+    {
+      "label_3": "OFFENSIVE",
+      "pct_exclaim": 3.61,
+      "pct_question": 3.8,
+      "pct_emoji": 10.71,
+      "pct_repeat_chars": 2.24,
+      "pct_unaccented": 8.78
+    },
+    {
+      "label_3": "HATE",
+      "pct_exclaim": 7.51,
+      "pct_question": 6.69,
+      "pct_emoji": 6.61,
+      "pct_repeat_chars": 2.03,
+      "pct_unaccented": 6.57
+    }
+  ],
+  "lexicon_coverage": [
+    {
+      "label_3": "CLEAN",
+      "n_comments": 19886,
+      "n_with_lexicon": 725,
+      "pct_with_lexicon": 3.65
+    },
+    {
+      "label_3": "OFFENSIVE",
+      "n_comments": 1606,
+      "n_with_lexicon": 607,
+      "pct_with_lexicon": 37.8
+    },
+    {
+      "label_3": "HATE",
+      "n_comments": 2556,
+      "n_with_lexicon": 918,
+      "pct_with_lexicon": 35.92
+    }
+  ],
+  "top_15_log_odds_hate_masked": [
+    {
+      "token": "cặc",
+      "c_hate": 18,
+      "c_off": 13,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.4645,
+      "log_odds_off_vs_clean": 5.1978,
+      "token_masked": "c***"
+    },
+    {
+      "token": "súc_vật",
+      "c_hate": 13,
+      "c_off": 2,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.1592,
+      "log_odds_off_vs_clean": 3.6573,
+      "token_masked": "s***"
+    },
+    {
+      "token": "thối_nát",
+      "c_hate": 12,
+      "c_off": 3,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.0851,
+      "log_odds_off_vs_clean": 3.945,
+      "token_masked": "thối_nát"
+    },
+    {
+      "token": "độc_tài",
+      "c_hate": 12,
+      "c_off": 0,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.0851,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "độc_tài"
+    },
+    {
+      "token": "lưu_manh",
+      "c_hate": 10,
+      "c_off": 0,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 3.918,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "lưu_manh"
+    },
+    {
+      "token": "đỉ",
+      "c_hate": 10,
+      "c_off": 0,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 3.918,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "đỉ"
+    },
+    {
+      "token": "bán_nước",
+      "c_hate": 18,
+      "c_off": 1,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.7714,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "bán_nước"
+    },
+    {
+      "token": "cán_bộ",
+      "c_hate": 16,
+      "c_off": 1,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.6602,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "cán_bộ"
+    },
+    {
+      "token": "câm",
+      "c_hate": 16,
+      "c_off": 1,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.6602,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "câm"
+    },
+    {
+      "token": "loz",
+      "c_hate": 24,
+      "c_off": 10,
+      "c_clean": 2,
+      "log_odds_hate_vs_clean": 3.6404,
+      "log_odds_off_vs_clean": 3.858,
+      "token_masked": "loz"
+    },
+    {
+      "token": "thần_kinh",
+      "c_hate": 15,
+      "c_off": 6,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.5995,
+      "log_odds_off_vs_clean": 3.8115,
+      "token_masked": "thần_kinh"
+    },
+    {
+      "token": "sủa",
+      "c_hate": 58,
+      "c_off": 9,
+      "c_clean": 7,
+      "log_odds_hate_vs_clean": 3.5182,
+      "log_odds_off_vs_clean": 2.7818,
+      "token_masked": "s***"
+    },
+    {
+      "token": "xạo",
+      "c_hate": 58,
+      "c_off": 19,
+      "c_clean": 7,
+      "log_odds_hate_vs_clean": 3.5182,
+      "log_odds_off_vs_clean": 3.475,
+      "token_masked": "xạo"
+    },
+    {
+      "token": "lồn",
+      "c_hate": 109,
+      "c_off": 56,
+      "c_clean": 15,
+      "log_odds_hate_vs_clean": 3.448,
+      "log_odds_off_vs_clean": 3.8292,
+      "token_masked": "l***"
+    },
+    {
+      "token": "liềm",
+      "c_hate": 12,
+      "c_off": 1,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.3919,
+      "log_odds_off_vs_clean": 2.5587,
+      "token_masked": "liềm"
+    }
+  ],
+  "top_15_log_odds_off_masked": [
+    {
+      "token": "cặc",
+      "c_hate": 18,
+      "c_off": 13,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.4645,
+      "log_odds_off_vs_clean": 5.1978,
+      "token_masked": "c***"
+    },
+    {
+      "token": "cl",
+      "c_hate": 14,
+      "c_off": 23,
+      "c_clean": 3,
+      "log_odds_hate_vs_clean": 2.8419,
+      "log_odds_off_vs_clean": 4.3505,
+      "token_masked": "c***"
+    },
+    {
+      "token": "cc",
+      "c_hate": 64,
+      "c_off": 53,
+      "c_clean": 10,
+      "log_odds_hate_vs_clean": 3.2966,
+      "log_odds_off_vs_clean": 4.1498,
+      "token_masked": "c***"
+    },
+    {
+      "token": "thối_nát",
+      "c_hate": 12,
+      "c_off": 3,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.0851,
+      "log_odds_off_vs_clean": 3.945,
+      "token_masked": "thối_nát"
+    },
+    {
+      "token": "loz",
+      "c_hate": 24,
+      "c_off": 10,
+      "c_clean": 2,
+      "log_odds_hate_vs_clean": 3.6404,
+      "log_odds_off_vs_clean": 3.858,
+      "token_masked": "loz"
+    },
+    {
+      "token": "lồn",
+      "c_hate": 109,
+      "c_off": 56,
+      "c_clean": 15,
+      "log_odds_hate_vs_clean": 3.448,
+      "log_odds_off_vs_clean": 3.8292,
+      "token_masked": "l***"
+    },
+    {
+      "token": "thần_kinh",
+      "c_hate": 15,
+      "c_off": 6,
+      "c_clean": 1,
+      "log_odds_hate_vs_clean": 3.5995,
+      "log_odds_off_vs_clean": 3.8115,
+      "token_masked": "thần_kinh"
+    },
+    {
+      "token": "súc_vật",
+      "c_hate": 13,
+      "c_off": 2,
+      "c_clean": 0,
+      "log_odds_hate_vs_clean": 4.1592,
+      "log_odds_off_vs_clean": 3.6573,
+      "token_masked": "s***"
+    },
+    {
+      "token": "xạo",
+      "c_hate": 58,
+      "c_off": 19,
+      "c_clean": 7,
+      "log_odds_hate_vs_clean": 3.5182,
+      "log_odds_off_vs_clean": 3.475,
+      "token_masked": "xạo"
+    },
+    {
+      "token": "lol",
+      "c_hate": 54,
+      "c_off": 37,
+      "c_clean": 16,
+      "log_odds_hate_vs_clean": 2.6942,
+      "log_odds_off_vs_clean": 3.3631,
+      "token_masked": "lol"
+    },
+    {
+      "token": "dm",
+      "c_hate": 38,
+      "c_off": 32,
+      "c_clean": 14,
+      "log_odds_hate_vs_clean": 2.4756,
+      "log_odds_off_vs_clean": 3.3472,
+      "token_masked": "dm"
+    },
+    {
+      "token": "địt",
+      "c_hate": 19,
+      "c_off": 10,
+      "c_clean": 4,
+      "log_odds_hate_vs_clean": 2.9064,
+      "log_odds_off_vs_clean": 3.3472,
+      "token_masked": "đ***"
+    },
+    {
+      "token": "nhục",
+      "c_hate": 30,
+      "c_off": 14,
+      "c_clean": 6,
+      "log_odds_hate_vs_clean": 3.0082,
+      "log_odds_off_vs_clean": 3.3208,
+      "token_masked": "nhục"
+    },
+    {
+      "token": "đm",
+      "c_hate": 75,
+      "c_off": 49,
+      "c_clean": 24,
+      "log_odds_hate_vs_clean": 2.632,
+      "log_odds_off_vs_clean": 3.2519,
+      "token_masked": "đ***"
+    },
+    {
+      "token": "lz",
+      "c_hate": 8,
+      "c_off": 5,
+      "c_clean": 2,
+      "log_odds_hate_vs_clean": 2.6187,
+      "log_odds_off_vs_clean": 3.2519,
+      "token_masked": "lz"
+    }
+  ],
+  "top_15_cooccur_masked": [
+    {
+      "neighbor": "không",
+      "cnt": 177,
+      "n_comments": 96,
+      "neighbor_masked": "không"
+    },
+    {
+      "neighbor": "cái",
+      "cnt": 160,
+      "n_comments": 91,
+      "neighbor_masked": "cái"
+    },
+    {
+      "neighbor": "gì",
+      "cnt": 157,
+      "n_comments": 86,
+      "neighbor_masked": "gì"
+    },
+    {
+      "neighbor": "nó",
+      "cnt": 121,
+      "n_comments": 60,
+      "neighbor_masked": "nó"
+    },
+    {
+      "neighbor": "mày",
+      "cnt": 120,
+      "n_comments": 51,
+      "neighbor_masked": "mày"
+    },
+    {
+      "neighbor": "con",
+      "cnt": 118,
+      "n_comments": 67,
+      "neighbor_masked": "con"
+    },
+    {
+      "neighbor": "chó",
+      "cnt": 93,
+      "n_comments": 48,
+      "neighbor_masked": "c***"
+    },
+    {
+      "neighbor": "thằng",
+      "cnt": 92,
+      "n_comments": 53,
+      "neighbor_masked": "thằng"
+    },
+    {
+      "neighbor": "đi",
+      "cnt": 91,
+      "n_comments": 58,
+      "neighbor_masked": "đi"
+    },
+    {
+      "neighbor": "nói",
+      "cnt": 85,
+      "n_comments": 48,
+      "neighbor_masked": "nói"
+    },
+    {
+      "neighbor": "làm",
+      "cnt": 79,
+      "n_comments": 52,
+      "neighbor_masked": "làm"
+    },
+    {
+      "neighbor": "chửi",
+      "cnt": 79,
+      "n_comments": 30,
+      "neighbor_masked": "chửi"
+    },
+    {
+      "neighbor": "lại",
+      "cnt": 75,
+      "n_comments": 40,
+      "neighbor_masked": "lại"
+    },
+    {
+      "neighbor": "rồi",
+      "cnt": 73,
+      "n_comments": 53,
+      "neighbor_masked": "rồi"
+    },
+    {
+      "neighbor": "người",
+      "cnt": 70,
+      "n_comments": 37,
+      "neighbor_masked": "người"
+    }
+  ]
+}

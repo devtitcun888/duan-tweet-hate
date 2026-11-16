@@ -57,3 +57,19 @@
 - **Chạy kiểm thử tự động (17 unit tests):** `pytest -q`
 - **Tái lập toàn bộ pipeline trên CPU:** `python run_all.py --cpu-only`
 - **Notebook Google Colab:** Mở lần lượt `notebooks/00_colab_bootstrap.ipynb` → `08_realworld_test.ipynb` và chọn `Runtime → Run all`.
+
+
+---
+
+## 5. BẢNG SỐ LIỆU CHỐT PHẦN MỞ RỘNG TIẾNG VIỆT (ViHSD — V0 → V8)
+
+| Hạng mục Tiếng Việt (ViHSD) | Con số chính xác | Ghi chú / Ý nghĩa |
+|---|---|---|
+| **Quy mô & Chia tập chuẩn ViHSD** | **33,400 dòng** (`24,048` train / `2,672` dev / `6,680` test) | Nhãn: `CLEAN` = 27,624 (82.71%) \| `HATE` = 3,514 (10.52%) \| `OFFENSIVE` = 2,262 (6.77%) |
+| **Kiểm tra trùng chéo Split chuẩn** | `train∩dev` = **322** \| `train∩test` = **791** \| `dev∩test` = **92** | Giữ nguyên chia chuẩn của Luu et al. (2021) để so sánh công bằng với bài báo gốc |
+| **Đặc trưng ngôn ngữ ViHSD** | Không dấu = **7.78%** \| Có Teencode = **24.18%** | Độ phủ từ điển `vi_profanity.txt`: `CLEAN` = 3.65%, `OFFENSIVE` = 37.80%, `HATE` = 35.92% |
+| **Mô hình chốt `bin_A` (HATE vs CLEAN)** | **`Linear SVM (Calibrated) (word+char)`** (`Thr = 0.285`) | Dev F1 = **0.6736** \| **Test F1 = 0.6658** (95% CI: `[0.6379, 0.6912]`, PR-AUC = **0.7198**) |
+| **Kết quả Test `bin_B` & `multi3` (3 lớp)** | `bin_B` Test F1 = **0.6855** \| `multi3` **Macro-F1 = 0.6481** | `multi3` Accuracy = **84.31%** (Khớp mốc baseline công bố `0.60 – 0.66`, PhoBERT-CNN `~0.675`) |
+| **Transformer 3 Seeds (42, 43, 44 — V4)** | `PhoBERT-v2` Dev F1 = **0.5732 ± 0.0034** | `XLM-RoBERTa` Dev F1 = **0.4861 ± 0.0100** |
+| **Kiểm tra Độ bền (Robustness — V5)** | Gốc: **0.6658** \| Teencode: **0.6204** \| **Không dấu: 0.5102** | Bỏ dấu hoàn toàn (`strip_accents`) làm F1 giảm **-0.1556** điểm |
+| **Bộ Thực tế Tiếng Việt ($N = 210$ — V6)** | **Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$) | Đồng thuận **92.86%** \| **Real-World `bin_A` F1 = 0.8034** (PR-AUC = **0.9074**) |

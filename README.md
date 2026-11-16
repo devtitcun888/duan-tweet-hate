@@ -116,3 +116,20 @@ Trong một ô code trên Google Colab, chạy:
 1. **Ẩn danh & Che từ nhạy cảm:** Mọi tài khoản cá nhân được ẩn thành `@user`; toàn bộ từ tục trong biểu đồ, bảng biểu, notebook và báo cáo đều được che tự động qua `src/utils.py::mask_profanity()`.
 2. **Thiên lệch nhóm (Subgroup Bias) & Ngữ cảnh mỉa mai:** Mô hình dựa trên tần suất n-gram có tỷ lệ báo động giả (FPR) cao hơn trên các câu bình thường chứa từ nhận diện chủng tộc/tôn giáo/giới tính và khó bắt các câu mỉa mai sâu không dùng từ khóa đặc trưng.
 3. **Khuyến nghị vận hành:** Công cụ chỉ dùng để **hỗ trợ sàng lọc sơ bộ (Human-in-the-loop)**, không dùng để tự động khóa tài khoản khi chưa có con người kiểm tra lại.
+
+
+---
+
+## 7. Mở Rộng Đa Ngôn Ngữ: Phát Hiện Ngôn Từ Thù Ghét / Xúc Phạm Tiếng Việt (ViHSD — V0 → V8)
+
+Bên cạnh bài toán tiếng Anh, dự án mở rộng toàn diện sang **Tiếng Việt** trên bộ dữ liệu chuẩn **ViHSD** (*Luu et al., IEA/AIE 2021 — UIT-NLP*):
+- **Giấy phép & Trích dẫn:** Dùng cho mục đích học tập/nghiên cứu, trích dẫn *Luu, S.T., Nguyen, K.V., Nguyen, N.L.-T. (2021). A Large-Scale Dataset for Hate Speech Detection on Vietnamese Social Media Texts. IEA/AIE 2021*.
+- **Khác biệt định nghĩa nhãn:** Bản tiếng Anh phát hiện *racist/sexist*; bản tiếng Việt phát hiện **ngôn từ thù ghét / xúc phạm cá nhân hoặc nhóm nói chung** (`CLEAN / OFFENSIVE / HATE`).
+- **Quy mô & Chia tập chuẩn:** **33,400 bình luận** (`24,048 train / 2,672 dev / 6,680 test`; `CLEAN = 27,624 [82.71%]`, `HATE = 3,514 [10.52%]`, `OFFENSIVE = 2,262 [6.77%]`).
+- **Kết quả Tập Test chuẩn ViHSD (V5):**
+  - Bài toán chính **`bin_A` (HATE vs CLEAN, bỏ OFFENSIVE):** **Test F1 = `0.6658`** (95% CI: `[0.6379, 0.6912]`, PR-AUC = **`0.7198`**, ROC-AUC = **`0.9372`**).
+  - Bài toán **`bin_B` (OFFENSIVE+HATE vs CLEAN):** **Test F1 = `0.6855`** (PR-AUC = **`0.7530`**).
+  - Bài toán 3 lớp **`multi3` (CLEAN / OFFENSIVE / HATE):** **Test Macro-F1 = `0.6481`**, Accuracy = **`84.31%`** (khớp mốc baseline công bố quốc tế `0.60 – 0.66`).
+- **Kiểm tra Độ bền (Robustness — V5):** Bản gốc F1 = **`0.6658`** $\rightarrow$ Thêm Teencode (có chuẩn hóa) F1 = **`0.6204`** $\rightarrow$ Bỏ dấu hoàn toàn (`strip_accents`) F1 = **`0.5102`** (giảm `-0.1556`).
+- **Kiểm thử Thực tế Tiếng Việt ($N = 210$ mẫu, 3 nguồn — V6):** Đồng thuận 2 người gắn nhãn đạt **`92.86%`**, **Cohen's Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$), **Real-World `bin_A` F1 = `0.8034`**.
+- **Notebooks Tiếng Việt:** `notebooks/vi_01_data_eda.ipynb` $\rightarrow$ `notebooks/vi_05_realworld.ipynb`.

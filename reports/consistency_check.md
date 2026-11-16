@@ -1,6 +1,6 @@
 # BÁO CÁO KIỂM TRA CHÉO ĐỘ NHẤT QUÁN SỐ LIỆU (CONSISTENCY CHECK — P11 / B6)
 
-- **Thời điểm kiểm tra tự động:** `2026-11-16T10:49:36Z`
+- **Thời điểm kiểm tra tự động:** `2026-11-16T11:25:34Z`
 - **Nguồn đối chiếu gốc (Single Source of Truth):** `reports/facts.json`
 - **Tổng số chỗ còn `[CHƯA CÓ SỐ]` trên toàn bộ 7 tài liệu:** **`0`** (Yêu cầu = `0`)
 - **Kết luận tổng thể:** **ĐẠT TUYỆT ĐỐI 100% (PASS — ZERO DISCREPANCIES)**
@@ -23,6 +23,11 @@
 | 10 | Test ROC-AUC (P8) | `0.9345` | 5 | **KHỚP 100% (PASS)** |
 | 11 | Hệ số đồng thuận Cohen's Kappa tập Thực tế (P9) | `0.9204` | 6 | **KHỚP 100% (PASS)** |
 | 12 | Real-World F1 tổng thể trên 300 mẫu (P9) | `0.5702` | 6 | **KHỚP 100% (PASS)** |
+| 13 | Quy mô bộ dữ liệu Tiếng Việt ViHSD (V1) | `33,400` | 6 | **KHỚP 100% (PASS)** |
+| 14 | Test F1 Tiếng Việt bài toán chính bin_A (V5) | `0.6658` | 6 | **KHỚP 100% (PASS)** |
+| 15 | Test Macro-F1 Tiếng Việt 3 lớp multi3 (V5) | `0.6481` | 6 | **KHỚP 100% (PASS)** |
+| 16 | Độ bền Không dấu (strip_accents Test F1 — V5) | `0.5102` | 6 | **KHỚP 100% (PASS)** |
+| 17 | Cohen's Kappa 3 lớp Tập Thực tế Tiếng Việt (V6) | `0.8743` | 6 | **KHỚP 100% (PASS)** |
 
 ---
 
@@ -30,10 +35,10 @@
 
 | Tài liệu | Độ dài (ký tự) | Số lượng `[CHƯA CÓ SỐ]` | Trạng thái |
 |---|---:|---:|---|
-| `reports/report.docx` | 52,597 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `reports/slides.pptx` | 11,422 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `reports/speaker_script.md` | 14,761 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `reports/qa_bank.md` | 74,737 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `reports/demo_script.md` | 5,211 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `reports/cheat_sheet.md` | 4,855 | 0 | ✅ HỢP LỆ (0 placeholder) |
-| `README.md` | 8,254 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/report.docx` | 54,105 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/slides.pptx` | 10,760 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/speaker_script.md` | 16,314 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/qa_bank.md` | 88,807 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/demo_script.md` | 6,755 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `reports/cheat_sheet.md` | 6,498 | 0 | ✅ HỢP LỆ (0 placeholder) |
+| `README.md` | 10,102 | 0 | ✅ HỢP LỆ (0 placeholder) |

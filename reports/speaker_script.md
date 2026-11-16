@@ -75,3 +75,13 @@
 3. **Phút 3 (Slide 8–10 — So sánh 11 Mô hình & Tinh chỉnh):** So sánh 9 mô hình cổ điển + BiLSTM & DistilBERT bằng F1 lớp dương và PR-AUC. Các mô hình tuyến tính vượt trội so với cây quyết định trên TF-IDF thưa. Sau `RandomizedSearchCV` và tối ưu ngưỡng trên Val (`threshold = 0.315`), mô hình chốt **Linear SVM (Calibrated)** tăng Val F1 từ **0.5727** lên **0.6566** (+8.39 điểm %).
 4. **Phút 4 (Slide 11–12 — Kết quả Test, Thực tế & Phân tích lỗi):** Chạy Test độc lập (4,250 mẫu) đúng 1 lần đạt **F1 = 0.6266** (PR-AUC = **0.6651**). Chạy thử bộ thực tế 300 mẫu (4 nguồn A/B/C/D, Cohen's Kappa $\kappa = 0.9204$) đạt **F1 = 0.5702**. Chỉ rõ nguyên nhân lỗi FP (từ nhạy cảm trong câu phản đối kỳ thị) và FN (kỳ thị ngầm/mỉa mai).
 5. **Phút 5 (Slide 13–15 — Demo App & Kết luận):** Demo nhanh 3 tab ứng dụng Streamlit (phân loại 1 câu kèm giải thích từ đóng góp, phân loại file CSV hàng loạt, bảng thống kê) và kết luận.
+
+
+---
+
+## PHẦN 3: BỔ SUNG KỊCH BẢN THUYẾT TRÌNH SLIDE 12 — MỞ RỘNG TIẾNG VIỆT (ViHSD — V8) `[09:40 – 10:30 | 50 giây]`
+
+- **Lời nói tại Slide 12 (Mở rộng Tiếng Việt):**
+  "Để mở rộng giá trị ứng dụng của đề tài cho bối cảnh mạng xã hội tại Việt Nam, nhóm đã thực hiện trọn vẹn phần mở rộng Tiếng Việt từ V0 đến V8 trên bộ dữ liệu chuẩn **ViHSD** của nhóm tác giả Lưu Sơn Tùng và cộng sự (UIT-NLP, 2021) gồm **33,400 bình luận** chia chuẩn `24,048 train / 2,672 dev / 6,680 test`. Em xin lưu ý rõ sự khác biệt về định nghĩa nhãn: nếu bản tiếng Anh tập trung vào *racist/sexist*, thì bộ ViHSD phát hiện **ngôn từ thù ghét và xúc phạm tiếng Việt nói chung** gồm 3 nhãn `CLEAN (82.71%)`, `HATE (10.52%)` và `OFFENSIVE (6.77%)`.
+  Sau khi xây dựng hàm làm sạch giữ nguyên dấu tiếng Việt, chuẩn hóa từ điển Teencode và tách từ bằng `ViTokenizer`, mô hình chốt tiếng Việt của nhóm đạt **Test F1 (`bin_A` — HATE vs CLEAN) = 0.6658** (PR-AUC = **0.7198**), bài toán `bin_B` đạt **F1 = 0.6855**, và bài toán 3 lớp `multi3` đạt **Macro-F1 = 0.6481** (nằm đúng trong vùng baseline công bố quốc tế `0.60 – 0.675`).
+  Đặc biệt, nhóm thực hiện thí nghiệm **Kiểm tra độ bền (Robustness)** ở biểu đồ góc trên bên phải: khi người dùng gõ teencode, nhờ bộ chuẩn hóa của nhóm, F1 giữ vững ở mức **0.6204**; nhưng khi người dùng **bỏ dấu hoàn toàn (`strip_accents`)**, F1 giảm **0.1556** điểm xuống còn **0.5102**. Trên bộ thực tế tiếng Việt gồm **210 bình luận** (Cohen's Kappa 3 lớp $\kappa = 0.8743$, Weighted $\kappa = 0.9538$), mô hình đạt **Real-World F1 = 0.8034**."

@@ -1,0 +1,21 @@
+id,source,error_type,label_a,label_b,label_final,y_pred,score,text_masked,note
+5,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.0424,Đem đưa lên cơ sơ xo thẩm quyền THP bốc phân mà ăn :),Mẫu thực tế phân tầng từ tập test ViHSD
+7,A_vihsd_test_sample,FP (Báo động giả),CLEAN,CLEAN,CLEAN,1,0.3173,Tiến Chiểu sao thằng này lại là chủ tịch,Mẫu thực tế phân tầng từ tập test ViHSD
+15,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.2087,"An Nguyễn Đức giờ mình nói chung (giống như làm toán đặt thừa số chung vậy mà) là vầy : mình đi vệ sinh là đã góp phần nuôi sống cái đám "" đầy tớ của nhân dân"" rồi ....",Mẫu thực tế phân tầng từ tập test ViHSD
+19,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.092,"từ dịch này thấy ý thức người nhật xăng đổ nửa bình, nhưng giấy vệ sinh không thể thiếu. không hy sinh bản thân để cứu người khác, nhưng dính dịch thì kéo nhiều người dính theo.",Mẫu thực tế phân tầng từ tập test ViHSD
+20,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.1938,@user Năng Sinh Tồn ngáo đá hả bạn có làm j bn chưa mà chửi người ta,Mẫu thực tế phân tầng từ tập test ViHSD
+26,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.2292,Thôi bớt ngựa ông... đừng đi tùm lum để khéo mắc bệnh rồi cách li... là dân việt nam mừng lắm rồi,Mẫu thực tế phân tầng từ tập test ViHSD
+29,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.0538,Cô ba vàng giả cái () cát không.😂,Mẫu thực tế phân tầng từ tập test ViHSD
+45,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.1927,đảng ko đủi thì nhân dân đủi :v rồi đảng bỏ tù dân vì gây rối :v tóm váy ngậm tiền rồi thì ráng nghe chửi đi đảng ơi :D,Mẫu thực tế phân tầng từ tập test ViHSD
+50,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.121,mấy con cá đấy gọi chung là quân đội và cớm :v,Mẫu thực tế phân tầng từ tập test ViHSD
+52,A_vihsd_test_sample,FN (Bỏ sót),HATE,HATE,HATE,0,0.2209,Phạm Văn Lộc vãi lol lộc,Mẫu thực tế phân tầng từ tập test ViHSD
+93,B_public_social_manual,FP (Báo động giả),CLEAN,CLEAN,CLEAN,1,0.3499,Cuốn sách này phân tích rất sâu về lịch sử văn hóa các vùng miền Việt Nam.,Giới thiệu sách
+153,C_adversarial_curated_vi,FP (Báo động giả),CLEAN,CLEAN,CLEAN,1,0.342,cam on ban da chia se tai lieu hoc may rat bo ich cho sinh vien,Tiếng Việt không dấu — cảm ơn
+156,C_adversarial_curated_vi,FP (Báo động giả),CLEAN,CLEAN,CLEAN,1,0.2954,chung ta can ton trong su khac biet van hoa giua cac vung mien,Tiếng Việt không dấu — thông điệp tích cực
+161,C_adversarial_curated_vi,FN (Bỏ sót),HATE,HATE,HATE,0,0.0559,bon moi ro ha dang nay khong xung dang duoc song,Tiếng Việt không dấu — kỳ thị nhóm
+151,C_adversarial_curated_vi,Correct (Dự đoán đúng),CLEAN,CLEAN,CLEAN,0,0.062,chuc mung doi tuyen bong da viet nam da gianh chien thang tuyet voi,Tiếng Việt không dấu — chúc mừng thể thao
+152,C_adversarial_curated_vi,Correct (Dự đoán đúng),CLEAN,CLEAN,CLEAN,0,0.0556,bai bao phan tich rat sau sac ve kinh te va giao duc hien nay,Tiếng Việt không dấu — nhận xét bài báo
+154,C_adversarial_curated_vi,Correct (Dự đoán đúng),CLEAN,CLEAN,CLEAN,0,0.0271,hom nay troi mua to qua moi nguoi di lam nho mang theo ao mua nhe,Tiếng Việt không dấu — nhắc nhở thời tiết
+155,C_adversarial_curated_vi,Correct (Dự đoán đúng),CLEAN,CLEAN,CLEAN,0,0.0045,ung dung chay tren google colab rat nhanh va khong bi loi,Tiếng Việt không dấu — kỹ thuật
+157,C_adversarial_curated_vi,Correct (Dự đoán đúng),CLEAN,CLEAN,CLEAN,0,0.0534,mon an nay nau don gian ma ngon lam ca nha minh deu thich,Tiếng Việt không dấu — ẩm thực
+158,C_adversarial_curated_vi,Correct (Dự đoán đúng),HATE,HATE,HATE,1,0.9881,thang oc cho nay n*** dot va mat day kinh khung cut khoi day ngay,Tiếng Việt không dấu — lăng mạ cá nhân

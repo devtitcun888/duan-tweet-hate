@@ -1,0 +1,326 @@
+{
+  "evaluated_once_at": "2026-11-16T11:10:12Z",
+  "test_file": "data/splits_vi/test.csv",
+  "test_file_sha256": "76622e343d841901660d98d7cf73bfabb71ed4dc37dfe07eadc847d1d1fc720d",
+  "bin_A": {
+    "threshold": 0.285,
+    "metrics_tuned": {
+      "precision_pos": 0.6307,
+      "recall_pos": 0.7049,
+      "f1_pos": 0.6658,
+      "f1_macro": 0.8108,
+      "accuracy": 0.9219,
+      "balanced_acc": 0.8269,
+      "roc_auc": 0.9372,
+      "pr_auc": 0.7198,
+      "mcc": 0.6229,
+      "tn": 5264,
+      "fp": 284,
+      "fn": 203,
+      "tp": 485
+    },
+    "metrics_default_05": {
+      "precision_pos": 0.7655,
+      "recall_pos": 0.5029,
+      "f1_pos": 0.607,
+      "f1_macro": 0.7837,
+      "accuracy": 0.9282,
+      "balanced_acc": 0.7419,
+      "roc_auc": 0.9372,
+      "pr_auc": 0.7198,
+      "mcc": 0.5846,
+      "tn": 5442,
+      "fp": 106,
+      "fn": 342,
+      "tp": 346
+    },
+    "ci95": {
+      "f1_pos": {
+        "mean": 0.6651,
+        "std": 0.0139,
+        "ci95_low": 0.6379,
+        "ci95_high": 0.6912
+      },
+      "precision_pos": {
+        "mean": 0.6302,
+        "std": 0.0171,
+        "ci95_low": 0.5979,
+        "ci95_high": 0.6635
+      },
+      "recall_pos": {
+        "mean": 0.7045,
+        "std": 0.0172,
+        "ci95_low": 0.6707,
+        "ci95_high": 0.7402
+      },
+      "pr_auc": {
+        "mean": 0.7194,
+        "std": 0.016,
+        "ci95_low": 0.6888,
+        "ci95_high": 0.7509
+      },
+      "roc_auc": {
+        "mean": 0.9369,
+        "std": 0.0045,
+        "ci95_low": 0.9283,
+        "ci95_high": 0.9454
+      }
+    }
+  },
+  "bin_B": {
+    "threshold": 0.315,
+    "metrics_tuned": {
+      "precision_pos": 0.6564,
+      "recall_pos": 0.7173,
+      "f1_pos": 0.6855,
+      "f1_macro": 0.8089,
+      "accuracy": 0.8885,
+      "balanced_acc": 0.8204,
+      "roc_auc": 0.9238,
+      "pr_auc": 0.753,
+      "mcc": 0.6188,
+      "tn": 5123,
+      "fp": 425,
+      "fn": 320,
+      "tp": 812
+    }
+  },
+  "multi3": {
+    "f1_macro": 0.6481,
+    "precision_macro": 0.6181,
+    "recall_macro": 0.6915,
+    "accuracy": 0.8431,
+    "per_class": {
+      "CLEAN": {
+        "precision": 0.9511,
+        "recall": 0.8901,
+        "f1": 0.9196
+      },
+      "OFFENSIVE": {
+        "precision": 0.3908,
+        "recall": 0.4955,
+        "f1": 0.4369
+      },
+      "HATE": {
+        "precision": 0.5124,
+        "recall": 0.689,
+        "f1": 0.5877
+      }
+    },
+    "confusion_matrix": [
+      [
+        4938,
+        260,
+        350
+      ],
+      [
+        123,
+        220,
+        101
+      ],
+      [
+        131,
+        83,
+        474
+      ]
+    ]
+  },
+  "robustness": {
+    "orig": {
+      "f1_pos": 0.6658,
+      "precision_pos": 0.6307,
+      "recall_pos": 0.7049,
+      "pr_auc": 0.7198,
+      "f1_drop": 0.0
+    },
+    "no_accents": {
+      "f1_pos": 0.5102,
+      "precision_pos": 0.4346,
+      "recall_pos": 0.6177,
+      "pr_auc": 0.5284,
+      "f1_drop": 0.1556
+    },
+    "teencode_with_normalizer": {
+      "f1_pos": 0.6204,
+      "precision_pos": 0.6232,
+      "recall_pos": 0.6177,
+      "pr_auc": 0.6723,
+      "f1_drop": 0.0454
+    },
+    "teencode_without_normalizer": {
+      "f1_pos": 0.6152,
+      "precision_pos": 0.5951,
+      "recall_pos": 0.6366,
+      "pr_auc": 0.6621,
+      "f1_drop": 0.0506
+    }
+  },
+  "error_causes": [
+    {
+      "cause": "Nhãn gốc nhiễu hoặc ranh giới mờ giữa CLEAN – OFFENSIVE – HATE (Borderline / Noisy Label)",
+      "FN (Bỏ sót)": 26,
+      "FP (Báo động giả)": 158,
+      "total": 184,
+      "pct": 37.78
+    },
+    {
+      "cause": "Kỳ thị ngầm / Từ lóng vùng miền hoặc ẩn dụ không dùng từ tục (Implicit Hate / Regional Slang)",
+      "FN (Bỏ sót)": 139,
+      "FP (Báo động giả)": 0,
+      "total": 139,
+      "pct": 28.54
+    },
+    {
+      "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
+      "FN (Bỏ sót)": 15,
+      "FP (Báo động giả)": 41,
+      "total": 56,
+      "pct": 11.5
+    },
+    {
+      "cause": "Bình luận không dấu / Teencode biến thể nặng (Unaccented / Heavy Teencode)",
+      "FN (Bỏ sót)": 11,
+      "FP (Báo động giả)": 26,
+      "total": 37,
+      "pct": 7.6
+    },
+    {
+      "cause": "Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context)",
+      "FN (Bỏ sót)": 12,
+      "FP (Báo động giả)": 25,
+      "total": 37,
+      "pct": 7.6
+    },
+    {
+      "cause": "Chửi thề 'thân mật' / Cảm thán hoặc Phản đối kỳ thị chứa từ nhạy cảm (Friendly Profanity / Counter-Speech)",
+      "FN (Bỏ sót)": 0,
+      "FP (Báo động giả)": 34,
+      "total": 34,
+      "pct": 6.98
+    }
+  ],
+  "top_positive_words_masked": [
+    {
+      "term_masked": "n***",
+      "weight": 2.0902
+    },
+    {
+      "term_masked": "c***",
+      "weight": 1.7661
+    },
+    {
+      "term_masked": "c***",
+      "weight": 1.5539
+    },
+    {
+      "term_masked": "đ***",
+      "weight": 1.4614
+    },
+    {
+      "term_masked": "bò",
+      "weight": 1.3727
+    },
+    {
+      "term_masked": "s***",
+      "weight": 1.3028
+    },
+    {
+      "term_masked": "l",
+      "weight": 1.2697
+    },
+    {
+      "term_masked": "l***",
+      "weight": 1.2563
+    },
+    {
+      "term_masked": "lũ",
+      "weight": 1.2536
+    },
+    {
+      "term_masked": "con này",
+      "weight": 1.2409
+    },
+    {
+      "term_masked": "bọn",
+      "weight": 1.2048
+    },
+    {
+      "term_masked": "lòn",
+      "weight": 1.1624
+    },
+    {
+      "term_masked": "khùng",
+      "weight": 1.1492
+    },
+    {
+      "term_masked": "non quá",
+      "weight": 1.1401
+    },
+    {
+      "term_masked": "xàm",
+      "weight": 1.1218
+    }
+  ],
+  "top_negative_words_masked": [
+    {
+      "term_masked": "cái này",
+      "weight": -0.9732
+    },
+    {
+      "term_masked": "cho con",
+      "weight": -0.7628
+    },
+    {
+      "term_masked": "về việt",
+      "weight": -0.6884
+    },
+    {
+      "term_masked": "thịt c***",
+      "weight": -0.6329
+    },
+    {
+      "term_masked": "t",
+      "weight": -0.6199
+    },
+    {
+      "term_masked": "đọc",
+      "weight": -0.5568
+    },
+    {
+      "term_masked": "không đi",
+      "weight": -0.5469
+    },
+    {
+      "term_masked": "chục",
+      "weight": -0.5426
+    },
+    {
+      "term_masked": "cái gì",
+      "weight": -0.5085
+    },
+    {
+      "term_masked": "như này",
+      "weight": -0.501
+    },
+    {
+      "term_masked": "lm",
+      "weight": -0.4973
+    },
+    {
+      "term_masked": "mẹ con",
+      "weight": -0.4959
+    },
+    {
+      "term_masked": "vui",
+      "weight": -0.4864
+    },
+    {
+      "term_masked": "chết rồi",
+      "weight": -0.4835
+    },
+    {
+      "term_masked": "hon",
+      "weight": -0.483
+    }
+  ]
+}
