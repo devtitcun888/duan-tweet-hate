@@ -1,0 +1,22 @@
+# Cache and virtual environments
+.venv/
+venv/
+.cache/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Raw data and large model binaries (>100MB)
+data/raw/*.csv
+data/raw/*.parquet
+data/interim/*.csv
+models/transformer/
+db/tweets.db
+
+# OS / IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

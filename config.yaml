@@ -1,0 +1,24 @@
+seed: 42
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  splits: data/splits
+  real_world: data/real_world
+  reports: reports
+  models: models
+  db: db/tweets.db
+split:
+  train: 0.70
+  val: 0.15
+  test: 0.15
+tfidf:
+  ngram_range: [1, 2]
+  min_df: 3
+  max_df: 0.9
+  max_features: 50000
+  sublinear_tf: true
+cv:
+  folds: 5
+primary_metric: f1_pos
+balance: class_weight
