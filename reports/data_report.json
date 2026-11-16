@@ -1,0 +1,154 @@
+{
+  "assigned_twitter": {
+    "n_rows": 162980,
+    "columns": [
+      "clean_text",
+      "category"
+    ],
+    "dtypes": {
+      "clean_text": "str",
+      "category": "float64"
+    },
+    "n_null_by_column": {
+      "clean_text": 4,
+      "category": 7
+    },
+    "n_null": 11,
+    "n_duplicates_exact": 1,
+    "n_duplicates_text": 0,
+    "label_distribution": {
+      "1.0": 72250,
+      "0.0": 55213,
+      "-1.0": 35510,
+      "NaN": 7
+    },
+    "source": "kagglehub: cosmos98/twitter-and-reddit-sentimental-analysis-dataset (Twitter_Data.csv)",
+    "license": "CC0: Public Domain / Kaggle Community",
+    "download_date": "2026-11-16",
+    "n_rows_after_dropna": 162969,
+    "has_racist_sexist_label": false,
+    "note": "Twitter_Data.csv chỉ có nhãn sentiment chính trị (-1/0/1), không có nhãn racist/sexist."
+  },
+  "assigned_reddit": {
+    "n_rows": 37249,
+    "columns": [
+      "clean_comment",
+      "category"
+    ],
+    "dtypes": {
+      "clean_comment": "str",
+      "category": "int64"
+    },
+    "n_null_by_column": {
+      "clean_comment": 100,
+      "category": 0
+    },
+    "n_null": 100,
+    "n_duplicates_exact": 449,
+    "n_duplicates_text": 350,
+    "label_distribution": {
+      "1": 15830,
+      "0": 13142,
+      "-1": 8277
+    },
+    "source": "kagglehub: cosmos98/twitter-and-reddit-sentimental-analysis-dataset (Reddit_Data.csv)",
+    "license": "CC0: Public Domain / Kaggle Community",
+    "download_date": "2026-11-16",
+    "n_rows_after_dropna": 37149
+  },
+  "hate_train": {
+    "n_rows": 31962,
+    "columns": [
+      "id",
+      "text",
+      "label"
+    ],
+    "dtypes": {
+      "id": "int64",
+      "text": "str",
+      "label": "int64"
+    },
+    "n_null_by_column": {
+      "id": 0,
+      "text": 0,
+      "label": 0
+    },
+    "n_null": 0,
+    "n_duplicates_exact": 0,
+    "n_duplicates_text": 2435,
+    "label_distribution": {
+      "0": 29720,
+      "1": 2242
+    },
+    "source": "HuggingFace: tweets-hate-speech-detection/tweets_hate_speech_detection (Analytics Vidhya)",
+    "license": "MIT / Public Research Dataset",
+    "download_date": "2026-11-16",
+    "positive_rate_pct": 7.0146,
+    "imbalance_ratio_neg_to_pos": 13.26
+  },
+  "hate_unlabeled_test": {
+    "n_rows": 17197,
+    "columns": [
+      "id",
+      "text"
+    ],
+    "dtypes": {
+      "id": "int64",
+      "text": "str"
+    },
+    "n_null_by_column": {
+      "id": 0,
+      "text": 0
+    },
+    "n_null": 0,
+    "n_duplicates_exact": 0,
+    "n_duplicates_text": 1068,
+    "label_distribution": {},
+    "source": "HuggingFace: tweets-hate-speech-detection (test split - unlabeled)",
+    "license": "MIT / Public Research Dataset",
+    "download_date": "2026-11-16"
+  },
+  "davidson_cross_domain": {
+    "n_rows": 24783,
+    "columns": [
+      "count",
+      "hate_speech_count",
+      "offensive_language_count",
+      "neither_count",
+      "class",
+      "tweet"
+    ],
+    "dtypes": {
+      "count": "int64",
+      "hate_speech_count": "int64",
+      "offensive_language_count": "int64",
+      "neither_count": "int64",
+      "class": "int64",
+      "tweet": "str"
+    },
+    "n_null_by_column": {
+      "count": 0,
+      "hate_speech_count": 0,
+      "offensive_language_count": 0,
+      "neither_count": 0,
+      "class": 0,
+      "tweet": 0
+    },
+    "n_null": 0,
+    "n_duplicates_exact": 0,
+    "n_duplicates_text": 0,
+    "label_distribution": {
+      "1": 19190,
+      "2": 4163,
+      "0": 1430
+    },
+    "source": "Davidson et al. (ICWSM 2017) Hate Speech and Offensive Language",
+    "license": "MIT License",
+    "download_date": "2026-11-16",
+    "binary_subset_rows": 5593,
+    "binary_label_distribution": {
+      "0": 4163,
+      "1": 1430
+    }
+  }
+}
