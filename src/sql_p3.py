@@ -45,7 +45,12 @@ def run_p3_sql() -> dict[str, Any]:
         create_clean_splits()
 
     train_df = pd.read_csv(train_split_path)
-    raw_twitter = pd.read_csv(PROJECT_ROOT / "data" / "raw" / "Twitter_Data.csv")
+    tw_csv_path = PROJECT_ROOT / "data" / "raw" / "Twitter_Data.csv"
+    if not tw_csv_path.exists():
+        from src.data_io import load_assigned
+
+        load_assigned()
+    raw_twitter = pd.read_csv(tw_csv_path)
     tw_valid = raw_twitter.dropna(subset=["clean_text", "category"]).copy().reset_index(drop=True)
 
     if DB_PATH.exists():
