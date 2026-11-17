@@ -13,9 +13,9 @@
 - **Nhãn `0` (Bình thường — Non-Hate):** Giao tiếp đời thường, tin tức, bình luận chính trị hoặc câu lên án nạn phân biệt đối xử (*counter-speech*).
 
 ### Phát hiện quan trọng về bộ dữ liệu được giao (`Twitter_Data.csv`)
-Qua kiểm định thực tế tại giai đoạn P1 (`src/data_io.py` & `reports/data_report.json`):
+Qua kiểm định thực tế tại giai đoạn 1 (`src/data_io.py` & `reports/data_report.json`):
 - Bộ dữ liệu được giao trong đề (`cosmos98/twitter-and-reddit-sentimental-analysis-dataset`, file `Twitter_Data.csv` gồm **162,980 dòng**) chỉ có 2 cột `clean_text` và `category` (`-1.0, 0.0, +1.0`), phản ánh **cảm xúc chính trị Ấn Độ** (xoay quanh thủ tướng Modi và bầu cử), **hoàn toàn không có nhãn racist/sexist**.
-- **Quyết định xử lý (Phương án A):**
+- **Quyết định xử lý (hướng tiếp cận kết hợp dữ liệu chuẩn):**
   1. Sử dụng bộ dữ liệu chuẩn **Tweets Hate Speech Detection** (**31,962 dòng** có nhãn nhị phân `0/1` racist/sexist chuẩn xác) để làm sạch, khử trùng (**loại 3,628 dòng trùng/retweet** và **2 dòng mâu thuẫn nhãn**, còn **28,330 dòng sạch**) và chia tập huấn luyện/đánh giá.
   2. Sử dụng trọn vẹn bộ **`Twitter_Data.csv` (162,980 dòng)**, **`Reddit_Data.csv` (37,249 dòng)** và bộ **Davidson et al. (24,783 dòng)** cho phân tích thống kê mô tả (Câu 1) và kiểm thử thực tế khác miền (*domain shift* — Câu 3).
 
@@ -25,7 +25,7 @@ Qua kiểm định thực tế tại giai đoạn P1 (`src/data_io.py` & `report
 
 ```text
 tweet-hate/
-├─ AGENTS.md                      # Đặc tả kỹ thuật chi tiết P0 -> P12
+├─ AGENTS.md                      # Đặc tả kỹ thuật chi tiết toàn bộ quy trình
 ├─ README.md                      # Tài liệu hướng dẫn chạy lại toàn diện
 ├─ requirements.txt               # Danh sách thư viện tương thích Colab & Local
 ├─ config.yaml                    # Cấu hình trung tâm (seed=42, đường dẫn, tham số)
@@ -35,7 +35,7 @@ tweet-hate/
 │   ├─ processed/clean.csv        # Dữ liệu sau làm sạch 12 bước & khử trùng (28,330 dòng)
 │   ├─ splits/{train,val,test}.csv# Chia cố định 70/15/15 (19,830 / 4,250 / 4,250 dòng)
 │   └─ real_world/                # Bộ thực tế 300 mẫu (real_world_labeled.csv, to_label.csv, ANNOTATION_GUIDE.md)
-├─ db/tweets.db                   # Cơ sở dữ liệu SQLite phục vụ truy vấn SQL (P3)
+├─ db/tweets.db                   # Cơ sở dữ liệu SQLite phục vụ truy vấn SQL 
 ├─ sql/                           # 5 kịch bản SQL (00_schema, 10_token_freq, 20_log_odds, 30_cooccur, 40_lexicon)
 ├─ src/                           # Mã nguồn mô-đun hóa (utils, data_io, clean, features, models, evaluate, threshold, predict, transformer)
 ├─ notebooks/                     # 9 Jupyter Notebooks (00_colab_bootstrap.ipynb -> 08_realworld_test.ipynb) đã chạy sẵn output
@@ -95,41 +95,41 @@ Trong một ô code trên Google Colab, chạy:
 
 ## 5. Tổng hợp Kết quả Thực nghiệm Chính (Đồng bộ từ `reports/facts.json`)
 
-### 5.1. So sánh các Mô hình trên Tập Validation ($N = 4,250$) & Tinh chỉnh (P5 – P7)
-- **Chiến lược cân bằng dữ liệu được chọn (P4):** `RandomOverSampler (ros)` đạt 5-fold CV F1 = **0.5876 ± 0.0117** (so với không cân bằng chỉ đạt F1 = **0.2390**).
-- **Mô hình chốt sau tinh chỉnh (P6):** **`Linear SVM (Calibrated)`** với `ngram_range=(1,3)`, `min_df=2`, `max_features=50,000`, `C=0.50191`, `loss='squared_hinge'`, `class_weight='balanced'` và ngưỡng tối ưu **`threshold = 0.315`** giúp tăng Validation F1 từ **0.5727** lên **`0.6566`** (**+8.39 điểm %**).
-- **Mô hình Học sâu / Transformer điểm cộng (P7):** `BiLSTM (PyTorch)` đạt Val F1 = **`0.5973`**, `DistilBERT (Fine-tuned)` đạt Val F1 = **`0.4434`**.
+### 5.1. So sánh các Mô hình trên Tập Validation ($N = 4,250$) & Tinh chỉnh 
+- **Chiến lược cân bằng dữ liệu được chọn :** `RandomOverSampler (ros)` đạt 5-fold CV F1 = **0.5876 ± 0.0117** (so với không cân bằng chỉ đạt F1 = **0.2390**).
+- **Mô hình chốt sau tinh chỉnh :** **`Linear SVM (Calibrated)`** với `ngram_range=(1,3)`, `min_df=2`, `max_features=50,000`, `C=0.50191`, `loss='squared_hinge'`, `class_weight='balanced'` và ngưỡng tối ưu **`threshold = 0.315`** giúp tăng Validation F1 từ **0.5727** lên **`0.6566`** (**+8.39 điểm %**).
+- **Mô hình Học sâu / Transformer Mở rộng nâng cao:** `BiLSTM (PyTorch)` đạt Val F1 = **`0.5973`**, `DistilBERT (Fine-tuned)` đạt Val F1 = **`0.4434`**.
 
-### 5.2. Kết quả Đánh giá Cuối trên Tập Test Độc lập ($N = 4,250$ — Chạy 1 lần duy nhất ở P8)
+### 5.2. Kết quả Đánh giá Cuối trên Tập Test Độc lập ($N = 4,250$ — Chạy 1 lần duy nhất ở bước thực nghiệm 8)
 - **Test F1 Lớp dương (`f1_pos`):** **`0.6266`** (Khoảng tin cậy 95% Bootstrap: **`[0.5764, 0.6716]`**)
 - **Test Precision / Recall Lớp dương:** **`0.6324`** / **`0.6209`**
 - **Test PR-AUC / ROC-AUC / MCC:** **`0.6651`** / **`0.9345`** / **`0.6008`**
 - **Ma trận nhầm lẫn Test:** `TN = 3873`, `FP = 100`, `FN = 105`, `TP = 172`
 
-### 5.3. Kết quả Kiểm thử Thực tế Đa nguồn ($N = 300$ mẫu — P9)
+### 5.3. Kết quả Kiểm thử Thực tế Đa nguồn ($N = 300$ mẫu)
 - **Độ đồng thuận 2 người gắn nhãn độc lập:** Đồng thuận **`97.00%`**, hệ số **Cohen's Kappa $\kappa = 0.9204$**.
 - **Hiệu năng tổng thể trên bộ Thực tế:** **Real-World F1 = `0.5702`** (Precision = **`0.4221`**, Recall = **`0.8784`**, PR-AUC = **`0.5742`**).
 
 ---
 
 ## 6. Hạn chế & Nguyên tắc Đạo đức (Ethics & Limitations)
-1. **Ẩn danh & Che từ nhạy cảm:** Mọi tài khoản cá nhân được ẩn thành `@user`; toàn bộ từ tục trong biểu đồ, bảng biểu, notebook và báo cáo đều được che tự động qua `src/utils.py::mask_profanity()`.
+1. **Ẩn danh & Che từ nhạy cảm:** Mọi tài khoản cá nhân được ẩn thành `@user`; toàn bộ từ tục trong biểu đồ, bảng biểu, notebook và báo cáo đều được che tự động qua `src/utils.py::mask_profanity`.
 2. **Thiên lệch nhóm (Subgroup Bias) & Ngữ cảnh mỉa mai:** Mô hình dựa trên tần suất n-gram có tỷ lệ báo động giả (FPR) cao hơn trên các câu bình thường chứa từ nhận diện chủng tộc/tôn giáo/giới tính và khó bắt các câu mỉa mai sâu không dùng từ khóa đặc trưng.
 3. **Khuyến nghị vận hành:** Công cụ chỉ dùng để **hỗ trợ sàng lọc sơ bộ (Human-in-the-loop)**, không dùng để tự động khóa tài khoản khi chưa có con người kiểm tra lại.
 
 
 ---
 
-## 7. Mở Rộng Đa Ngôn Ngữ: Phát Hiện Ngôn Từ Thù Ghét / Xúc Phạm Tiếng Việt (ViHSD — V0 → V8)
+## 7. Mở Rộng Đa Ngôn Ngữ: Phát Hiện Ngôn Từ Thù Ghét / Xúc Phạm Tiếng Việt (ViHSD → V8)
 
 Bên cạnh bài toán tiếng Anh, dự án mở rộng toàn diện sang **Tiếng Việt** trên bộ dữ liệu chuẩn **ViHSD** (*Luu et al., IEA/AIE 2021 — UIT-NLP*):
 - **Giấy phép & Trích dẫn:** Dùng cho mục đích học tập/nghiên cứu, trích dẫn *Luu, S.T., Nguyen, K.V., Nguyen, N.L.-T. (2021). A Large-Scale Dataset for Hate Speech Detection on Vietnamese Social Media Texts. IEA/AIE 2021*.
 - **Khác biệt định nghĩa nhãn:** Bản tiếng Anh phát hiện *racist/sexist*; bản tiếng Việt phát hiện **ngôn từ thù ghét / xúc phạm cá nhân hoặc nhóm nói chung** (`CLEAN / OFFENSIVE / HATE`).
 - **Quy mô & Chia tập chuẩn:** **33,400 bình luận** (`24,048 train / 2,672 dev / 6,680 test`; `CLEAN = 27,624 [82.71%]`, `HATE = 3,514 [10.52%]`, `OFFENSIVE = 2,262 [6.77%]`).
-- **Kết quả Tập Test chuẩn ViHSD (V5):**
+- **Kết quả Tập Test chuẩn ViHSD :**
   - Bài toán chính **`bin_A` (HATE vs CLEAN, bỏ OFFENSIVE):** **Test F1 = `0.6658`** (95% CI: `[0.6379, 0.6912]`, PR-AUC = **`0.7198`**, ROC-AUC = **`0.9372`**).
   - Bài toán **`bin_B` (OFFENSIVE+HATE vs CLEAN):** **Test F1 = `0.6855`** (PR-AUC = **`0.7530`**).
   - Bài toán 3 lớp **`multi3` (CLEAN / OFFENSIVE / HATE):** **Test Macro-F1 = `0.6481`**, Accuracy = **`84.31%`** (khớp mốc baseline công bố quốc tế `0.60 – 0.66`).
-- **Kiểm tra Độ bền (Robustness — V5):** Bản gốc F1 = **`0.6658`** $\rightarrow$ Thêm Teencode (có chuẩn hóa) F1 = **`0.6204`** $\rightarrow$ Bỏ dấu hoàn toàn (`strip_accents`) F1 = **`0.5102`** (giảm `-0.1556`).
-- **Kiểm thử Thực tế Tiếng Việt ($N = 210$ mẫu, 3 nguồn — V6):** Đồng thuận 2 người gắn nhãn đạt **`92.86%`**, **Cohen's Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$), **Real-World `bin_A` F1 = `0.8034`**.
+- **Kiểm tra Độ bền (Robustness):** Bản gốc F1 = **`0.6658`** $\rightarrow$ Thêm Teencode (có chuẩn hóa) F1 = **`0.6204`** $\rightarrow$ Bỏ dấu hoàn toàn (`strip_accents`) F1 = **`0.5102`** (giảm `-0.1556`).
+- **Kiểm thử Thực tế Tiếng Việt ($N = 210$ mẫu, 3 nguồn):** Đồng thuận 2 người gắn nhãn đạt **`92.86%`**, **Cohen's Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$), **Real-World `bin_A` F1 = `0.8034`**.
 - **Notebooks Tiếng Việt:** `notebooks/vi_01_data_eda.ipynb` $\rightarrow$ `notebooks/vi_05_realworld.ipynb`.

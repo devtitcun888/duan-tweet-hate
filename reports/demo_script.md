@@ -1,4 +1,4 @@
-# KỊCH BẢN DEMO ỨNG DỤNG WEB STREAMLIT & PHƯƠNG ÁN DỰ PHÒNG (DEMO SCRIPT — P11 / B5)
+# KỊCH BẢN DEMO ỨNG DỤNG WEB STREAMLIT & PHƯƠNG ÁN DỰ PHÒNG (DEMO SCRIPT / B5)
 
 > **Thời lượng demo:** 2 – 3 phút (ngay tại Slide 13 hoặc khi giảng viên yêu cầu chạy thử trực tiếp).  
 > **Lệnh khởi động trước giờ bảo vệ 10 phút:**  
@@ -64,8 +64,10 @@
 1. **Mẫu 1 & 2 (Tiếng Anh — Chế độ `Tự động`):**
    - Bấm nút **1. [EN] Bình thường** và **2. [EN] Phản cảm — Racist/Sexist**: Hệ thống tự động nhận diện `lang = EN`, nạp mô hình `English — Linear SVM (Calibrated)` (ngưỡng `0.315`) và hiển thị định nghĩa nhãn *Racist / Sexist Hate Speech*.
 2. **Mẫu 3 & 4 (Tiếng Việt có dấu — Chế độ `Tự động`):**
-   - Bấm nút **3. [VI có dấu] Bình thường** (*"Đội tuyển bóng đá Việt Nam hôm qua thi đấu rất nỗ lực..."*) $ightarrow$ Hệ thống phát hiện ký tự có dấu tiếng Việt, định tuyến sang `Tiếng Việt — Linear SVM (ViHSD bin_A)` và trả về Nhãn `0` (Xanh).
-   - Bấm nút **4. [VI có dấu] Phản cảm — Thù ghét/Xúc phạm** $ightarrow$ Hệ thống trả về Nhãn `1` (Đỏ), giải thích rõ các từ ghép đã tách từ (`s***`, `ó***`, `v***`) và hiển thị rõ định nghĩa nhãn *Tiếng Việt: Thù ghét / Xúc phạm cá nhân hoặc nhóm (ViHSD)*.
+   - Bấm nút **3. [VI có dấu] Bình thường** (*"Đội tuyển bóng đá Việt Nam hôm qua thi đấu rất nỗ lực..."*) $
+ightarrow$ Hệ thống phát hiện ký tự có dấu tiếng Việt, định tuyến sang `Tiếng Việt — Linear SVM (ViHSD bin_A)` và trả về Nhãn `0` (Xanh).
+   - Bấm nút **4. [VI có dấu] Phản cảm — Thù ghét/Xúc phạm** $
+ightarrow$ Hệ thống trả về Nhãn `1` (Đỏ), giải thích rõ các từ ghép đã tách từ (`s***`, `ó***`, `v***`) và hiển thị rõ định nghĩa nhãn *Tiếng Việt: Thù ghét / Xúc phạm cá nhân hoặc nhóm (ViHSD)*.
 3. **Mẫu 5 (Tiếng Việt không dấu — Minh họa độ bền & chế độ chọn tay):**
    - Bấm nút **5. [VI không dấu]** (*"thang oc cho nay ngu dot va mat day kinh khung cut khoi day ngay"*): Giải thích cho hội đồng thấy khi gõ không dấu, bộ nhận diện tự động có thể cảnh báo hoặc nếu chuyển nút Radio sang **`Tiếng Việt`**, chế độ chọn tay sẽ ghi đè tự động và phân loại câu này.
 4. **Mẫu 6 (Câu quá ngắn / Không rõ ngôn ngữ — Kiểm tra cơ chế an toàn):**
