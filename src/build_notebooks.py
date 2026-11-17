@@ -49,7 +49,8 @@ if IN_COLAB:
             break
     else:
         PROJECT_DIR = Path("/content/drive/MyDrive/tweet-hate")
-        PROJECT_DIR.mkdir(parents=True, exist_ok=True)
+        if not (PROJECT_DIR / "config.yaml").exists():
+            subprocess.run(["git", "clone", "https://github.com/devtitcun888/duan-tweet-hate.git", str(PROJECT_DIR)], check=False)
     req_file = PROJECT_DIR / "requirements.txt"
     if req_file.exists():
         subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(req_file)], check=False)

@@ -154,6 +154,50 @@ class Predictor:
         )
 
 
+def _rebuild_model_fallback(lang: str, target_path: Path):
+    """Self-healing fallback if joblib binary was pickled under a different Python/sklearn version on cloud deployment."""
+    from sklearn.calibration import CalibratedClassifierCV
+    from sklearn.feature_extraction.text import TfidfVectorizer
+    from sklearn.pipeline import FeatureUnion, Pipeline
+    from sklearn.svm import LinearSVC
+
+    if lang == "vi":
+        tr = pd.read_csv(PROJECT_ROOT / "data" / "splits_vi" / "train.csv")
+        dv = pd.read_csv(PROJECT_ROOT / "data" / "splits_vi" / "dev.csv")
+        df = pd.concat([tr, dv], ignore_index=True)
+        sub = df[df["label_3"].isin(["CLEAN", "HATE"])].copy()
+        X = sub["text_clean_seg"].fillna("").astype(str).to_numpy()
+        y = (sub["label_3"] == "HATE").astype(int).to_numpy()
+        vec = FeatureUnion(
+            [
+                ("word", TfidfVectorizer(ngram_range=(1, 2), min_df=3, max_df=0.9, max_features=40000, sublinear_tf=True, token_pattern=r"(?u)\b\w+\b")),
+                ("char", TfidfVectorizer(analyzer="char_wb", ngram_range=(2, 5), min_df=3, max_df=0.95, max_features=50000, sublinear_tf=True)),
+            ]
+        )
+        clf = CalibratedClassifierCV(estimator=LinearSVC(C=0.4, class_weight="balanced", random_state=42, max_iter=3000), cv=3)
+        pipe = Pipeline([("tfidf", vec), ("clf", clf)])
+        pipe.fit(X, y)
+    else:
+        tr = pd.read_csv(PROJECT_ROOT / "data" / "splits" / "train.csv")
+        va = pd.read_csv(PROJECT_ROOT / "data" / "splits" / "val.csv")
+        df = pd.concat([tr, va], ignore_index=True)
+        X = df["text_clean"].fillna("").astype(str).to_numpy()
+        y = df["label"].astype(int).to_numpy()
+        vec = TfidfVectorizer(ngram_range=(1, 3), min_df=2, max_df=0.9, max_features=50000, sublinear_tf=True)
+        clf = CalibratedClassifierCV(
+            estimator=LinearSVC(C=0.50191, loss="squared_hinge", class_weight="balanced", random_state=42, max_iter=3000),
+            cv=3,
+        )
+        pipe = Pipeline([("tfidf", vec), ("clf", clf)])
+        pipe.fit(X, y)
+
+    try:
+        joblib.dump(pipe, target_path, protocol=4)
+    except Exception:
+        pass
+    return pipe
+
+
 def load_model(
     path: str | Path = "models/best_model.joblib",
     thr_path: str | Path = "models/threshold.json",
@@ -167,7 +211,11 @@ def load_model(
     if not t.is_absolute():
         t = PROJECT_ROOT / t
 
-    pipeline = joblib.load(p)
+    try:
+        pipeline = joblib.load(p)
+    except Exception:
+        pipeline = _rebuild_model_fallback(lang=lang, target_path=p)
+
     threshold = 0.5
     if t.exists():
         with open(t, "r", encoding="utf-8") as f:
