@@ -34,23 +34,32 @@ from pathlib import Path
 
 os.environ.setdefault("OPENBLAS_NUM_THREADS", "1")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
+REPO_URL = "https://github.com/devtitcun888/duan-tweet-hate.git"
 
 IN_COLAB = "google.colab" in sys.modules
 if IN_COLAB:
-    from google.colab import drive
-    drive.mount("/content/drive")
+    drive_mounted = False
+    try:
+        from google.colab import drive
+        drive.mount("/content/drive")
+        drive_mounted = True
+    except Exception as e:
+        print(f"[BOOTSTRAP] Không mount Google Drive ({e}), dùng bộ nhớ phiên Colab /content.")
     for candidate in [
+        Path("/content/drive/MyDrive/duan-tweet-hate"),
         Path("/content/drive/MyDrive/tweet-hate"),
         Path("/content/drive/MyDrive/DOAN_COLAB"),
+        Path("/content/duan-tweet-hate"),
         Path.cwd().parent if Path.cwd().name == "notebooks" else Path.cwd(),
     ]:
         if (candidate / "config.yaml").exists():
             PROJECT_DIR = candidate
             break
     else:
-        PROJECT_DIR = Path("/content/drive/MyDrive/tweet-hate")
+        PROJECT_DIR = Path("/content/drive/MyDrive/duan-tweet-hate") if drive_mounted else Path("/content/duan-tweet-hate")
         if not (PROJECT_DIR / "config.yaml").exists():
-            subprocess.run(["git", "clone", "https://github.com/devtitcun888/duan-tweet-hate.git", str(PROJECT_DIR)], check=False)
+            print(f"[BOOTSTRAP] Đang tải dự án từ {REPO_URL} vào {PROJECT_DIR}...")
+            subprocess.run(["git", "clone", REPO_URL, str(PROJECT_DIR)], check=True)
     req_file = PROJECT_DIR / "requirements.txt"
     if req_file.exists():
         subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-r", str(req_file)], check=False)
