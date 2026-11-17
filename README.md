@@ -1,5 +1,26 @@
-# Gắn Nhãn Các Đoạn Tweet Có Nội Dung Phân Biệt Chủng Tộc, Phân Biệt Giới Tính (Twitter Sentimental Analysis)
+# 1. Twitter Sentimental Analysis
 
+**Câu 1 (2,0 điểm): Thu thập và phân tích dữ liệu:**
+- Phân tích bộ dữ liệu được giao hoặc thu thập dữ liệu dựa trên các API (1đ),
+- Thống kê mô tả dữ liệu (1đ).
+
+**Câu 2 (3,0 điểm): Thiết kế mô hình học máy:**
+- Làm sạch dữ liệu và import dữ liệu lên Google Colab hoặc Python(1đ)
+- Chuẩn hóa và cân bằng dữ liệu (nếu cần thiết) (0.5đ)
+- Xây dựng các mô hình dữ liệu, các tập dữ liệu huấn luyện, các tiêu chí đánh giá.(1,5đ)
+
+**Câu 3 (3,0 điểm): So sánh và lựa chọn mô hình học máy:**
+- So sánh hiệu quả của các mô hình khác nhau trên bộ dữ liệu được giao (1.5đ)
+- Điều chỉnh các tham số để tối ưu hóa mô hình (0.5đ)
+- Chạy thử mô hình trong thực tế.(1.5đ)
+
+**Câu 4 (2,0 điểm): Thiết kế một ứng dụng sử dụng mô hình được chọn:**
+- Thiết kế giao diện ứng dụng (1,0đ),
+- Trình bày báo cáo và trả lời câu hỏi (1,0đ)
+
+---
+
+> **Tên đề tài:** Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (*Twitter Sentimental Analysis*)  
 > **Loại đề tài:** Phân loại nhị phân & Khai phá văn bản (*Binary Classification / Text Mining*)  
 > **Môi trường hỗ trợ:** Google Colab & Python Local (`seed = 42` cố định toàn dự án)  
 > **Mô hình chốt (`best_model`):** `Linear SVM (Calibrated)` (`threshold = 0.315`) — **Test F1 = `0.6266`** (95% CI: `[0.5764, 0.6716]`), **PR-AUC = `0.6651`**, **ROC-AUC = `0.9345`**
