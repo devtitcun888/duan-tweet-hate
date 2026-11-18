@@ -1,5 +1,5 @@
 variant,f1_pos,precision_pos,recall_pos,pr_auc,f1_drop
-orig,0.6658,0.6307,0.7049,0.7198,0.0
-no_accents,0.5102,0.4346,0.6177,0.5284,0.1556
-teencode_with_normalizer,0.6204,0.6232,0.6177,0.6723,0.0454
-teencode_without_normalizer,0.6152,0.5951,0.6366,0.6621,0.0506
+orig,0.6604,0.6538,0.6672,0.7218,0.0
+no_accents,0.6157,0.5716,0.6672,0.6675,0.0447
+teencode_with_normalizer,0.6074,0.6485,0.5712,0.6748,0.053
+teencode_without_normalizer,0.6021,0.6177,0.5872,0.6627,0.0583

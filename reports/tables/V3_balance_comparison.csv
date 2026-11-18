@@ -1,6 +1,6 @@
 strategy,description,precision_pos,recall_pos,f1_pos,pr_auc,roc_auc,fit_seconds
-ros,RandomOverSampler (ROS),0.5516,0.7519,0.6364,0.715,0.936,0.709
-class_weight,Trọng số lớp (class_weight='balanced'),0.521,0.7815,0.6252,0.7119,0.9365,0.602
-none,Không cân bằng (None),0.8346,0.3926,0.534,0.7102,0.9335,0.61
-rus,RandomUnderSampler (RUS),0.3915,0.8148,0.5288,0.6576,0.9173,0.549
-smote,SMOTE (k=5),0.3622,0.6815,0.473,0.5588,0.8629,0.847
+ros,RandomOverSampler (ROS),0.5516,0.7519,0.6364,0.715,0.936,0.869
+class_weight,Trọng số lớp (class_weight='balanced'),0.521,0.7815,0.6252,0.7119,0.9365,0.648
+none,Không cân bằng (None),0.8346,0.3926,0.534,0.7102,0.9335,0.669
+rus,RandomUnderSampler (RUS),0.3915,0.8148,0.5288,0.6576,0.9173,0.604
+smote,SMOTE (k=5),0.3622,0.6815,0.473,0.5588,0.8629,0.865

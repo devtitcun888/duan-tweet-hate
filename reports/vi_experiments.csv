@@ -48,3 +48,46 @@ timestamp,task,model,vectorizer,balance,params_json,dev_primary_f1,dev_pr_auc_or
 2026-11-16T11:24:44Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 42, ""n_train"": 2000, ""device"": ""cpu""}",0.4962,0.4836,77.62
 2026-11-16T11:24:47Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 43, ""n_train"": 2000, ""device"": ""cpu""}",0.4762,0.4831,77.52
 2026-11-16T11:24:49Z,bin_A,xlmr,unsegmented_spm,class_weight,"{""model_name"": ""xlm-roberta-base"", ""seed"": 44, ""n_train"": 2000, ""device"": ""cpu""}",0.4859,0.4885,77.54
+2026-11-18T07:48:46Z,bin_A_balance,lr,word_tfidf,none,{},0.534,0.7102,0.669
+2026-11-18T07:48:47Z,bin_A_balance,lr,word_tfidf,class_weight,{},0.6252,0.7119,0.648
+2026-11-18T07:48:47Z,bin_A_balance,lr,word_tfidf,ros,{},0.6364,0.715,0.869
+2026-11-18T07:48:48Z,bin_A_balance,lr,word_tfidf,smote,{},0.473,0.5588,0.865
+2026-11-18T07:48:49Z,bin_A_balance,lr,word_tfidf,rus,{},0.5288,0.6576,0.604
+2026-11-18T07:48:50Z,bin_A,lr,word_tfidf,class_weight,{},0.6252,0.7119,0.748
+2026-11-18T07:48:54Z,bin_A,lr,word+char,class_weight,{},0.6448,0.7404,3.707
+2026-11-18T07:48:55Z,bin_A,svm_linear,word_tfidf,class_weight,{},0.6087,0.7087,0.778
+2026-11-18T07:48:59Z,bin_A,svm_linear,word+char,class_weight,{},0.6458,0.7381,4.068
+2026-11-18T07:49:00Z,bin_A,nb,word_tfidf,class_weight,{},0.4865,0.6658,0.554
+2026-11-18T07:49:02Z,bin_A,nb,word+char,class_weight,{},0.5178,0.6357,2.479
+2026-11-18T07:49:06Z,bin_A,lgbm,word_tfidf,class_weight,{},0.6,0.6708,3.6
+2026-11-18T07:49:36Z,bin_A,lgbm,word+char,class_weight,{},0.6415,0.7019,29.832
+2026-11-18T07:50:06Z,bin_A,xgb,word_tfidf,class_weight,{},0.6175,0.6653,28.909
+2026-11-18T07:53:59Z,bin_A,xgb,word+char,class_weight,{},0.6106,0.6805,233.057
+2026-11-18T07:54:01Z,bin_A,rf,word_tfidf,class_weight,{},0.5927,0.6161,2.299
+2026-11-18T07:54:14Z,bin_A,rf,word+char,class_weight,{},0.6177,0.6285,12.611
+2026-11-18T07:54:16Z,bin_A,knn,word_tfidf,class_weight,{},0.3641,0.4361,0.564
+2026-11-18T07:54:20Z,bin_A,knn,word+char,class_weight,{},0.399,0.4421,2.335
+2026-11-18T07:54:21Z,bin_A,dt,word_tfidf,class_weight,{},0.4944,0.4072,1.55
+2026-11-18T07:54:37Z,bin_A,dt,word+char,class_weight,{},0.4418,0.296,15.299
+2026-11-18T07:54:39Z,bin_A,lr,char_tfidf,class_weight,{},0.5957,0.7071,1.952
+2026-11-18T07:54:42Z,bin_A,svm_linear,char_tfidf,class_weight,{},0.6192,0.7063,2.348
+2026-11-18T07:54:42Z,bin_B,lr,word_tfidf,class_weight,{},0.6752,0.7426,0.686
+2026-11-18T07:54:46Z,bin_B,lr,word+char,class_weight,{},0.7095,0.772,3.09
+2026-11-18T07:54:47Z,bin_B,svm_linear,word_tfidf,class_weight,{},0.6452,0.747,0.795
+2026-11-18T07:54:51Z,bin_B,svm_linear,word+char,class_weight,{},0.6714,0.7757,3.972
+2026-11-18T07:54:52Z,bin_B,nb,word_tfidf,class_weight,{},0.5849,0.6952,0.757
+2026-11-18T07:54:55Z,bin_B,nb,word+char,class_weight,{},0.6088,0.6839,2.65
+2026-11-18T07:54:57Z,bin_B,lgbm,word_tfidf,class_weight,{},0.6357,0.696,2.628
+2026-11-18T07:55:29Z,bin_B,lgbm,word+char,class_weight,{},0.6616,0.7379,31.578
+2026-11-18T07:55:32Z,bin_B,rf,word_tfidf,class_weight,{},0.6171,0.6447,2.694
+2026-11-18T07:55:47Z,bin_B,rf,word+char,class_weight,{},0.6255,0.6632,14.879
+2026-11-18T07:55:49Z,multi3,lr,word_tfidf,class_weight,{},0.6065,0.8129,1.335
+2026-11-18T07:55:54Z,multi3,lr,word+char,class_weight,{},0.6361,0.8338,5.368
+2026-11-18T07:55:56Z,multi3,svm_linear,word_tfidf,class_weight,{},0.5745,0.8589,1.067
+2026-11-18T07:56:01Z,multi3,svm_linear,word+char,class_weight,{},0.5837,0.8626,5.481
+2026-11-18T07:56:02Z,multi3,nb,word_tfidf,class_weight,{},0.5506,0.7683,0.706
+2026-11-18T07:56:05Z,multi3,nb,word+char,class_weight,{},0.5433,0.7661,2.442
+2026-11-18T07:56:10Z,multi3,lgbm,word_tfidf,class_weight,{},0.5974,0.7972,5.123
+2026-11-18T07:57:33Z,multi3,lgbm,word+char,class_weight,{},0.6334,0.8275,82.921
+2026-11-18T07:57:37Z,multi3,rf,word_tfidf,class_weight,{},0.5931,0.8069,3.143
+2026-11-18T07:57:59Z,multi3,rf,word+char,class_weight,{},0.6054,0.8252,21.569

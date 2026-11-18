@@ -3030,7 +3030,7 @@
         "pr_auc": 0.7119,
         "roc_auc": 0.9365,
         "accuracy": 0.8972,
-        "fit_seconds": 0.599
+        "fit_seconds": 0.748
       },
       {
         "task": "bin_A",
@@ -3047,7 +3047,7 @@
         "pr_auc": 0.7404,
         "roc_auc": 0.944,
         "accuracy": 0.9077,
-        "fit_seconds": 2.954
+        "fit_seconds": 3.707
       },
       {
         "task": "bin_A",
@@ -3064,7 +3064,7 @@
         "pr_auc": 0.7087,
         "roc_auc": 0.9335,
         "accuracy": 0.9268,
-        "fit_seconds": 0.744
+        "fit_seconds": 0.778
       },
       {
         "task": "bin_A",
@@ -3081,7 +3081,7 @@
         "pr_auc": 0.7381,
         "roc_auc": 0.9416,
         "accuracy": 0.9309,
-        "fit_seconds": 3.258
+        "fit_seconds": 4.068
       },
       {
         "task": "bin_A",
@@ -3098,7 +3098,7 @@
         "pr_auc": 0.6658,
         "roc_auc": 0.905,
         "accuracy": 0.8069,
-        "fit_seconds": 0.536
+        "fit_seconds": 0.554
       },
       {
         "task": "bin_A",
@@ -3115,7 +3115,7 @@
         "pr_auc": 0.6357,
         "roc_auc": 0.8986,
         "accuracy": 0.8289,
-        "fit_seconds": 2.099
+        "fit_seconds": 2.479
       },
       {
         "task": "bin_A",
@@ -3132,7 +3132,7 @@
         "pr_auc": 0.6708,
         "roc_auc": 0.9094,
         "accuracy": 0.8894,
-        "fit_seconds": 1.945
+        "fit_seconds": 3.6
       },
       {
         "task": "bin_A",
@@ -3149,7 +3149,7 @@
         "pr_auc": 0.7019,
         "roc_auc": 0.918,
         "accuracy": 0.9073,
-        "fit_seconds": 25.151
+        "fit_seconds": 29.832
       },
       {
         "task": "bin_A",
@@ -3166,7 +3166,7 @@
         "pr_auc": 0.6653,
         "roc_auc": 0.9036,
         "accuracy": 0.8967,
-        "fit_seconds": 25.694
+        "fit_seconds": 28.909
       },
       {
         "task": "bin_A",
@@ -3183,7 +3183,7 @@
         "pr_auc": 0.6805,
         "roc_auc": 0.9083,
         "accuracy": 0.8984,
-        "fit_seconds": 200.921
+        "fit_seconds": 233.057
       },
       {
         "task": "bin_A",
@@ -3200,7 +3200,7 @@
         "pr_auc": 0.6161,
         "roc_auc": 0.8937,
         "accuracy": 0.9,
-        "fit_seconds": 2.186
+        "fit_seconds": 2.299
       },
       {
         "task": "bin_A",
@@ -3217,7 +3217,7 @@
         "pr_auc": 0.6285,
         "roc_auc": 0.9071,
         "accuracy": 0.9089,
-        "fit_seconds": 11.722
+        "fit_seconds": 12.611
       },
       {
         "task": "bin_A",
@@ -3234,7 +3234,7 @@
         "pr_auc": 0.4361,
         "roc_auc": 0.7778,
         "accuracy": 0.9049,
-        "fit_seconds": 0.609
+        "fit_seconds": 0.564
       },
       {
         "task": "bin_A",
@@ -3251,7 +3251,7 @@
         "pr_auc": 0.4421,
         "roc_auc": 0.7851,
         "accuracy": 0.9069,
-        "fit_seconds": 2.204
+        "fit_seconds": 2.335
       },
       {
         "task": "bin_A",
@@ -3268,7 +3268,7 @@
         "pr_auc": 0.4072,
         "roc_auc": 0.6984,
         "accuracy": 0.872,
-        "fit_seconds": 1.482
+        "fit_seconds": 1.55
       },
       {
         "task": "bin_A",
@@ -3285,7 +3285,7 @@
         "pr_auc": 0.296,
         "roc_auc": 0.6466,
         "accuracy": 0.85,
-        "fit_seconds": 14.436
+        "fit_seconds": 15.299
       },
       {
         "task": "bin_A",
@@ -3302,7 +3302,7 @@
         "pr_auc": 0.7071,
         "roc_auc": 0.9329,
         "accuracy": 0.8841,
-        "fit_seconds": 1.956
+        "fit_seconds": 1.952
       },
       {
         "task": "bin_A",
@@ -3319,7 +3319,7 @@
         "pr_auc": 0.7063,
         "roc_auc": 0.9328,
         "accuracy": 0.926,
-        "fit_seconds": 2.429
+        "fit_seconds": 2.348
       },
       {
         "task": "bin_B",
@@ -3336,7 +3336,7 @@
         "pr_auc": 0.7426,
         "roc_auc": 0.9144,
         "accuracy": 0.8675,
-        "fit_seconds": 0.68
+        "fit_seconds": 0.686
       },
       {
         "task": "bin_B",
@@ -3353,7 +3353,7 @@
         "pr_auc": 0.772,
         "roc_auc": 0.9282,
         "accuracy": 0.8832,
-        "fit_seconds": 3.034
+        "fit_seconds": 3.09
       },
       {
         "task": "bin_B",
@@ -3370,7 +3370,7 @@
         "pr_auc": 0.747,
         "roc_auc": 0.9155,
         "accuracy": 0.8885,
-        "fit_seconds": 0.767
+        "fit_seconds": 0.795
       },
       {
         "task": "bin_B",
@@ -3387,7 +3387,7 @@
         "pr_auc": 0.7757,
         "roc_auc": 0.9298,
         "accuracy": 0.8952,
-        "fit_seconds": 3.41
+        "fit_seconds": 3.972
       },
       {
         "task": "bin_B",
@@ -3404,7 +3404,7 @@
         "pr_auc": 0.6952,
         "roc_auc": 0.8841,
         "accuracy": 0.796,
-        "fit_seconds": 0.597
+        "fit_seconds": 0.757
       },
       {
         "task": "bin_B",
@@ -3421,7 +3421,7 @@
         "pr_auc": 0.6839,
         "roc_auc": 0.8787,
         "accuracy": 0.811,
-        "fit_seconds": 2.326
+        "fit_seconds": 2.65
       },
       {
         "task": "bin_B",
@@ -3438,7 +3438,7 @@
         "pr_auc": 0.696,
         "roc_auc": 0.8818,
         "accuracy": 0.8563,
-        "fit_seconds": 2.278
+        "fit_seconds": 2.628
       },
       {
         "task": "bin_B",
@@ -3455,7 +3455,7 @@
         "pr_auc": 0.7379,
         "roc_auc": 0.9063,
         "accuracy": 0.866,
-        "fit_seconds": 26.53
+        "fit_seconds": 31.578
       },
       {
         "task": "bin_B",
@@ -3472,7 +3472,7 @@
         "pr_auc": 0.6447,
         "roc_auc": 0.8645,
         "accuracy": 0.8496,
-        "fit_seconds": 2.616
+        "fit_seconds": 2.694
       },
       {
         "task": "bin_B",
@@ -3489,7 +3489,7 @@
         "pr_auc": 0.6632,
         "roc_auc": 0.8828,
         "accuracy": 0.857,
-        "fit_seconds": 13.259
+        "fit_seconds": 14.879
       },
       {
         "task": "multi3",
@@ -3506,7 +3506,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8129,
-        "fit_seconds": 1.332
+        "fit_seconds": 1.335
       },
       {
         "task": "multi3",
@@ -3523,7 +3523,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8338,
-        "fit_seconds": 5.131
+        "fit_seconds": 5.368
       },
       {
         "task": "multi3",
@@ -3540,7 +3540,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8589,
-        "fit_seconds": 1.027
+        "fit_seconds": 1.067
       },
       {
         "task": "multi3",
@@ -3557,7 +3557,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8626,
-        "fit_seconds": 4.94
+        "fit_seconds": 5.481
       },
       {
         "task": "multi3",
@@ -3574,7 +3574,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.7683,
-        "fit_seconds": 0.585
+        "fit_seconds": 0.706
       },
       {
         "task": "multi3",
@@ -3591,7 +3591,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.7661,
-        "fit_seconds": 2.318
+        "fit_seconds": 2.442
       },
       {
         "task": "multi3",
@@ -3608,7 +3608,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.7972,
-        "fit_seconds": 4.703
+        "fit_seconds": 5.123
       },
       {
         "task": "multi3",
@@ -3625,7 +3625,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8275,
-        "fit_seconds": 69.899
+        "fit_seconds": 82.921
       },
       {
         "task": "multi3",
@@ -3642,7 +3642,7 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8069,
-        "fit_seconds": 3.157
+        "fit_seconds": 3.143
       },
       {
         "task": "multi3",
@@ -3659,102 +3659,68 @@
         "pr_auc": 0.0,
         "roc_auc": 0.0,
         "accuracy": 0.8252,
-        "fit_seconds": 20.135
-      },
-      {
-        "task": "bin_A",
-        "model_key": "phobert",
-        "model_name": "vinai/phobert-base-v2",
-        "vectorizer": "segmented_bpe",
-        "balance": "class_weight",
-        "primary_metric_name": "f1_pos",
-        "primary_metric": 0.5732,
-        "precision": 0.5029,
-        "recall": 0.6667,
-        "f1_pos": 0.5732,
-        "f1_macro": 0.0,
-        "pr_auc": 0.6028,
-        "roc_auc": 0.8996,
-        "accuracy": 0.0,
-        "fit_seconds": 68.45
-      },
-      {
-        "task": "bin_A",
-        "model_key": "xlmr",
-        "model_name": "xlm-roberta-base",
-        "vectorizer": "unsegmented_spm",
-        "balance": "class_weight",
-        "primary_metric_name": "f1_pos",
-        "primary_metric": 0.4861,
-        "precision": 0.3977,
-        "recall": 0.6284,
-        "f1_pos": 0.4861,
-        "f1_macro": 0.0,
-        "pr_auc": 0.4851,
-        "roc_auc": 0.8639,
-        "accuracy": 0.0,
-        "fit_seconds": 77.56
+        "fit_seconds": 21.569
       }
     ],
     "best": {
       "task": "bin_A",
-      "model": "Linear SVM (Calibrated)",
-      "model_key": "svm_linear",
+      "model": "Logistic Regression",
+      "model_key": "lr",
       "vectorizer": "word+char",
       "params": {
-        "C": 0.4,
-        "threshold": 0.285
+        "C": 0.8,
+        "threshold": 0.645
       },
       "best_bin_A": {
         "task": "bin_A (HATE vs CLEAN, bỏ OFFENSIVE)",
-        "model_key": "svm_linear",
-        "model_name": "Linear SVM (Calibrated)",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
         "vectorizer": "word+char",
-        "C": 0.4,
-        "best_threshold": 0.285,
+        "C": 0.8,
+        "best_threshold": 0.645,
         "dev_metrics_tuned": {
-          "precision_pos": 0.637,
+          "precision_pos": 0.6844,
           "recall_pos": 0.7148,
-          "f1_pos": 0.6736,
-          "f1_macro": 0.8153,
-          "accuracy": 0.924,
-          "balanced_acc": 0.8323,
-          "roc_auc": 0.9431,
-          "pr_auc": 0.7405,
-          "mcc": 0.6321,
-          "tn": 2080,
-          "fp": 110,
+          "f1_pos": 0.6993,
+          "f1_macro": 0.8306,
+          "accuracy": 0.9325,
+          "balanced_acc": 0.8371,
+          "roc_auc": 0.9462,
+          "pr_auc": 0.7391,
+          "mcc": 0.6615,
+          "tn": 2101,
+          "fp": 89,
           "fn": 77,
           "tp": 193
         },
         "dev_metrics_default_05": {
           "threshold": 0.5,
-          "precision": 0.7453,
-          "recall": 0.5852,
-          "f1": 0.6556
+          "precision": 0.5509,
+          "recall": 0.7815,
+          "f1": 0.6462
         }
       },
       "best_bin_B": {
         "task": "bin_B (OFFENSIVE+HATE vs CLEAN)",
-        "model_key": "svm_linear",
-        "model_name": "Linear SVM (Calibrated)",
+        "model_key": "lr",
+        "model_name": "Logistic Regression",
         "vectorizer": "word+char",
-        "C": 0.4,
-        "best_threshold": 0.315,
+        "C": 0.8,
+        "best_threshold": 0.55,
         "dev_metrics_tuned": {
-          "precision_pos": 0.696,
-          "recall_pos": 0.7552,
-          "f1_pos": 0.7244,
-          "f1_macro": 0.8303,
-          "accuracy": 0.8963,
-          "balanced_acc": 0.8413,
-          "roc_auc": 0.9304,
-          "pr_auc": 0.776,
-          "mcc": 0.6615,
-          "tn": 2031,
-          "fp": 159,
-          "fn": 118,
-          "tp": 364
+          "precision_pos": 0.674,
+          "recall_pos": 0.7593,
+          "f1_pos": 0.7141,
+          "f1_macro": 0.8232,
+          "accuracy": 0.8903,
+          "balanced_acc": 0.8393,
+          "roc_auc": 0.9259,
+          "pr_auc": 0.7657,
+          "mcc": 0.6484,
+          "tn": 2013,
+          "fp": 177,
+          "fn": 116,
+          "tp": 366
         }
       },
       "best_multi3": {
@@ -3769,13 +3735,28 @@
       },
       "ablation": [
         {
+          "config": "Full Pipeline + Tăng cường Không dấu (Accent-Drop Augmentation)",
+          "segment": true,
+          "expand_teencode": true,
+          "remove_stopwords": false,
+          "noaccent_augmentation": true,
+          "precision_pos": 0.7209,
+          "recall_pos": 0.5741,
+          "f1_pos": 0.6392,
+          "f1_no_accents": 0.6397,
+          "pr_auc": 0.7172,
+          "roc_auc": 0.9373
+        },
+        {
           "config": "Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)",
           "segment": true,
           "expand_teencode": true,
           "remove_stopwords": false,
+          "noaccent_augmentation": false,
           "precision_pos": 0.7368,
           "recall_pos": 0.5185,
           "f1_pos": 0.6087,
+          "f1_no_accents": 0.5664,
           "pr_auc": 0.7087,
           "roc_auc": 0.9335
         },
@@ -3784,9 +3765,11 @@
           "segment": false,
           "expand_teencode": true,
           "remove_stopwords": false,
+          "noaccent_augmentation": false,
           "precision_pos": 0.7042,
           "recall_pos": 0.5556,
           "f1_pos": 0.6211,
+          "f1_no_accents": 0.5383,
           "pr_auc": 0.7148,
           "roc_auc": 0.9353
         },
@@ -3795,9 +3778,11 @@
           "segment": true,
           "expand_teencode": false,
           "remove_stopwords": false,
+          "noaccent_augmentation": false,
           "precision_pos": 0.7553,
           "recall_pos": 0.5259,
           "f1_pos": 0.6201,
+          "f1_no_accents": 0.5575,
           "pr_auc": 0.714,
           "roc_auc": 0.9347
         },
@@ -3806,11 +3791,13 @@
           "segment": true,
           "expand_teencode": true,
           "remove_stopwords": true,
-          "precision_pos": 0.7382,
-          "recall_pos": 0.5222,
-          "f1_pos": 0.6117,
-          "pr_auc": 0.7121,
-          "roc_auc": 0.9338
+          "noaccent_augmentation": false,
+          "precision_pos": 0.7448,
+          "recall_pos": 0.5296,
+          "f1_pos": 0.619,
+          "f1_no_accents": 0.5754,
+          "pr_auc": 0.7174,
+          "roc_auc": 0.935
         }
       ],
       "balance_comparison": [
@@ -3822,7 +3809,7 @@
           "f1_pos": 0.534,
           "pr_auc": 0.7102,
           "roc_auc": 0.9335,
-          "fit_seconds": 0.61
+          "fit_seconds": 0.669
         },
         {
           "strategy": "class_weight",
@@ -3832,7 +3819,7 @@
           "f1_pos": 0.6252,
           "pr_auc": 0.7119,
           "roc_auc": 0.9365,
-          "fit_seconds": 0.602
+          "fit_seconds": 0.648
         },
         {
           "strategy": "ros",
@@ -3842,7 +3829,7 @@
           "f1_pos": 0.6364,
           "pr_auc": 0.715,
           "roc_auc": 0.936,
-          "fit_seconds": 0.709
+          "fit_seconds": 0.869
         },
         {
           "strategy": "smote",
@@ -3852,7 +3839,7 @@
           "f1_pos": 0.473,
           "pr_auc": 0.5588,
           "roc_auc": 0.8629,
-          "fit_seconds": 0.847
+          "fit_seconds": 0.865
         },
         {
           "strategy": "rus",
@@ -3862,7 +3849,7 @@
           "f1_pos": 0.5288,
           "pr_auc": 0.6576,
           "roc_auc": 0.9173,
-          "fit_seconds": 0.549
+          "fit_seconds": 0.604
         }
       ]
     },
@@ -4029,355 +4016,355 @@
       "test_file": "data/splits_vi/test.csv",
       "test_file_sha256": "76622e343d841901660d98d7cf73bfabb71ed4dc37dfe07eadc847d1d1fc720d",
       "bin_A": {
-        "threshold": 0.285,
+        "threshold": 0.645,
         "metrics_tuned": {
-          "precision_pos": 0.6307,
-          "recall_pos": 0.7049,
-          "f1_pos": 0.6658,
-          "f1_macro": 0.8108,
-          "accuracy": 0.9219,
-          "balanced_acc": 0.8269,
-          "roc_auc": 0.9372,
-          "pr_auc": 0.7198,
-          "mcc": 0.6229,
-          "tn": 5264,
-          "fp": 284,
-          "fn": 203,
-          "tp": 485
+          "precision_pos": 0.6538,
+          "recall_pos": 0.6672,
+          "f1_pos": 0.6604,
+          "f1_macro": 0.8089,
+          "accuracy": 0.9243,
+          "balanced_acc": 0.8117,
+          "roc_auc": 0.9399,
+          "pr_auc": 0.7218,
+          "mcc": 0.6179,
+          "tn": 5305,
+          "fp": 243,
+          "fn": 229,
+          "tp": 459
         },
         "metrics_default_05": {
-          "precision_pos": 0.7655,
-          "recall_pos": 0.5029,
-          "f1_pos": 0.607,
-          "f1_macro": 0.7837,
-          "accuracy": 0.9282,
-          "balanced_acc": 0.7419,
-          "roc_auc": 0.9372,
-          "pr_auc": 0.7198,
-          "mcc": 0.5846,
-          "tn": 5442,
-          "fp": 106,
-          "fn": 342,
-          "tp": 346
+          "precision_pos": 0.5456,
+          "recall_pos": 0.7907,
+          "f1_pos": 0.6457,
+          "f1_macro": 0.7952,
+          "accuracy": 0.9043,
+          "balanced_acc": 0.8545,
+          "roc_auc": 0.9399,
+          "pr_auc": 0.7218,
+          "mcc": 0.6061,
+          "tn": 5095,
+          "fp": 453,
+          "fn": 144,
+          "tp": 544
         },
         "ci95": {
           "f1_pos": {
-            "mean": 0.6651,
+            "mean": 0.6598,
             "std": 0.0139,
-            "ci95_low": 0.6379,
-            "ci95_high": 0.6912
+            "ci95_low": 0.6329,
+            "ci95_high": 0.6862
           },
           "precision_pos": {
-            "mean": 0.6302,
-            "std": 0.0171,
-            "ci95_low": 0.5979,
-            "ci95_high": 0.6635
+            "mean": 0.6536,
+            "std": 0.0168,
+            "ci95_low": 0.6204,
+            "ci95_high": 0.6863
           },
           "recall_pos": {
-            "mean": 0.7045,
-            "std": 0.0172,
-            "ci95_low": 0.6707,
-            "ci95_high": 0.7402
+            "mean": 0.6665,
+            "std": 0.0179,
+            "ci95_low": 0.6319,
+            "ci95_high": 0.7036
           },
           "pr_auc": {
-            "mean": 0.7194,
-            "std": 0.016,
-            "ci95_low": 0.6888,
-            "ci95_high": 0.7509
+            "mean": 0.7213,
+            "std": 0.0165,
+            "ci95_low": 0.6877,
+            "ci95_high": 0.7532
           },
           "roc_auc": {
-            "mean": 0.9369,
-            "std": 0.0045,
-            "ci95_low": 0.9283,
-            "ci95_high": 0.9454
+            "mean": 0.9396,
+            "std": 0.0044,
+            "ci95_low": 0.9312,
+            "ci95_high": 0.9481
           }
         }
       },
       "bin_B": {
-        "threshold": 0.315,
+        "threshold": 0.55,
         "metrics_tuned": {
-          "precision_pos": 0.6564,
-          "recall_pos": 0.7173,
-          "f1_pos": 0.6855,
-          "f1_macro": 0.8089,
-          "accuracy": 0.8885,
-          "balanced_acc": 0.8204,
-          "roc_auc": 0.9238,
-          "pr_auc": 0.753,
-          "mcc": 0.6188,
-          "tn": 5123,
-          "fp": 425,
-          "fn": 320,
-          "tp": 812
+          "precision_pos": 0.6498,
+          "recall_pos": 0.7473,
+          "f1_pos": 0.6952,
+          "f1_macro": 0.8136,
+          "accuracy": 0.8889,
+          "balanced_acc": 0.8326,
+          "roc_auc": 0.9251,
+          "pr_auc": 0.7564,
+          "mcc": 0.6299,
+          "tn": 5092,
+          "fp": 456,
+          "fn": 286,
+          "tp": 846
         }
       },
       "multi3": {
-        "f1_macro": 0.6481,
-        "precision_macro": 0.6181,
-        "recall_macro": 0.6915,
-        "accuracy": 0.8431,
+        "f1_macro": 0.6532,
+        "precision_macro": 0.6237,
+        "recall_macro": 0.695,
+        "accuracy": 0.8464,
         "per_class": {
           "CLEAN": {
-            "precision": 0.9511,
-            "recall": 0.8901,
-            "f1": 0.9196
+            "precision": 0.9514,
+            "recall": 0.8937,
+            "f1": 0.9216
           },
           "OFFENSIVE": {
-            "precision": 0.3908,
-            "recall": 0.4955,
-            "f1": 0.4369
+            "precision": 0.3996,
+            "recall": 0.5068,
+            "f1": 0.4469
           },
           "HATE": {
-            "precision": 0.5124,
-            "recall": 0.689,
-            "f1": 0.5877
+            "precision": 0.5199,
+            "recall": 0.6846,
+            "f1": 0.591
           }
         },
         "confusion_matrix": [
           [
-            4938,
-            260,
-            350
+            4958,
+            253,
+            337
           ],
           [
-            123,
-            220,
-            101
+            121,
+            225,
+            98
           ],
           [
-            131,
-            83,
-            474
+            132,
+            85,
+            471
           ]
         ]
       },
       "robustness": {
         "orig": {
-          "f1_pos": 0.6658,
-          "precision_pos": 0.6307,
-          "recall_pos": 0.7049,
-          "pr_auc": 0.7198,
+          "f1_pos": 0.6604,
+          "precision_pos": 0.6538,
+          "recall_pos": 0.6672,
+          "pr_auc": 0.7218,
           "f1_drop": 0.0
         },
         "no_accents": {
-          "f1_pos": 0.5102,
-          "precision_pos": 0.4346,
-          "recall_pos": 0.6177,
-          "pr_auc": 0.5284,
-          "f1_drop": 0.1556
+          "f1_pos": 0.6157,
+          "precision_pos": 0.5716,
+          "recall_pos": 0.6672,
+          "pr_auc": 0.6675,
+          "f1_drop": 0.0447
         },
         "teencode_with_normalizer": {
-          "f1_pos": 0.6204,
-          "precision_pos": 0.6232,
-          "recall_pos": 0.6177,
-          "pr_auc": 0.6723,
-          "f1_drop": 0.0454
+          "f1_pos": 0.6074,
+          "precision_pos": 0.6485,
+          "recall_pos": 0.5712,
+          "pr_auc": 0.6748,
+          "f1_drop": 0.053
         },
         "teencode_without_normalizer": {
-          "f1_pos": 0.6152,
-          "precision_pos": 0.5951,
-          "recall_pos": 0.6366,
-          "pr_auc": 0.6621,
-          "f1_drop": 0.0506
+          "f1_pos": 0.6021,
+          "precision_pos": 0.6177,
+          "recall_pos": 0.5872,
+          "pr_auc": 0.6627,
+          "f1_drop": 0.0583
         }
       },
       "error_causes": [
         {
           "cause": "Nhãn gốc nhiễu hoặc ranh giới mờ giữa CLEAN – OFFENSIVE – HATE (Borderline / Noisy Label)",
-          "FN (Bỏ sót)": 26,
-          "FP (Báo động giả)": 158,
-          "total": 184,
-          "pct": 37.78
+          "FN (Bỏ sót)": 29,
+          "FP (Báo động giả)": 142,
+          "total": 171,
+          "pct": 36.23
         },
         {
           "cause": "Kỳ thị ngầm / Từ lóng vùng miền hoặc ẩn dụ không dùng từ tục (Implicit Hate / Regional Slang)",
-          "FN (Bỏ sót)": 139,
+          "FN (Bỏ sót)": 151,
           "FP (Báo động giả)": 0,
-          "total": 139,
-          "pct": 28.54
+          "total": 151,
+          "pct": 31.99
         },
         {
           "cause": "Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical)",
-          "FN (Bỏ sót)": 15,
-          "FP (Báo động giả)": 41,
+          "FN (Bỏ sót)": 20,
+          "FP (Báo động giả)": 36,
           "total": 56,
-          "pct": 11.5
+          "pct": 11.86
         },
         {
           "cause": "Bình luận không dấu / Teencode biến thể nặng (Unaccented / Heavy Teencode)",
-          "FN (Bỏ sót)": 11,
-          "FP (Báo động giả)": 26,
-          "total": 37,
-          "pct": 7.6
-        },
-        {
-          "cause": "Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context)",
-          "FN (Bỏ sót)": 12,
-          "FP (Báo động giả)": 25,
-          "total": 37,
-          "pct": 7.6
+          "FN (Bỏ sót)": 14,
+          "FP (Báo động giả)": 21,
+          "total": 35,
+          "pct": 7.42
         },
         {
           "cause": "Chửi thề 'thân mật' / Cảm thán hoặc Phản đối kỳ thị chứa từ nhạy cảm (Friendly Profanity / Counter-Speech)",
           "FN (Bỏ sót)": 0,
-          "FP (Báo động giả)": 34,
-          "total": 34,
-          "pct": 6.98
+          "FP (Báo động giả)": 32,
+          "total": 32,
+          "pct": 6.78
+        },
+        {
+          "cause": "Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context)",
+          "FN (Bỏ sót)": 15,
+          "FP (Báo động giả)": 12,
+          "total": 27,
+          "pct": 5.72
         }
       ],
       "top_positive_words_masked": [
         {
+          "term_masked": "c***",
+          "weight": 4.8715
+        },
+        {
           "term_masked": "n***",
-          "weight": 2.0902
-        },
-        {
-          "term_masked": "c***",
-          "weight": 1.7661
-        },
-        {
-          "term_masked": "c***",
-          "weight": 1.5539
-        },
-        {
-          "term_masked": "đ***",
-          "weight": 1.4614
-        },
-        {
-          "term_masked": "bò",
-          "weight": 1.3727
-        },
-        {
-          "term_masked": "s***",
-          "weight": 1.3028
+          "weight": 4.7531
         },
         {
           "term_masked": "l",
-          "weight": 1.2697
+          "weight": 3.4961
+        },
+        {
+          "term_masked": "thằng",
+          "weight": 3.4019
+        },
+        {
+          "term_masked": "con",
+          "weight": 3.3295
+        },
+        {
+          "term_masked": "đ***",
+          "weight": 3.3246
+        },
+        {
+          "term_masked": "c***",
+          "weight": 3.3126
+        },
+        {
+          "term_masked": "dm",
+          "weight": 3.28
         },
         {
           "term_masked": "l***",
-          "weight": 1.2563
-        },
-        {
-          "term_masked": "lũ",
-          "weight": 1.2536
-        },
-        {
-          "term_masked": "con này",
-          "weight": 1.2409
+          "weight": 3.2463
         },
         {
           "term_masked": "bọn",
-          "weight": 1.2048
+          "weight": 3.2383
         },
         {
-          "term_masked": "lòn",
-          "weight": 1.1624
+          "term_masked": "con nay",
+          "weight": 3.0726
         },
         {
-          "term_masked": "khùng",
-          "weight": 1.1492
+          "term_masked": "s***",
+          "weight": 3.0466
         },
         {
-          "term_masked": "non quá",
-          "weight": 1.1401
+          "term_masked": "lũ",
+          "weight": 2.9441
         },
         {
-          "term_masked": "xàm",
-          "weight": 1.1218
+          "term_masked": "bò",
+          "weight": 2.8593
+        },
+        {
+          "term_masked": "lu",
+          "weight": 2.7583
         }
       ],
       "top_negative_words_masked": [
         {
-          "term_masked": "cái này",
-          "weight": -0.9732
+          "term_masked": "cai nay",
+          "weight": -2.2162
         },
         {
           "term_masked": "cho con",
-          "weight": -0.7628
+          "weight": -2.1978
         },
         {
-          "term_masked": "về việt",
-          "weight": -0.6884
-        },
-        {
-          "term_masked": "thịt c***",
-          "weight": -0.6329
+          "term_masked": "cái này",
+          "weight": -1.9576
         },
         {
           "term_masked": "t",
-          "weight": -0.6199
-        },
-        {
-          "term_masked": "đọc",
-          "weight": -0.5568
-        },
-        {
-          "term_masked": "không đi",
-          "weight": -0.5469
-        },
-        {
-          "term_masked": "chục",
-          "weight": -0.5426
-        },
-        {
-          "term_masked": "cái gì",
-          "weight": -0.5085
-        },
-        {
-          "term_masked": "như này",
-          "weight": -0.501
-        },
-        {
-          "term_masked": "lm",
-          "weight": -0.4973
-        },
-        {
-          "term_masked": "mẹ con",
-          "weight": -0.4959
+          "weight": -1.9306
         },
         {
           "term_masked": "vui",
-          "weight": -0.4864
+          "weight": -1.5412
         },
         {
-          "term_masked": "chết rồi",
-          "weight": -0.4835
+          "term_masked": "chao",
+          "weight": -1.4756
         },
         {
-          "term_masked": "hon",
-          "weight": -0.483
+          "term_masked": "e",
+          "weight": -1.4732
+        },
+        {
+          "term_masked": "lm",
+          "weight": -1.4026
+        },
+        {
+          "term_masked": "song cham",
+          "weight": -1.3761
+        },
+        {
+          "term_masked": "tau hai",
+          "weight": -1.309
+        },
+        {
+          "term_masked": "cho abe",
+          "weight": -1.3089
+        },
+        {
+          "term_masked": "cô",
+          "weight": -1.2866
+        },
+        {
+          "term_masked": "chuan",
+          "weight": -1.2762
+        },
+        {
+          "term_masked": "trend",
+          "weight": -1.2631
+        },
+        {
+          "term_masked": "yêu",
+          "weight": -1.2448
         }
       ]
     },
     "robustness": {
       "orig": {
-        "f1_pos": 0.6658,
-        "precision_pos": 0.6307,
-        "recall_pos": 0.7049,
-        "pr_auc": 0.7198,
+        "f1_pos": 0.6604,
+        "precision_pos": 0.6538,
+        "recall_pos": 0.6672,
+        "pr_auc": 0.7218,
         "f1_drop": 0.0
       },
       "no_accents": {
-        "f1_pos": 0.5102,
-        "precision_pos": 0.4346,
-        "recall_pos": 0.6177,
-        "pr_auc": 0.5284,
-        "f1_drop": 0.1556
+        "f1_pos": 0.6157,
+        "precision_pos": 0.5716,
+        "recall_pos": 0.6672,
+        "pr_auc": 0.6675,
+        "f1_drop": 0.0447
       },
       "teencode_with_normalizer": {
-        "f1_pos": 0.6204,
-        "precision_pos": 0.6232,
-        "recall_pos": 0.6177,
-        "pr_auc": 0.6723,
-        "f1_drop": 0.0454
+        "f1_pos": 0.6074,
+        "precision_pos": 0.6485,
+        "recall_pos": 0.5712,
+        "pr_auc": 0.6748,
+        "f1_drop": 0.053
       },
       "teencode_without_normalizer": {
-        "f1_pos": 0.6152,
-        "precision_pos": 0.5951,
-        "recall_pos": 0.6366,
-        "pr_auc": 0.6621,
-        "f1_drop": 0.0506
+        "f1_pos": 0.6021,
+        "precision_pos": 0.6177,
+        "recall_pos": 0.5872,
+        "pr_auc": 0.6627,
+        "f1_drop": 0.0583
       }
     },
     "realworld": {
@@ -4389,36 +4376,36 @@
       "agreement_pct": 92.86,
       "n_disagreements": 15,
       "overall_bin_A": {
-        "precision_pos": 0.8545,
+        "precision_pos": 0.8704,
         "recall_pos": 0.7581,
-        "f1_pos": 0.8034,
-        "f1_macro": 0.8555,
-        "accuracy": 0.8743,
-        "balanced_acc": 0.846,
-        "roc_auc": 0.9493,
-        "pr_auc": 0.9074,
-        "mcc": 0.7143,
-        "tn": 113,
-        "fp": 8,
+        "f1_pos": 0.8103,
+        "f1_macro": 0.8612,
+        "accuracy": 0.8798,
+        "balanced_acc": 0.8501,
+        "roc_auc": 0.9609,
+        "pr_auc": 0.9243,
+        "mcc": 0.7267,
+        "tn": 114,
+        "fp": 7,
         "fn": 15,
         "tp": 47
       },
       "overall_bin_B": {
-        "precision_pos": 0.881,
-        "recall_pos": 0.8315,
-        "f1_pos": 0.8555,
-        "f1_macro": 0.8771,
-        "accuracy": 0.881,
-        "balanced_acc": 0.8744,
-        "roc_auc": 0.9357,
-        "pr_auc": 0.9069,
-        "mcc": 0.7553,
-        "tn": 111,
-        "fp": 10,
-        "fn": 15,
-        "tp": 74
+        "precision_pos": 0.8652,
+        "recall_pos": 0.8652,
+        "f1_pos": 0.8652,
+        "f1_macro": 0.883,
+        "accuracy": 0.8857,
+        "balanced_acc": 0.883,
+        "roc_auc": 0.9538,
+        "pr_auc": 0.9301,
+        "mcc": 0.766,
+        "tn": 109,
+        "fp": 12,
+        "fn": 12,
+        "tp": 77
       },
-      "overall_multi3_f1_macro": 0.7319,
+      "overall_multi3_f1_macro": 0.7574,
       "f1_by_source": [
         {
           "source": "A_vihsd_test_sample",
@@ -4431,8 +4418,8 @@
           "f1_macro": 0.8168,
           "accuracy": 0.8333,
           "balanced_acc": 0.8057,
-          "roc_auc": 0.9623,
-          "pr_auc": 0.9524,
+          "roc_auc": 0.9691,
+          "pr_auc": 0.9599,
           "mcc": 0.6689,
           "tn": 34,
           "fp": 1,
@@ -4444,17 +4431,17 @@
           "n_samples_bin_A": 68,
           "n_hate": 18,
           "n_clean": 50,
-          "precision_pos": 0.9474,
+          "precision_pos": 1.0,
           "recall_pos": 1.0,
-          "f1_pos": 0.973,
-          "f1_macro": 0.9814,
-          "accuracy": 0.9853,
-          "balanced_acc": 0.99,
+          "f1_pos": 1.0,
+          "f1_macro": 1.0,
+          "accuracy": 1.0,
+          "balanced_acc": 1.0,
           "roc_auc": 1.0,
           "pr_auc": 1.0,
-          "mcc": 0.9635,
-          "tn": 49,
-          "fp": 1,
+          "mcc": 1.0,
+          "tn": 50,
+          "fp": 0,
           "fn": 0,
           "tp": 18
         },
@@ -4469,8 +4456,8 @@
           "f1_macro": 0.7588,
           "accuracy": 0.7818,
           "balanced_acc": 0.7588,
-          "roc_auc": 0.8787,
-          "pr_auc": 0.7983,
+          "roc_auc": 0.9137,
+          "pr_auc": 0.8587,
           "mcc": 0.5175,
           "tn": 30,
           "fp": 6,
@@ -4485,7 +4472,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.0424,
+          "score": 0.1906,
           "text_masked": "Đem đưa lên cơ sơ xo thẩm quyền THP bốc phân mà ăn :)",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4495,7 +4482,7 @@
           "error_type": "FP (Báo động giả)",
           "label_final": "CLEAN",
           "y_pred": 1,
-          "score": 0.3173,
+          "score": 0.6769,
           "text_masked": "Tiến Chiểu sao thằng này lại là chủ tịch",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4505,7 +4492,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.2087,
+          "score": 0.6064,
           "text_masked": "An Nguyễn Đức giờ mình nói chung (giống như làm toán đặt thừa số chung vậy mà) là vầy : mình đi vệ sinh là đã góp phần nuôi sống cái đám \" đầy tớ của nhân dân\" rồi ....",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4515,7 +4502,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.092,
+          "score": 0.3219,
           "text_masked": "từ dịch này thấy ý thức người nhật xăng đổ nửa bình, nhưng giấy vệ sinh không thể thiếu. không hy sinh bản thân để cứu người khác, nhưng dính dịch thì kéo nhiều người dính theo.",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4525,7 +4512,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.1938,
+          "score": 0.5167,
           "text_masked": "@user Năng Sinh Tồn ngáo đá hả bạn có làm j bn chưa mà chửi người ta",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4535,7 +4522,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.2292,
+          "score": 0.5994,
           "text_masked": "Thôi bớt ngựa ông... đừng đi tùm lum để khéo mắc bệnh rồi cách li... là dân việt nam mừng lắm rồi",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4545,7 +4532,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.0538,
+          "score": 0.2529,
           "text_masked": "Cô ba vàng giả cái () cát không.😂",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4555,7 +4542,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.1927,
+          "score": 0.5534,
           "text_masked": "đảng ko đủi thì nhân dân đủi :v rồi đảng bỏ tù dân vì gây rối :v tóm váy ngậm tiền rồi thì ráng nghe chửi đi đảng ơi :D",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4565,7 +4552,7 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.121,
+          "score": 0.5788,
           "text_masked": "mấy con cá đấy gọi chung là quân đội và cớm :v",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
         },
@@ -4575,29 +4562,9 @@
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.2209,
+          "score": 0.637,
           "text_masked": "Phạm Văn Lộc vãi lol lộc",
           "note": "Mẫu thực tế phân tầng từ tập test ViHSD"
-        },
-        {
-          "id": 93,
-          "source": "B_public_social_manual",
-          "error_type": "FP (Báo động giả)",
-          "label_final": "CLEAN",
-          "y_pred": 1,
-          "score": 0.3499,
-          "text_masked": "Cuốn sách này phân tích rất sâu về lịch sử văn hóa các vùng miền Việt Nam.",
-          "note": "Giới thiệu sách"
-        },
-        {
-          "id": 153,
-          "source": "C_adversarial_curated_vi",
-          "error_type": "FP (Báo động giả)",
-          "label_final": "CLEAN",
-          "y_pred": 1,
-          "score": 0.342,
-          "text_masked": "cam on ban da chia se tai lieu hoc may rat bo ich cho sinh vien",
-          "note": "Tiếng Việt không dấu — cảm ơn"
         },
         {
           "id": 156,
@@ -4605,19 +4572,39 @@
           "error_type": "FP (Báo động giả)",
           "label_final": "CLEAN",
           "y_pred": 1,
-          "score": 0.2954,
+          "score": 0.7121,
           "text_masked": "chung ta can ton trong su khac biet van hoa giua cac vung mien",
           "note": "Tiếng Việt không dấu — thông điệp tích cực"
         },
         {
-          "id": 161,
+          "id": 177,
           "source": "C_adversarial_curated_vi",
           "error_type": "FN (Bỏ sót)",
           "label_final": "HATE",
           "y_pred": 0,
-          "score": 0.0559,
-          "text_masked": "bon moi ro ha dang nay khong xung dang duoc song",
-          "note": "Tiếng Việt không dấu — kỳ thị nhóm"
+          "score": 0.618,
+          "text_masked": "mấy đứa v*** trên mxh bh toàn làm trò b*** để câu view",
+          "note": "Teencode — công kích nhóm"
+        },
+        {
+          "id": 179,
+          "source": "C_adversarial_curated_vi",
+          "error_type": "FN (Bỏ sót)",
+          "label_final": "HATE",
+          "y_pred": 0,
+          "score": 0.613,
+          "text_masked": "Trời ơi thông minh xuất chúng quá ha, phát biểu câu nào là thấy não phẳng lì câu đó luôn á :)))",
+          "note": "Mỉa mai hạ thấp trí tuệ cá nhân"
+        },
+        {
+          "id": 180,
+          "source": "C_adversarial_curated_vi",
+          "error_type": "FP (Báo động giả)",
+          "label_final": "CLEAN",
+          "y_pred": 1,
+          "score": 0.8299,
+          "text_masked": "Vâng bạn thì thượng đẳng văn minh lắm rồi, mở miệng ra là chửi rủa vùng miền người khác!",
+          "note": "Mỉa mai để phê phán kẻ kỳ thị vùng miền"
         }
       ]
     }

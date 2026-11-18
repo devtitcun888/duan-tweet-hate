@@ -1,54 +1,54 @@
 {
   "best_bin_A": {
     "task": "bin_A (HATE vs CLEAN, bỏ OFFENSIVE)",
-    "model_key": "svm_linear",
-    "model_name": "Linear SVM (Calibrated)",
+    "model_key": "lr",
+    "model_name": "Logistic Regression",
     "vectorizer": "word+char",
-    "C": 0.4,
-    "best_threshold": 0.285,
+    "C": 0.8,
+    "best_threshold": 0.645,
     "dev_metrics_tuned": {
-      "precision_pos": 0.637,
+      "precision_pos": 0.6844,
       "recall_pos": 0.7148,
-      "f1_pos": 0.6736,
-      "f1_macro": 0.8153,
-      "accuracy": 0.924,
-      "balanced_acc": 0.8323,
-      "roc_auc": 0.9431,
-      "pr_auc": 0.7405,
-      "mcc": 0.6321,
-      "tn": 2080,
-      "fp": 110,
+      "f1_pos": 0.6993,
+      "f1_macro": 0.8306,
+      "accuracy": 0.9325,
+      "balanced_acc": 0.8371,
+      "roc_auc": 0.9462,
+      "pr_auc": 0.7391,
+      "mcc": 0.6615,
+      "tn": 2101,
+      "fp": 89,
       "fn": 77,
       "tp": 193
     },
     "dev_metrics_default_05": {
       "threshold": 0.5,
-      "precision": 0.7453,
-      "recall": 0.5852,
-      "f1": 0.6556
+      "precision": 0.5509,
+      "recall": 0.7815,
+      "f1": 0.6462
     }
   },
   "best_bin_B": {
     "task": "bin_B (OFFENSIVE+HATE vs CLEAN)",
-    "model_key": "svm_linear",
-    "model_name": "Linear SVM (Calibrated)",
+    "model_key": "lr",
+    "model_name": "Logistic Regression",
     "vectorizer": "word+char",
-    "C": 0.4,
-    "best_threshold": 0.315,
+    "C": 0.8,
+    "best_threshold": 0.55,
     "dev_metrics_tuned": {
-      "precision_pos": 0.696,
-      "recall_pos": 0.7552,
-      "f1_pos": 0.7244,
-      "f1_macro": 0.8303,
-      "accuracy": 0.8963,
-      "balanced_acc": 0.8413,
-      "roc_auc": 0.9304,
-      "pr_auc": 0.776,
-      "mcc": 0.6615,
-      "tn": 2031,
-      "fp": 159,
-      "fn": 118,
-      "tp": 364
+      "precision_pos": 0.674,
+      "recall_pos": 0.7593,
+      "f1_pos": 0.7141,
+      "f1_macro": 0.8232,
+      "accuracy": 0.8903,
+      "balanced_acc": 0.8393,
+      "roc_auc": 0.9259,
+      "pr_auc": 0.7657,
+      "mcc": 0.6484,
+      "tn": 2013,
+      "fp": 177,
+      "fn": 116,
+      "tp": 366
     }
   },
   "best_multi3": {
@@ -63,13 +63,28 @@
   },
   "ablation": [
     {
+      "config": "Full Pipeline + Tăng cường Không dấu (Accent-Drop Augmentation)",
+      "segment": true,
+      "expand_teencode": true,
+      "remove_stopwords": false,
+      "noaccent_augmentation": true,
+      "precision_pos": 0.7209,
+      "recall_pos": 0.5741,
+      "f1_pos": 0.6392,
+      "f1_no_accents": 0.6397,
+      "pr_auc": 0.7172,
+      "roc_auc": 0.9373
+    },
+    {
       "config": "Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)",
       "segment": true,
       "expand_teencode": true,
       "remove_stopwords": false,
+      "noaccent_augmentation": false,
       "precision_pos": 0.7368,
       "recall_pos": 0.5185,
       "f1_pos": 0.6087,
+      "f1_no_accents": 0.5664,
       "pr_auc": 0.7087,
       "roc_auc": 0.9335
     },
@@ -78,9 +93,11 @@
       "segment": false,
       "expand_teencode": true,
       "remove_stopwords": false,
+      "noaccent_augmentation": false,
       "precision_pos": 0.7042,
       "recall_pos": 0.5556,
       "f1_pos": 0.6211,
+      "f1_no_accents": 0.5383,
       "pr_auc": 0.7148,
       "roc_auc": 0.9353
     },
@@ -89,9 +106,11 @@
       "segment": true,
       "expand_teencode": false,
       "remove_stopwords": false,
+      "noaccent_augmentation": false,
       "precision_pos": 0.7553,
       "recall_pos": 0.5259,
       "f1_pos": 0.6201,
+      "f1_no_accents": 0.5575,
       "pr_auc": 0.714,
       "roc_auc": 0.9347
     },
@@ -100,11 +119,13 @@
       "segment": true,
       "expand_teencode": true,
       "remove_stopwords": true,
-      "precision_pos": 0.7382,
-      "recall_pos": 0.5222,
-      "f1_pos": 0.6117,
-      "pr_auc": 0.7121,
-      "roc_auc": 0.9338
+      "noaccent_augmentation": false,
+      "precision_pos": 0.7448,
+      "recall_pos": 0.5296,
+      "f1_pos": 0.619,
+      "f1_no_accents": 0.5754,
+      "pr_auc": 0.7174,
+      "roc_auc": 0.935
     }
   ],
   "balance_comparison": [
@@ -116,7 +137,7 @@
       "f1_pos": 0.534,
       "pr_auc": 0.7102,
       "roc_auc": 0.9335,
-      "fit_seconds": 0.61
+      "fit_seconds": 0.669
     },
     {
       "strategy": "class_weight",
@@ -126,7 +147,7 @@
       "f1_pos": 0.6252,
       "pr_auc": 0.7119,
       "roc_auc": 0.9365,
-      "fit_seconds": 0.602
+      "fit_seconds": 0.648
     },
     {
       "strategy": "ros",
@@ -136,7 +157,7 @@
       "f1_pos": 0.6364,
       "pr_auc": 0.715,
       "roc_auc": 0.936,
-      "fit_seconds": 0.709
+      "fit_seconds": 0.869
     },
     {
       "strategy": "smote",
@@ -146,7 +167,7 @@
       "f1_pos": 0.473,
       "pr_auc": 0.5588,
       "roc_auc": 0.8629,
-      "fit_seconds": 0.847
+      "fit_seconds": 0.865
     },
     {
       "strategy": "rus",
@@ -156,7 +177,7 @@
       "f1_pos": 0.5288,
       "pr_auc": 0.6576,
       "roc_auc": 0.9173,
-      "fit_seconds": 0.549
+      "fit_seconds": 0.604
     }
   ]
 }

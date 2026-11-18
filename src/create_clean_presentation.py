@@ -102,9 +102,9 @@ def build_clean_presentation_notebook() -> Path:
     # Refresh Vietnamese cells (from cell 76 onward) from the newly executed vi_01..vi_05 notebooks
     en_cells = nb.cells[:76]
     vi_nb_names = [
-        "vi_01_eda_sql.ipynb",
-        "vi_02_preprocess_classical.ipynb",
-        "vi_03_transformer.ipynb",
+        "vi_01_data_eda.ipynb",
+        "vi_02_classical.ipynb",
+        "vi_03_transformers.ipynb",
         "vi_04_final_eval.ipynb",
         "vi_05_realworld.ipynb",
     ]

@@ -1,26 +1,5 @@
-# 1. Twitter Sentimental Analysis
+# Gắn Nhãn Các Đoạn Tweet Có Nội Dung Phân Biệt Chủng Tộc, Phân Biệt Giới Tính (Twitter Sentimental Analysis)
 
-**Câu 1 (2,0 điểm): Thu thập và phân tích dữ liệu:**
-- Phân tích bộ dữ liệu được giao hoặc thu thập dữ liệu dựa trên các API (1đ),
-- Thống kê mô tả dữ liệu (1đ).
-
-**Câu 2 (3,0 điểm): Thiết kế mô hình học máy:**
-- Làm sạch dữ liệu và import dữ liệu lên Google Colab hoặc Python(1đ)
-- Chuẩn hóa và cân bằng dữ liệu (nếu cần thiết) (0.5đ)
-- Xây dựng các mô hình dữ liệu, các tập dữ liệu huấn luyện, các tiêu chí đánh giá.(1,5đ)
-
-**Câu 3 (3,0 điểm): So sánh và lựa chọn mô hình học máy:**
-- So sánh hiệu quả của các mô hình khác nhau trên bộ dữ liệu được giao (1.5đ)
-- Điều chỉnh các tham số để tối ưu hóa mô hình (0.5đ)
-- Chạy thử mô hình trong thực tế.(1.5đ)
-
-**Câu 4 (2,0 điểm): Thiết kế một ứng dụng sử dụng mô hình được chọn:**
-- Thiết kế giao diện ứng dụng (1,0đ),
-- Trình bày báo cáo và trả lời câu hỏi (1,0đ)
-
----
-
-> **Tên đề tài:** Gắn nhãn các đoạn tweet có nội dung phân biệt chủng tộc, phân biệt giới tính (*Twitter Sentimental Analysis*)  
 > **Loại đề tài:** Phân loại nhị phân & Khai phá văn bản (*Binary Classification / Text Mining*)  
 > **Môi trường hỗ trợ:** Google Colab & Python Local (`seed = 42` cố định toàn dự án)  
 > **Mô hình chốt (`best_model`):** `Linear SVM (Calibrated)` (`threshold = 0.315`) — **Test F1 = `0.6266`** (95% CI: `[0.5764, 0.6716]`), **PR-AUC = `0.6651`**, **ROC-AUC = `0.9345`**
@@ -148,9 +127,9 @@ Bên cạnh bài toán tiếng Anh, dự án mở rộng toàn diện sang **Ti�
 - **Khác biệt định nghĩa nhãn:** Bản tiếng Anh phát hiện *racist/sexist*; bản tiếng Việt phát hiện **ngôn từ thù ghét / xúc phạm cá nhân hoặc nhóm nói chung** (`CLEAN / OFFENSIVE / HATE`).
 - **Quy mô & Chia tập chuẩn:** **33,400 bình luận** (`24,048 train / 2,672 dev / 6,680 test`; `CLEAN = 27,624 [82.71%]`, `HATE = 3,514 [10.52%]`, `OFFENSIVE = 2,262 [6.77%]`).
 - **Kết quả Tập Test chuẩn ViHSD :**
-  - Bài toán chính **`bin_A` (HATE vs CLEAN, bỏ OFFENSIVE):** **Test F1 = `0.6658`** (95% CI: `[0.6379, 0.6912]`, PR-AUC = **`0.7198`**, ROC-AUC = **`0.9372`**).
-  - Bài toán **`bin_B` (OFFENSIVE+HATE vs CLEAN):** **Test F1 = `0.6855`** (PR-AUC = **`0.7530`**).
-  - Bài toán 3 lớp **`multi3` (CLEAN / OFFENSIVE / HATE):** **Test Macro-F1 = `0.6481`**, Accuracy = **`84.31%`** (khớp mốc baseline công bố quốc tế `0.60 – 0.66`).
-- **Kiểm tra Độ bền (Robustness):** Bản gốc F1 = **`0.6658`** $\rightarrow$ Thêm Teencode (có chuẩn hóa) F1 = **`0.6204`** $\rightarrow$ Bỏ dấu hoàn toàn (`strip_accents`) F1 = **`0.5102`** (giảm `-0.1556`).
-- **Kiểm thử Thực tế Tiếng Việt ($N = 210$ mẫu, 3 nguồn):** Đồng thuận 2 người gắn nhãn đạt **`92.86%`**, **Cohen's Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$), **Real-World `bin_A` F1 = `0.8034`**.
+  - Bài toán chính **`bin_A` (HATE vs CLEAN, bỏ OFFENSIVE):** **Test F1 = `0.6604`** (95% CI: `[0.6329, 0.6862]`, PR-AUC = **`0.7218`**, ROC-AUC = **`0.9399`**).
+  - Bài toán **`bin_B` (OFFENSIVE+HATE vs CLEAN):** **Test F1 = `0.6952`** (PR-AUC = **`0.7564`**).
+  - Bài toán 3 lớp **`multi3` (CLEAN / OFFENSIVE / HATE):** **Test Macro-F1 = `0.6532`**, Accuracy = **`84.64%`** (khớp mốc baseline công bố quốc tế `0.60 – 0.66`).
+- **Kiểm tra Độ bền (Robustness):** Bản gốc F1 = **`0.6604`** $\rightarrow$ Thêm Teencode (có chuẩn hóa) F1 = **`0.6074`** $\rightarrow$ Bỏ dấu hoàn toàn (`strip_accents`) F1 = **`0.6157`** (giảm `-0.0447`).
+- **Kiểm thử Thực tế Tiếng Việt ($N = 210$ mẫu, 3 nguồn):** Đồng thuận 2 người gắn nhãn đạt **`92.86%`**, **Cohen's Kappa 3 lớp $\kappa = 0.8743$** (Weighted $\kappa = 0.9538$), **Real-World `bin_A` F1 = `0.8103`**.
 - **Notebooks Tiếng Việt:** `notebooks/vi_01_data_eda.ipynb` $\rightarrow$ `notebooks/vi_05_realworld.ipynb`.

@@ -1,7 +1,7 @@
 cause,FN (Bỏ sót),FP (Báo động giả),total,pct
-Nhãn gốc nhiễu hoặc ranh giới mờ giữa CLEAN – OFFENSIVE – HATE (Borderline / Noisy Label),26,158,184,37.78
-Kỳ thị ngầm / Từ lóng vùng miền hoặc ẩn dụ không dùng từ tục (Implicit Hate / Regional Slang),139,0,139,28.54
-Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical),15,41,56,11.5
-Bình luận không dấu / Teencode biến thể nặng (Unaccented / Heavy Teencode),11,26,37,7.6
-Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context),12,25,37,7.6
-Chửi thề 'thân mật' / Cảm thán hoặc Phản đối kỳ thị chứa từ nhạy cảm (Friendly Profanity / Counter-Speech),0,34,34,6.98
+Nhãn gốc nhiễu hoặc ranh giới mờ giữa CLEAN – OFFENSIVE – HATE (Borderline / Noisy Label),29,142,171,36.23
+Kỳ thị ngầm / Từ lóng vùng miền hoặc ẩn dụ không dùng từ tục (Implicit Hate / Regional Slang),151,0,151,31.99
+Mỉa mai / Châm biếm / Câu hỏi tu từ (Sarcasm & Rhetorical),20,36,56,11.86
+Bình luận không dấu / Teencode biến thể nặng (Unaccented / Heavy Teencode),14,21,35,7.42
+Chửi thề 'thân mật' / Cảm thán hoặc Phản đối kỳ thị chứa từ nhạy cảm (Friendly Profanity / Counter-Speech),0,32,32,6.78
+Bình luận quá ngắn / Thiếu ngữ cảnh bài đăng gốc (Short / Missing Context),15,12,27,5.72
