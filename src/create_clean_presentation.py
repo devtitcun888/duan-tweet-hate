@@ -99,6 +99,28 @@ def build_clean_presentation_notebook() -> Path:
     src_nb_path = PROJECT_ROOT / "notebooks" / "MASTER_ALL_IN_ONE_COLAB.ipynb"
     nb = nbformat.read(src_nb_path, as_version=4)
 
+    # Refresh Vietnamese cells (from cell 76 onward) from the newly executed vi_01..vi_05 notebooks
+    en_cells = nb.cells[:76]
+    vi_nb_names = [
+        "vi_01_eda_sql.ipynb",
+        "vi_02_preprocess_classical.ipynb",
+        "vi_03_transformer.ipynb",
+        "vi_04_final_eval.ipynb",
+        "vi_05_realworld.ipynb",
+    ]
+    vi_cells = []
+    for vname in vi_nb_names:
+        vpath = PROJECT_ROOT / "notebooks" / vname
+        if vpath.exists():
+            vnb = nbformat.read(vpath, as_version=4)
+            for idx, c in enumerate(vnb.cells):
+                # Skip the repeated bootstrap code cell (index 1) in each sub-notebook
+                if idx == 1 and c.cell_type == "code":
+                    continue
+                vi_cells.append(c)
+    if vi_cells:
+        nb.cells = en_cells + vi_cells
+
     # Replace top intro cell with exact assignment rubric wording requested by the user
     nb.cells[0].source = (
         "# 1. Twitter Sentimental Analysis\n\n"

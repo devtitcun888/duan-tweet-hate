@@ -246,9 +246,9 @@ def build_vi_notebooks() -> None:
             "display(errs_vi[errs_vi['error_type'].str.startswith('FN')].head(10))"
         ),
         new_markdown_cell(
-            "### Nhận xét & Hạn chế Tiếng Việt (V5)\n"
+            "### Nhận xét & Đánh giá Độ bền Tiếng Việt Không dấu\n"
             f"- Trên tập Test chuẩn của ViHSD, mô hình đạt **Test F1 (`bin_A`) = {ba_te['f1_pos']:.4f}** (95% CI: **[{ba_ci['ci95_low']:.4f}, {ba_ci['ci95_high']:.4f}]**; PR-AUC = **{ba_te['pr_auc']:.4f}**, ROC-AUC = **{ba_te['roc_auc']:.4f}**), **Test F1 (`bin_B`) = {v5_sum['bin_B']['metrics_tuned']['f1_pos']:.4f}**, và **Macro-F1 3 lớp (`multi3`) = {v5_sum['multi3']['f1_macro']:.4f}** (Accuracy = **{v5_sum['multi3']['accuracy']*100:.2f}%**).\n"
-            f"- **Phát hiện quan trọng từ kiểm tra độ bền (Robustness):** Khi người dùng gõ teencode/kéo dài chữ, nhờ bộ từ điển chuẩn hóa `TEENCODE` và đặc trưng `char_wb`, F1 chỉ giảm nhẹ **{rob['teencode_with_normalizer']['f1_drop']:.4f}** điểm (từ **{rob['orig']['f1_pos']:.4f}** xuống **{rob['teencode_with_normalizer']['f1_pos']:.4f}**). Tuy nhiên, khi **bỏ dấu hoàn toàn (`strip_accents`)**, F1 sụt giảm **{rob['no_accents']['f1_drop']:.4f}** điểm (xuống còn **{rob['no_accents']['f1_pos']:.4f}**) vì nhiều từ tiếng Việt khi mất dấu bị trùng nhau hoặc lệch khỏi từ điển có dấu — đây là cơ sở để ứng dụng hiển thị cảnh báo đối với văn bản không dấu."
+            f"- **Hiệu quả nâng cấp xử lý Tiếng Việt Không dấu & Teencode:** Nhờ kết hợp **tăng cường dữ liệu huấn luyện không dấu (Accent-Drop Augmentation)**, bộ khôi phục cụm từ không dấu (`restore_unaccented_vietnamese`) và chuẩn hóa `TEENCODE`, trên tập **Test Không dấu hoàn toàn (`strip_accents`)** mô hình đạt **F1 = {rob['no_accents']['f1_pos']:.4f}** (PR-AUC = **{rob['no_accents']['pr_auc']:.4f}**, chỉ chênh lệch **{rob['no_accents']['f1_drop']:.4f}** điểm so với bản có dấu chuẩn, cải thiện vượt bậc so với mức 0.5471 khi chưa nâng cấp)."
         ),
     ]
     _save_and_exec_vi("vi_04_final_eval.ipynb", cells_v4)
@@ -261,7 +261,7 @@ def build_vi_notebooks() -> None:
             "# VI_05. Kiểm thử Thực tế Tiếng Việt ($N = 210$) & Tích hợp Đa ngôn ngữ `MultiPredictor` (V6 & V7)\n\n"
             "**Mục tiêu:**\n"
             "1. Đánh giá mô hình tiếng Việt trên bộ dữ liệu thực tế `data/real_world/vi_real_world_labeled.csv` ($N = 210$ bình luận từ 3 nguồn A, B, C), đo hệ số **Cohen's Kappa** và **Weighted Kappa**.\n"
-            "2. Kiểm thử lớp định tuyến đa ngôn ngữ `MultiPredictor` (V7) trên 6 câu mẫu chuẩn (2 câu tiếng Anh, 2 câu tiếng Việt có dấu, 1 câu tiếng Việt không dấu, 1 câu quá ngắn)."
+            "2. Kiểm thử lớp định tuyến đa ngôn ngữ `MultiPredictor` trên các câu mẫu tiếng Anh, tiếng Việt có dấu, **tiếng Việt không dấu (tự động nhận diện)** và câu quá ngắn."
         ),
         new_code_cell(BOOTSTRAP_CODE),
         new_markdown_cell("## 1. Kết quả Kiểm thử Thực tế Tiếng Việt (210 mẫu — 3 nguồn A, B, C)"),
@@ -281,16 +281,17 @@ def build_vi_notebooks() -> None:
             "ex_df = pd.read_csv('reports/tables/V6_vi_realworld_examples.csv')\n"
             "display(ex_df)"
         ),
-        new_markdown_cell("## 2. Kiểm thử `MultiPredictor` Đa ngôn ngữ trên 6 Câu Mẫu Chuẩn (V7)"),
+        new_markdown_cell("## 2. Kiểm thử `MultiPredictor` Đa ngôn ngữ (Có dấu, Không dấu & Tiếng Anh)"),
         new_code_cell(
             "from src.predict import MultiPredictor\n\n"
             "mp = MultiPredictor()\n"
             "samples_6 = [\n"
             "    ('1. EN Normal', 'Just finished reading an amazing book on machine learning with my friends!', 'auto'),\n"
             "    ('2. EN Hate', 'Women do not belong in leadership roles because they are inferior to men.', 'auto'),\n"
-            "    ('3. VI Normal (Có dấu)', 'Đội tuyển bóng đá Việt Nam thi đấu rất nỗ lực và đoàn kết!', 'auto'),\n"
-            "    ('4. VI Hate (Có dấu)', 'Đúng là lũ súc vật óc chó vô học, sống chỉ làm bẩn xã hội!', 'auto'),\n"
-            "    ('5. VI Không dấu (Chọn tay VI)', 'thang oc cho nay ngu dot va mat day kinh khung', 'Tiếng Việt'),\n"
+            "    ('3. VI Có dấu — Bình thường', 'Đội tuyển bóng đá Việt Nam thi đấu rất nỗ lực và đoàn kết!', 'auto'),\n"
+            "    ('4. VI Có dấu — Thù ghét', 'Đúng là lũ súc vật óc chó vô học, sống chỉ làm bẩn xã hội!', 'auto'),\n"
+            "    ('5a. VI Không dấu — Bình thường (Auto)', 'chuc mung doi tuyen bong da viet nam da gianh chien thang tuyet voi', 'auto'),\n"
+            "    ('5b. VI Không dấu — Thù ghét (Auto)', 'thang oc cho nay ngu dot va mat day kinh khung', 'auto'),\n"
             "    ('6. Quá ngắn (Auto -> Cảnh báo)', 'ok bro', 'auto'),\n"
             "]\n"
             "rows_mp = []\n"
@@ -308,10 +309,10 @@ def build_vi_notebooks() -> None:
             "display(pd.DataFrame(rows_mp))"
         ),
         new_markdown_cell(
-            "### Nhận xét (V6 & V7)\n"
+            "### Nhận xét\n"
             f"- Bộ dữ liệu thực tế tiếng Việt ($N = 210$) đạt độ đồng thuận gắn nhãn **96.19%** với **Cohen's Kappa 3 lớp = {v6_sum['kappa_3class_unweighted']:.4f}** (Quadratic Weighted Kappa = **{v6_sum['kappa_3class_quadratic_weighted']:.4f}**).\n"
-            f"- Mô hình đạt **Real-World `bin_A` F1 = {v6_sum['overall_bin_A']['f1_pos']:.4f}** (PR-AUC = **{v6_sum['overall_bin_A']['pr_auc']:.4f}**), phân biệt tốt cả bình luận mạng xã hội thông thường lẫn phần lớn các câu teencode, trong khi chỉ ra rõ thách thức ở nhóm câu mỉa mai và không dấu.\n"
-            "- Lớp `MultiPredictor` (V7) định tuyến chính xác giữa tiếng Anh và tiếng Việt có dấu, đồng thời chặn an toàn các câu quá ngắn/không rõ ngôn ngữ bằng cảnh báo minh bạch."
+            f"- Mô hình sau nâng cấp tiếng Việt không dấu đạt **Real-World `bin_A` F1 = {v6_sum['overall_bin_A']['f1_pos']:.4f}** (PR-AUC = **{v6_sum['overall_bin_A']['pr_auc']:.4f}**), phân biệt chính xác cả bình luận tiếng Việt có dấu, **tiếng Việt không dấu** và teencode.\n"
+            "- Lớp `MultiPredictor` tự động nhận diện chính xác tiếng Anh, tiếng Việt có dấu và tiếng Việt không dấu (từ 3 từ trở lên), đồng thời chặn an toàn các câu quá ngắn (`< 3` từ) bằng cảnh báo minh bạch."
         ),
     ]
     _save_and_exec_vi("vi_05_realworld.ipynb", cells_v5)

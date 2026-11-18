@@ -100,11 +100,22 @@ def test_multilingual_predictor_language_detection_and_override():
     assert r_short["label"] is None
     assert r_short["warning"] is not None
 
-    # 5. Manual language choice overrides automatic detection
+    # 5. Unaccented Vietnamese (>= 3 words) automatically detected as 'vi' and accurately classified
+    r_noacc_clean = mp.predict("chuc mung doi tuyen bong da viet nam da gianh chien thang tuyet voi", lang="auto")
+    assert r_noacc_clean["lang"] == "vi"
+    assert r_noacc_clean["status"] == "ok"
+    assert r_noacc_clean["label"] == 0
+
+    r_noacc_hate = mp.predict("thang oc cho nay ngu dot va mat day kinh khung", lang="auto")
+    assert r_noacc_hate["lang"] == "vi"
+    assert r_noacc_hate["status"] == "ok"
+    assert r_noacc_hate["label"] == 1
+
+    # 6. Manual language choice overrides automatic detection
     r_override_vi = mp.predict("thang oc cho nay ngu dot va mat day kinh khung", lang="Tiếng Việt")
     assert r_override_vi["lang"] == "vi"
     assert r_override_vi["status"] == "ok"
-    assert r_override_vi["label"] in (0, 1)
+    assert r_override_vi["label"] == 1
 
     r_override_en = mp.predict("ok bro", lang="English")
     assert r_override_en["lang"] == "en"

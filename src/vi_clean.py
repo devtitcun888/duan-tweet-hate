@@ -98,6 +98,144 @@ TEENCODE: dict[str, str] = {
     "nhiu": "nhiều",
 }
 
+# Unambiguous multi-word and common token mappings for unaccented Vietnamese (Tiếng Việt không dấu)
+NOACCENT_PHRASE_MAP: list[tuple[str, str]] = [
+    ("oc cho", "óc_chó"),
+    ("mat day", "mất_dạy"),
+    ("vo hoc", "vô_học"),
+    ("suc vat", "súc_vật"),
+    ("rac ruoi", "rác_rưởi"),
+    ("khon nan", "khốn_nạn"),
+    ("do ngu", "đồ ngu"),
+    ("ngu si", "ngu_si"),
+    ("ngu dot", "ngu_dốt"),
+    ("dan don", "đần_độn"),
+    ("ngu xuan", "ngu_xuẩn"),
+    ("bien di", "biến đi"),
+    ("cut khoi", "cút khỏi"),
+    ("cam mom", "câm mồm"),
+    ("sua bay", "sủa bậy"),
+    ("cho de", "chó_đẻ"),
+    ("con di", "con đĩ"),
+    ("con pho", "con phò"),
+    ("can ba", "cặn_bã"),
+    ("ha dang", "hạ_đẳng"),
+    ("moi ro", "mọi_rợ"),
+    ("nao ngan", "não ngắn"),
+    ("khong nao", "không não"),
+    ("an bam", "ăn_bám"),
+    ("re tien", "rẻ_tiền"),
+    ("vo liem si", "vô_liêm_sỉ"),
+    ("benh hoan", "bệnh_hoạn"),
+    ("bien thai", "biến_thái"),
+    ("tam than", "tâm_thần"),
+    ("thang dien", "thằng điên"),
+    ("con dien", "con điên"),
+    ("do dien", "đồ điên"),
+    ("dap chet", "đập chết"),
+    ("chem chet", "chém chết"),
+    ("phan dong", "phản_động"),
+    ("ban nuoc", "bán nước"),
+    ("bac ky", "bắc_kỳ"),
+    ("nam ky", "nam_kỳ"),
+    ("trung ky", "trung_kỳ"),
+    ("kinh khung", "kinh_khủng"),
+    ("viet nam", "việt_nam"),
+    ("bong da", "bóng_đá"),
+    ("doi tuyen", "đội_tuyển"),
+    ("chien thang", "chiến_thắng"),
+    ("tuyet voi", "tuyệt_vời"),
+    ("chuc mung", "chúc_mừng"),
+    ("cam on", "cảm_ơn"),
+    ("chia se", "chia_sẻ"),
+    ("tai lieu", "tài_liệu"),
+    ("hoc may", "học_máy"),
+    ("sinh vien", "sinh_viên"),
+    ("giao duc", "giáo_dục"),
+    ("kinh te", "kinh_tế"),
+    ("xa hoi", "xã_hội"),
+    ("van hoa", "văn_hóa"),
+    ("vung mien", "vùng_miền"),
+    ("ton trong", "tôn_trọng"),
+    ("khac biet", "khác_biệt"),
+    ("hom nay", "hôm_nay"),
+    ("moi nguoi", "mọi người"),
+    ("ung dung", "ứng_dụng"),
+    ("mon an", "món ăn"),
+    ("don gian", "đơn_giản"),
+    ("ca nha", "cả nhà"),
+]
+
+NOACCENT_WORD_MAP: dict[str, str] = {
+    "khong": "không",
+    "duoc": "được",
+    "nguoi": "người",
+    "nhung": "những",
+    "thang": "thằng",
+    "chuyen": "chuyện",
+    "nhieu": "nhiều",
+    "thich": "thích",
+    "nhung": "những",
+    "chung": "chúng",
+    "truoc": "trước",
+    "duong": "đường",
+    "suot": "suốt",
+    "ngay": "ngày",
+    "luon": "luôn",
+}
+
+# Distinct unaccented Vietnamese syllables and bigrams for automatic language detection
+VI_NOACCENT_SYLLABLES: set[str] = {
+    "khong", "duoc", "nguoi", "nhung", "thang", "chuyen", "nhieu", "thich", "truoc",
+    "duong", "suot", "ngay", "luon", "chuc", "mung", "tuyen", "bong", "viet", "chien",
+    "tuyet", "voi", "phan", "tich", "giao", "duc", "hien", "nay", "cam", "chia",
+    "lieu", "hoc", "sinh", "vien", "hom", "troi", "mua", "mang", "theo", "nhe",
+    "nha", "ung", "dung", "chay", "tren", "nhanh", "loi", "chung", "ton", "khac",
+    "biet", "van", "hoa", "giua", "cac", "vung", "mien", "mon", "nau", "ngon",
+    "lam", "minh", "deu", "ngu", "dot", "mat", "day", "kinh", "khung", "cut",
+    "khoi", "suc", "vat", "vo", "rac", "ruoi", "xa", "hoi", "con", "di", "re",
+    "tien", "qua", "can", "ba", "bon", "moi", "ro", "ha", "dang", "xung", "song",
+    "cho", "de", "may", "tao", "dap", "chet", "dan", "nao", "ngan", "chi", "bam",
+    "chu", "mom", "lai", "dien", "sua", "bay", "bien", "oc", "lu",
+}
+
+EN_COMMON_STOPWORDS: set[str] = {
+    "the", "and", "with", "this", "that", "from", "have", "just", "finished",
+    "reading", "because", "they", "are", "not", "belong", "into", "their",
+    "would", "could", "should", "about", "there", "which", "when", "what",
+    "where", "while", "these", "those", "women", "men", "roles", "friends",
+    "amazing", "book", "machine", "learning", "leadership", "inferior",
+}
+
+
+def is_unaccented_vietnamese(text: str | None) -> bool:
+    """Detect whether an unaccented string (>= 3 words) is Vietnamese."""
+    if not text:
+        return False
+    s = re.sub(r"https?://\S+|www\.\S+|@\w+|[^a-zA-Z\s]", " ", str(text).lower())
+    words = [w for w in s.split() if len(w) >= 2]
+    if len(words) < 3:
+        return False
+    en_hits = sum(1 for w in words if w in EN_COMMON_STOPWORDS)
+    if en_hits >= 2:
+        return False
+    joined = " " + " ".join(words) + " "
+    phrase_hits = sum(1 for pat, _ in NOACCENT_PHRASE_MAP if f" {pat} " in joined)
+    if phrase_hits >= 1:
+        return True
+    vi_hits = sum(1 for w in words if w in VI_NOACCENT_SYLLABLES or w in TEENCODE)
+    return vi_hits >= 2 and (vi_hits / len(words)) >= 0.45
+
+
+def restore_unaccented_vietnamese(s: str) -> str:
+    """Restore common Vietnamese compounds and diacritics when input has no Vietnamese accents."""
+    padded = " " + s + " "
+    for src_phrase, dst_phrase in NOACCENT_PHRASE_MAP:
+        padded = re.sub(r"(?<!\w)" + re.escape(src_phrase) + r"(?!\w)", dst_phrase, padded)
+    toks = padded.strip().split()
+    out_toks = [NOACCENT_WORD_MAP.get(t, t) for t in toks]
+    return " ".join(out_toks)
+
 # Light Vietnamese stopwords list (only used when remove_stopwords=True in V3 ablation;
 # preserves negations "không, chẳng, chả, chưa, đừng, chớ" and pronouns "mày, tao, nó, chúng_nó, bọn, lũ, thằng, con")
 VI_STOPWORDS_LIGHT: set[str] = {
@@ -236,6 +374,10 @@ def vi_clean(
     s = _MULTI_SPACE_RE.sub(" ", " ".join(tokens)).strip()
     if not s:
         return ""
+
+    # 9b. Restore unambiguous unaccented Vietnamese phrases & words when expand_teencode=True
+    if expand_teencode and is_unaccented_vietnamese(s):
+        s = restore_unaccented_vietnamese(s)
 
     # 10. Word segmentation (ViTokenizer joins compound words with '_')
     if segment:

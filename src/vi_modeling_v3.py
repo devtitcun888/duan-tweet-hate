@@ -46,7 +46,7 @@ from src.evaluate import compute_metrics
 from src.models import get_model_scores
 from src.threshold import pick_threshold
 from src.utils import get_project_root, set_seed
-from src.vi_clean import vi_clean
+from src.vi_clean import restore_unaccented_vietnamese, strip_accents, vi_clean
 
 PROJECT_ROOT = get_project_root()
 VI_SPLITS_DIR = PROJECT_ROOT / "data" / "splits_vi"
@@ -462,19 +462,23 @@ def run_v3_classical() -> dict[str, Any]:
     comp_df.to_csv(REPORTS_DIR / "vi_model_comparison.csv", index=False, encoding="utf-8")
 
     # =========================================================================
-    # 3. Ablation Study on bin_A (Segmentation, Teencode, Stopwords)
+    # 3. Ablation Study on bin_A (Segmentation, Teencode, Stopwords & No-Accent Augmentation)
     # =========================================================================
     sub_tr_a = train_df[train_df["label_3"].isin(["CLEAN", "HATE"])].copy()
     sub_dv_a = dev_df[dev_df["label_3"].isin(["CLEAN", "HATE"])].copy()
 
+    X_tr_noacc_a = np.array([restore_unaccented_vietnamese(strip_accents(t)) for t in X_tr_raw_a])
+    X_dv_noacc_a = np.array([restore_unaccented_vietnamese(strip_accents(t)) for t in X_dv_raw_a])
+
     ablation_configs = [
-        ("Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)", True, True, False),
-        ("Không tách từ (segment=False)", False, True, False),
-        ("Không chuẩn hóa Teencode (expand_teencode=False)", True, False, False),
-        ("Bỏ Stopwords (remove_stopwords=True)", True, True, True),
+        ("Full Pipeline + Tăng cường Không dấu (Accent-Drop Augmentation)", True, True, False, True),
+        ("Full Pipeline (Có tách từ + Chuẩn hóa Teencode + Giữ Stopword)", True, True, False, False),
+        ("Không tách từ (segment=False)", False, True, False, False),
+        ("Không chuẩn hóa Teencode (expand_teencode=False)", True, False, False, False),
+        ("Bỏ Stopwords (remove_stopwords=True)", True, True, True, False),
     ]
     ablation_rows = []
-    for ab_name, seg_flag, tc_flag, sw_flag in ablation_configs:
+    for ab_name, seg_flag, tc_flag, sw_flag, aug_noacc_flag in ablation_configs:
         if seg_flag and tc_flag and not sw_flag:
             X_tr_ab = sub_tr_a["text_clean_seg"].fillna("").to_numpy()
             X_dv_ab = sub_dv_a["text_clean_seg"].fillna("").to_numpy()
@@ -485,24 +489,35 @@ def run_v3_classical() -> dict[str, Any]:
             X_tr_ab = np.array([vi_clean(t, segment=seg_flag, expand_teencode=tc_flag, remove_stopwords=sw_flag) for t in sub_tr_a["text"]])
             X_dv_ab = np.array([vi_clean(t, segment=seg_flag, expand_teencode=tc_flag, remove_stopwords=sw_flag) for t in sub_dv_a["text"]])
 
+        if aug_noacc_flag:
+            X_tr_fit = np.concatenate([X_tr_ab, X_tr_noacc_a])
+            y_tr_fit = np.concatenate([y_tr_a, y_tr_a])
+        else:
+            X_tr_fit = X_tr_ab
+            y_tr_fit = y_tr_a
+
         pipe_ab = Pipeline(
             [
                 ("tfidf", build_vi_vectorizer("word_tfidf")),
                 ("clf", build_vi_estimator("svm_linear", balance="class_weight", seed=42)),
             ]
         )
-        pipe_ab.fit(X_tr_ab, y_tr_a)
+        pipe_ab.fit(X_tr_fit, y_tr_fit)
         sc_ab = get_model_scores(pipe_ab, X_dv_ab)
         m_ab = compute_metrics(y_dv_a, sc_ab, threshold=0.5)
+        sc_ab_noacc = get_model_scores(pipe_ab, X_dv_noacc_a)
+        m_ab_noacc = compute_metrics(y_dv_a, sc_ab_noacc, threshold=0.5)
         ablation_rows.append(
             {
                 "config": ab_name,
                 "segment": seg_flag,
                 "expand_teencode": tc_flag,
                 "remove_stopwords": sw_flag,
+                "noaccent_augmentation": aug_noacc_flag,
                 "precision_pos": m_ab["precision_pos"],
                 "recall_pos": m_ab["recall_pos"],
                 "f1_pos": m_ab["f1_pos"],
+                "f1_no_accents": m_ab_noacc["f1_pos"],
                 "pr_auc": m_ab["pr_auc"],
                 "roc_auc": m_ab["roc_auc"],
             }
@@ -512,9 +527,11 @@ def run_v3_classical() -> dict[str, Any]:
     ab_df.to_csv(TAB_DIR / "vi_ablation.csv", index=False, encoding="utf-8")
 
     # =========================================================================
-    # 4. Tuning & Threshold Optimization on Dev for bin_A and bin_B
+    # 4. Tuning & Threshold Optimization on Dev for bin_A and bin_B (with Accent-Drop Augmentation)
     # =========================================================================
-    # Pick best configuration for bin_A (svm_linear or lr with word+char) and optimize threshold on dev
+    X_tr_aug_a = np.concatenate([X_tr_seg_a, X_tr_noacc_a])
+    y_tr_aug_a = np.concatenate([y_tr_a, y_tr_a])
+
     best_a_candidates = []
     for mk in ["svm_linear", "lr"]:
         for vk in ["word+char", "word_tfidf"]:
@@ -528,7 +545,7 @@ def run_v3_classical() -> dict[str, Any]:
                 else:
                     clf = LogisticRegression(C=c_val, class_weight="balanced", solver="liblinear", max_iter=2000, random_state=42)
                 pipe = Pipeline([("tfidf", vec), ("clf", clf)])
-                pipe.fit(X_tr_seg_a, y_tr_a)
+                pipe.fit(X_tr_aug_a, y_tr_aug_a)
                 sc_dv = get_model_scores(pipe, X_dv_seg_a)
                 thr_res = pick_threshold(y_dv_a, sc_dv, strategy="f1")
                 m_tuned = compute_metrics(y_dv_a, sc_dv, threshold=thr_res["best_threshold"])
@@ -537,15 +554,20 @@ def run_v3_classical() -> dict[str, Any]:
     best_a_candidates.sort(key=lambda x: x[0], reverse=True)
     _, best_mk_a, best_vk_a, best_c_a, best_pipe_a, best_thr_a, best_m_a = best_a_candidates[0]
 
-    # Refit best bin_A model on Train + Dev (keeping threshold from Dev) and save
-    X_tr_dv_a = np.concatenate([X_tr_seg_a, X_dv_seg_a])
-    y_tr_dv_a = np.concatenate([y_tr_a, y_dv_a])
+    # Refit best bin_A model on Train + Dev (including unaccented augmented copies of Train + Dev) and save
+    X_tr_dv_a = np.concatenate([X_tr_seg_a, X_dv_seg_a, X_tr_noacc_a, X_dv_noacc_a])
+    y_tr_dv_a = np.concatenate([y_tr_a, y_dv_a, y_tr_a, y_dv_a])
     best_pipe_a.fit(X_tr_dv_a, y_tr_dv_a)
     joblib.dump(best_pipe_a, VI_MODELS_DIR / "best_vi_bin_a.joblib")
     with open(VI_MODELS_DIR / "threshold_vi_bin_a.json", "w", encoding="utf-8") as f:
         json.dump(best_thr_a, f, indent=2, ensure_ascii=False)
 
-    # Also tune & save best bin_B model (OFFENSIVE+HATE vs CLEAN)
+    # Also tune & save best bin_B model (OFFENSIVE+HATE vs CLEAN) with unaccented augmentation
+    _, X_tr_raw_b, _ = prepare_task_split(train_df, "bin_B")
+    _, X_dv_raw_b, _ = prepare_task_split(dev_df, "bin_B")
+    X_tr_noacc_b = np.array([restore_unaccented_vietnamese(strip_accents(t)) for t in X_tr_raw_b])
+    X_dv_noacc_b = np.array([restore_unaccented_vietnamese(strip_accents(t)) for t in X_dv_raw_b])
+
     best_pipe_b = Pipeline(
         [
             ("tfidf", build_vi_vectorizer(best_vk_a)),
@@ -560,18 +582,24 @@ def run_v3_classical() -> dict[str, Any]:
             ),
         ]
     )
-    best_pipe_b.fit(X_tr_seg_b, y_tr_b)
+    best_pipe_b.fit(np.concatenate([X_tr_seg_b, X_tr_noacc_b]), np.concatenate([y_tr_b, y_tr_b]))
     sc_dv_b = get_model_scores(best_pipe_b, X_dv_seg_b)
     best_thr_b = pick_threshold(y_dv_b, sc_dv_b, strategy="f1")
     best_m_b = compute_metrics(y_dv_b, sc_dv_b, threshold=best_thr_b["best_threshold"])
-    best_pipe_b.fit(np.concatenate([X_tr_seg_b, X_dv_seg_b]), np.concatenate([y_tr_b, y_dv_b]))
+    best_pipe_b.fit(
+        np.concatenate([X_tr_seg_b, X_dv_seg_b, X_tr_noacc_b, X_dv_noacc_b]),
+        np.concatenate([y_tr_b, y_dv_b, y_tr_b, y_dv_b]),
+    )
     joblib.dump(best_pipe_b, VI_MODELS_DIR / "best_vi_bin_b.joblib")
     with open(VI_MODELS_DIR / "threshold_vi_bin_b.json", "w", encoding="utf-8") as f:
         json.dump(best_thr_b, f, indent=2, ensure_ascii=False)
 
-    # Refit best multi3 model on Train + Dev and save
+    # Refit best multi3 model on Train + Dev (plus unaccented augmented copies) and save
     if best_multi3_pipe is not None:
-        best_multi3_pipe.fit(np.concatenate([X_tr_seg_m, X_dv_seg_m]), np.concatenate([y_tr_m, y_dv_m]))
+        best_multi3_pipe.fit(
+            np.concatenate([X_tr_seg_m, X_dv_seg_m, X_tr_noacc_b, X_dv_noacc_b]),
+            np.concatenate([y_tr_m, y_dv_m, y_tr_m, y_dv_m]),
+        )
         joblib.dump(best_multi3_pipe, VI_MODELS_DIR / "best_vi_multi3.joblib")
 
     # =========================================================================
@@ -612,18 +640,18 @@ def run_v3_classical() -> dict[str, Any]:
     plt.close(fig)
 
     # Plot Ablation & Balancing comparison
-    fig, axes = plt.subplots(1, 2, figsize=(14.5, 5), dpi=150)
-    axes[0].barh(
-        ab_df["config"].iloc[::-1],
-        ab_df["f1_pos"].iloc[::-1],
-        color=["#43a047", "#1e88e5", "#fb8c00", "#e53935"][::-1],
-        edgecolor="black",
-    )
-    for idx, val in enumerate(ab_df["f1_pos"].iloc[::-1]):
-        axes[0].text(val + 0.008, idx, f"F1={val:.4f}", va="center", fontweight="bold", fontsize=9)
-    axes[0].set_xlim(0, max(ab_df["f1_pos"]) * 1.18)
-    axes[0].set_title("Thí nghiệm Ablation: Tác động của Tách từ, Teencode & Stopwords", fontweight="bold")
+    fig, axes = plt.subplots(1, 2, figsize=(15, 5.2), dpi=150)
+    y_ab = np.arange(len(ab_df))
+    h_ab = 0.36
+    ab_rev = ab_df.iloc[::-1].reset_index(drop=True)
+    axes[0].barh(y_ab + h_ab / 2, ab_rev["f1_pos"], h_ab, label="Dev F1 (Có dấu)", color="#1e88e5", edgecolor="black")
+    axes[0].barh(y_ab - h_ab / 2, ab_rev["f1_no_accents"], h_ab, label="Dev F1 (Không dấu)", color="#43a047", edgecolor="black")
+    axes[0].set_yticks(y_ab)
+    axes[0].set_yticklabels(ab_rev["config"], fontsize=8.5)
+    axes[0].set_xlim(0, max(ab_df["f1_pos"]) * 1.22)
+    axes[0].set_title("Ablation: Tác động Tách từ, Teencode & Tăng cường Không dấu", fontweight="bold")
     axes[0].set_xlabel("Dev F1-Score (bin_A)")
+    axes[0].legend(loc="lower right", fontsize=8.5)
     axes[0].grid(axis="x", alpha=0.3)
 
     axes[1].bar(bal_df["strategy"], bal_df["f1_pos"], color="#00897b", edgecolor="black", width=0.5)

@@ -14,7 +14,7 @@ import pandas as pd
 from src.clean import clean_text
 from src.models import get_model_scores
 from src.utils import get_project_root, mask_profanity
-from src.vi_clean import vi_clean, vi_mask_profanity
+from src.vi_clean import is_unaccented_vietnamese, strip_accents, vi_clean, vi_mask_profanity
 from src.vi_data_io import has_vietnamese_accents
 
 PROJECT_ROOT = get_project_root()
@@ -166,8 +166,11 @@ def _rebuild_model_fallback(lang: str, target_path: Path):
         dv = pd.read_csv(PROJECT_ROOT / "data" / "splits_vi" / "dev.csv")
         df = pd.concat([tr, dv], ignore_index=True)
         sub = df[df["label_3"].isin(["CLEAN", "HATE"])].copy()
-        X = sub["text_clean_seg"].fillna("").astype(str).to_numpy()
-        y = (sub["label_3"] == "HATE").astype(int).to_numpy()
+        X_acc = sub["text_clean_seg"].fillna("").astype(str).to_numpy()
+        X_noacc = np.array([vi_clean(strip_accents(t), segment=True, expand_teencode=True) for t in sub["text"].fillna("")])
+        y_base = (sub["label_3"] == "HATE").astype(int).to_numpy()
+        X = np.concatenate([X_acc, X_noacc])
+        y = np.concatenate([y_base, y_base])
         vec = FeatureUnion(
             [
                 ("word", TfidfVectorizer(ngram_range=(1, 2), min_df=3, max_df=0.9, max_features=40000, sublinear_tf=True, token_pattern=r"(?u)\b\w+\b")),
@@ -284,6 +287,10 @@ class MultiPredictor:
         # Too short without Vietnamese accents -> 'unknown'
         if len(words) < 3 or alpha_chars < 10:
             return "unknown"
+
+        # Rule 1b: Unaccented Vietnamese (>= 3 words with characteristic Vietnamese phrases/syllables) -> 'vi'
+        if is_unaccented_vietnamese(s):
+            return "vi"
 
         if detect_langs is None:
             return "unknown"
